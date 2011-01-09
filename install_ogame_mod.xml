@@ -34,6 +34,7 @@
 		</history>
 		<link-group>
 			<link type="language" href="contrib/de/install.xml" lang="en">Manual for German Language-set</link>
+			<link type="template" href="contrib/Flow/install.xml" lang="en">Manual for Flow Style</link>
 		</link-group>
 	</header>
 	<action-group>
@@ -137,6 +138,18 @@ $user->add_lang('mods/ogame');
 		<dd><input type="text" id="cr_hosting" name="cr_hosting" value="{CR_HOSTING}" /></dd>
 	</dl>
 	<!-- OGame-Mod E -->]]></action>
+			</edit>
+		</open>
+		<open src="includes/acp/acp_language.php">
+			<edit>
+				<find><![CDATA[				$db->sql_query('INSERT INTO ' . LANG_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_ary));
+				$lang_id = $db->sql_nextid();
+
+				$valid_localized = array(]]></find>
+				<inline-edit>
+					<inline-find><![CDATA['icon_back_top',]]></inline-find>
+					<inline-action type="after-add"><![CDATA['icon_contact_mmogame', 'icon_contact_cr_hosting', ]]></inline-action>
+				</inline-edit>
 			</edit>
 		</open>
 		<open src="includes/acp/acp_styles.php">
