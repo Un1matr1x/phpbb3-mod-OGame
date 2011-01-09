@@ -1,0 +1,1 @@
+For Install-Instructions read the ModX-File
