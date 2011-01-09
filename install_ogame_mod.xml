@@ -347,6 +347,6 @@ ul.profile-icons li.cr_hosting-icon	{ width: {IMG_ICON_CONTACT_CR_HOSTING_WIDTH}
 /* End OGame-Mod */]]></action>
 			</edit>
 		</open>
-		<php-installer><![CDATA[install/install.php]]></php-installer>
+		<php-installer><![CDATA[install/index.php]]></php-installer>
 	</action-group>
 </mod>
