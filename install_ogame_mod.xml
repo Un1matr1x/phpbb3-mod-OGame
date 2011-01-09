@@ -32,12 +32,16 @@
 				</changelog>
 			</entry>
 		</history>
+		<link-group>
+			<link type="language" href="contrib/de/install.xml" lang="en">Manual for German Language-set</link>
+		</link-group>
 	</header>
 	<action-group>
 		<copy>
 			<file from="root/language/en/mods/ogame.php" to="language/en/mods/ogame.php"/>
 			<file from="root/styles/prosilver/imageset/icon_contact_mmogame.gif" to="styles/prosilver/imageset/icon_contact_mmogame.gif"/>
 			<file from="root/styles/prosilver/imageset/icon_contact_cr_hosting.gif" to="styles/prosilver/imageset/icon_contact_cr_hosting.gif"/>
+			<file from="root/install/index.php" to="install/index.php"/>
 		</copy>
 		<open src="memberlist.php">
 			<edit>
@@ -169,8 +173,12 @@ $user->add_lang('mods/ogame');
 				{
 					$error = validate_data($data, array(]]></find>
 				<action type="after-add"><![CDATA[						// Begin OGame-Mod
-						'mmogame'		=> array('num', true, 1, 4294967295),
-						'cr_hosting'	=> array('num', true, 1, 4294967295),
+						'mmogame'		=> array(
+							array('string', true, 1, 20),
+							array('match', true, '#^[0-9]+$#i')),
+						'cr_hosting'	=> array(
+							array('string', true, 1, 20),
+							array('match', true, '#^[0-9]+$#i')),
 						// End OGame-Mod]]></action>
 			</edit>
 			<edit>
@@ -224,8 +232,12 @@ $user->add_lang('mods/ogame');
 				{
 					$validate_array = array(]]></find>
 				<action type="after-add"><![CDATA[						// Begin OGame-Mod
-						'mmogame'		=> array('num', true, 1, 4294967295),
-						'cr_hosting'	=> array('num', true, 1, 4294967295),
+						'mmogame'		=> array(
+							array('string', true, 1, 20),
+							array('match', true, '#^[0-9]+$#i')),
+						'cr_hosting'	=> array(
+							array('string', true, 1, 20),
+							array('match', true, '#^[0-9]+$#i')),
 						// End OGame-Mod]]></action>
 			</edit>
 			<edit>
@@ -348,5 +360,11 @@ ul.profile-icons li.cr_hosting-icon	{ width: {IMG_ICON_CONTACT_CR_HOSTING_WIDTH}
 			</edit>
 		</open>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
+		<diy-instructions lang="en"><![CDATA[Clear your cache in the "Administration Control Panel" (ACP) > "General" > "Purge the cache"
+
+Refresh your Styles:
+		"Administration Control Panel" (ACP) > "Styles" > "Templates" > each > "refresh"
+		"Administration Control Panel" (ACP) > "Styles" > "Themes" > each > "refresh"
+		"Administration Control Panel" (ACP) > "Styles" > "Imagesets" > each > "refresh"]]></diy-instructions>
 	</action-group>
 </mod>

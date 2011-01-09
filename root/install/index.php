@@ -60,8 +60,8 @@ $versions = array(
 	'0.0.1 -dev' => array(
 
 		'table_column_add' => array(
-			array('phpbb_users', 'user_mmogame', array('UINT:11', 0)),
-			array('phpbb_users', 'user_cr_hosting', array('UINT:11', 0)),
+			array('phpbb_users', 'user_mmogame', array('VCHAR:20', '')),
+			array('phpbb_users', 'user_cr_hosting', array('VCHAR:20', '')),
 		),
 
 	),
