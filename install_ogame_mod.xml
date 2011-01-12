@@ -87,7 +87,7 @@ $user->add_lang('mods/ogame');
 				<find><![CDATA[		'USER_ICQ'			=> $data['user_icq'],]]></find>
 				<action type="before-add"><![CDATA[		// Begin OGame-Mod
 		'U_MMOGAME'		=> ($data['user_mmogame']) ? 'http://mmogame.com/profile/show/' . urlencode($data['user_mmogame']) : '',
-		'U_CR_HOSTING'	=> ($data['user_cr_hosting']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&u=' . urlencode($data['user_cr_hosting']) : '',
+		'U_CR_HOSTING'	=> ($data['user_cr_hosting']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($data['user_cr_hosting']) : '',
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
@@ -231,7 +231,7 @@ $user->add_lang('mods/ogame');
 				<find><![CDATA[		'U_JABBER'		=> ($user_info['user_jabber'] && $auth->acl_get('u_sendim')) ? append_sid("{$phpbb_root_path}memberlist.$phpEx", 'mode=contact&amp;action=jabber&amp;u=' . $author_id) : '',]]></find>
 				<action type="after-add"><![CDATA[		// Begin OGame-Mod
 		'U_MMOGAME'		=> ($user_info['user_mmogame']) ? 'http://mmogame.com/profile/show/' . urlencode($user_info['user_mmogame']) : '',
-		'U_CR_HOSTING'	=> ($user_info['user_cr_hosting']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&u=' . urlencode($user_info['user_cr_hosting']) : '',
+		'U_CR_HOSTING'	=> ($user_info['user_cr_hosting']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($user_info['user_cr_hosting']) : '',
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
