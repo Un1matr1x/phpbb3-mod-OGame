@@ -51,6 +51,7 @@
 			<file from="root/styles/prosilver/imageset/icon_contact_cr_hosting.gif" to="styles/prosilver/imageset/icon_contact_cr_hosting.gif"/>
 			<file from="root/install/index.php" to="install/index.php"/>
 			<file from="root/umil/*.*" to="umil/*.*"/>
+			<file from="root/adm/mods/ogame_mod_version.php" to="adm/mods/ogame_mod_version.php"/>
 		</copy>
 		<open src="memberlist.php">
 			<edit>
