@@ -57,6 +57,8 @@ $version_config_name = 'ogm_version';
 * The version numbering must otherwise be compatible with the version_compare function - http://php.net/manual/en/function.version-compare.php
 */
 $versions = array(
+
+	//Version 0.0.1 First Version https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.0.1
 	'0.0.1 -dev' => array(
 
 		'table_column_add' => array(
@@ -64,6 +66,10 @@ $versions = array(
 			array('phpbb_users', 'user_cr_hosting', array('VCHAR:20', '')),
 		),
 
+	// Version 0.0.2 MMOCard Version
+	'0.0.2 -dev'	=> array(
+	),
+	
 	),
 );
 
