@@ -16,7 +16,7 @@
 				<email><![CDATA[admin@un1matr1x.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>0.0.1 -dev</mod-version>
+		<mod-version>0.0.2 -dev</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>300</time>
@@ -31,5 +31,13 @@
 		<copy>
 			<file from="root/language/de/mods/ogame.php" to="language/de/mods/ogame.php"/>
 		</copy>
+		<open src="viewtopic.php">
+			<edit>
+				<comment lang="en"><![CDATA[The following FIND can only be done if the main-mod is allready installed]]></comment>
+				<comment lang="de"><![CDATA[Die folgende FINDE Anweisung kann erst nach der Installation des Haupt-Mods befolgt werden]]></comment>
+				<find><![CDATA[				'cr_hosting_sigi'	=> ($row['user_cr_hosting']) ? '<img src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.en.gif" alt="">' : '',]]></find>
+				<action type="replace-with"><![CDATA[				'cr_hosting_sigi'	=> ($row['user_cr_hosting']) ? '<img src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.de.gif" alt="">' : '',]]></action>
+			</edit>
+		</open>
 	</action-group>
 </mod>

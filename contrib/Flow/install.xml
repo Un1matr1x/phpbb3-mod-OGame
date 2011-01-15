@@ -16,7 +16,7 @@
 				<email><![CDATA[admin@un1matr1x.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>0.0.1 -dev</mod-version>
+		<mod-version>0.0.2 -dev</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>300</time>
@@ -32,14 +32,6 @@
 			<file from="root/styles/Flow/imageset/icon_contact_mmogame.gif" to="styles/Flow/imageset/icon_contact_mmogame.gif"/>
 			<file from="root/styles/Flow/imageset/icon_contact_cr_hosting.gif" to="styles/Flow/imageset/icon_contact_cr_hosting.gif"/>
 		</copy>
-		<open src="styles/Flow/imageset/imageset.cfg">
-			<edit>
-				<find><![CDATA[img_icon_contact_www = icon_contact_www.gif*20*20]]></find>
-				<action type="before-add"><![CDATA[# Begin OGame-Mod
-img_icon_contact_cr_hosting = icon_contact_cr_hosting.gif*20*20
-img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
-# End OGame-Mod]]></action>
-			</edit>
-		</open>
+		<diy-instructions lang="en"><![CDATA[This installation only provides only better fitting images. For the real installation for any style based on prosilver follow the prosilver-instructions @ the normal Installation-Manual]]></diy-instructions>
 	</action-group>
 </mod>

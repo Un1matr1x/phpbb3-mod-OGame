@@ -66,7 +66,7 @@ $versions = array(
 			array('phpbb_users', 'user_cr_hosting', array('VCHAR:20', '')),
 		),
 
-	// Version 0.0.2 MMOCard Version
+	// Version 0.0.2 MMOCard & CRHosting-Signature Version
 	'0.0.2 -dev'	=> array(
 	),
 	
