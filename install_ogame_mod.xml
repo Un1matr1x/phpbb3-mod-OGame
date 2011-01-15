@@ -118,8 +118,8 @@ $user->add_lang('mods/ogame');
 			<edit>
 				<find><![CDATA[	'JABBER_IMG'		=> $user->img('icon_contact_jabber', 'JABBER') ,]]></find>
 				<action type="after-add"><![CDATA[	// Begin OGame-Mod
-	'MMOGAME_IMG'		=> $user->img('icon_contact_mmogame', 'MMOGAME'),
-	'CR_HOSTING_IMG'	=> $user->img('icon_contact_cr_hosting', 'CR_HOSTING'),			
+	'MMOGAME_IMG'		=> ($config['ogame_mmogame_show']) ? $user->img('icon_contact_mmogame', 'MMOGAME') : '',
+	'CR_HOSTING_IMG'	=> ($config['ogame_cr_hosting_show']) ? $user->img('icon_contact_cr_hosting', 'CR_HOSTING') : '',			
 	// End OGame-Mod]]></action>
 			</edit>
 			<edit>
@@ -135,10 +135,10 @@ $user->add_lang('mods/ogame');
 			<edit>
 				<find><![CDATA[				'jabber'		=> ($row['user_jabber'] && $auth->acl_get('u_sendim')) ? append_sid("{$phpbb_root_path}memberlist.$phpEx", "mode=contact&amp;action=jabber&amp;u=$poster_id") : '',]]></find>
 				<action type="after-add"><![CDATA[				// Begin OGame-Mod
-				'mmogame'			=> ($row['user_mmogame']) ? 'http://mmogame.com/get_MMOCard/' . $row['user_mmogame'] : '',
-				'mmogame_card'		=> ($row['user_mmogame']) ? '<img alt="" ismap="ismap" src="http://mmogame.com/MMOCard/' . $row['user_mmogame'] . '.png" />' : '',
-				'cr_hosting'		=> ($row['user_cr_hosting']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . $row['user_cr_hosting'] : '',
-				'cr_hosting_sigi'	=> ($row['user_cr_hosting']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.en.gif" />' : '',
+				'mmogame'			=> ($row['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://mmogame.com/get_MMOCard/' . $row['user_mmogame'] : '',
+				'mmogame_card'		=> ($row['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://mmogame.com/MMOCard/' . $row['user_mmogame'] . '.png" />' : '',
+				'cr_hosting'		=> ($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . $row['user_cr_hosting'] : '',
+				'cr_hosting_sigi'	=> ($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.en.gif" />' : '',
 				// End OGame-Mod]]></action>
 			</edit>
 			<edit>
@@ -248,10 +248,10 @@ $user->add_lang('mods/ogame');
 			<edit>
 				<find><![CDATA[		'U_JABBER'		=> ($user_info['user_jabber'] && $auth->acl_get('u_sendim')) ? append_sid("{$phpbb_root_path}memberlist.$phpEx", 'mode=contact&amp;action=jabber&amp;u=' . $author_id) : '',]]></find>
 				<action type="after-add"><![CDATA[		// Begin OGame-Mod
-		'U_MMOGAME'			=> ($user_info['user_mmogame']) ? 'http://mmogame.com/get_MMOCard/' . urlencode($user_info['user_mmogame']) : '',
-		'U_MMOGAME_CARD'	=> ($user_info['user_mmogame']) ? '<img alt="" ismap="ismap" src="http://mmogame.com/MMOCard/' . urlencode($user_info['user_mmogame']) . '.png" />' : '',
-		'U_CR_HOSTING'		=> ($user_info['user_cr_hosting']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($user_info['user_cr_hosting']) : '',
-		'U_CR_HOSTING_SIGI'	=> ($user_info['user_cr_hosting']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($user_info['user_cr_hosting']) . '.en.gif" />' : '',
+		'U_MMOGAME'			=> ($user_info['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://mmogame.com/get_MMOCard/' . urlencode($user_info['user_mmogame']) : '',
+		'U_MMOGAME_CARD'	=> ($user_info['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://mmogame.com/MMOCard/' . urlencode($user_info['user_mmogame']) . '.png" />' : '',
+		'U_CR_HOSTING'		=> ($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($user_info['user_cr_hosting']) : '',
+		'U_CR_HOSTING_SIGI'	=> ($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($user_info['user_cr_hosting']) . '.en.gif" />' : '',
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
@@ -440,10 +440,10 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 				<action type="after-add"><![CDATA[/* Begin OGame-Mod */
 .mmogame-icon, .mmogame-icon a			{ background: none top left no-repeat; }
 .cr_hosting-icon, .cr_hosting-icon a		{ background: none top left no-repeat; }
-a.mmogame-span span 						{ display: none; padding: 2px 3px; margin-left: 8px; width: 130px; }
-a.mmogame-span:hover span				{ display: inline; position: relative; left: -125px; top: -30px }
-a.cr-hosting-span span 					{ display: none; padding: 2px 3px; margin-left: 8px; width: 130px; }
-a.cr-hosting-span:hover span				{ display: inline; position: relative; left: -200px; top: -30px }
+a.mmogame-span span 						{ display: none;}
+a.mmogame-span:hover span				{ display: inline; position: relative; left: -125px; top: -100px; z-index: 9999;}
+a.cr-hosting-span span 					{ display: none;}
+a.cr-hosting-span:hover span				{ display: inline; position: relative; left: -200px; top: -100px; z-index: 9999; }
 /* End OGame-Mod */]]></action>
 			</edit>
 			<edit>
