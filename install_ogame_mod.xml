@@ -113,16 +113,18 @@ $user->add_lang('mods/ogame');
 				'jabber'			=> '',]]></find>
 				<action type="after-add"><![CDATA[				// Begin OGame-Mod
 				'mmogame'			=> '',
-				'mmogame_card'			=> '',
-				'cr_hosting'		=> '',			
+				'mmogame_card'		=> '',
+				'cr_hosting'		=> '',	
+				'cr_hosting_sigi'	=> '',					
 				// End OGame-Mod]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[				'jabber'		=> ($row['user_jabber'] && $auth->acl_get('u_sendim')) ? append_sid("{$phpbb_root_path}memberlist.$phpEx", "mode=contact&amp;action=jabber&amp;u=$poster_id") : '',]]></find>
 				<action type="after-add"><![CDATA[				// Begin OGame-Mod
-				'mmogame'		=> ($row['user_mmogame']) ? 'http://de.mmogame.com/get_MMOCard/' . $row['user_mmogame'] : '',
-				'mmogame_card'	=> ($row['user_mmogame']) ? '<img alt="" ismap="ismap" src="http://de.mmogame.com/MMOCard/' . $row['user_mmogame'] . '.png" />' : '',
-				'cr_hosting'	=> ($row['user_cr_hosting']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . $row['user_cr_hosting'] : '',			
+				'mmogame'			=> ($row['user_mmogame']) ? 'http://de.mmogame.com/get_MMOCard/' . $row['user_mmogame'] : '',
+				'mmogame_card'		=> ($row['user_mmogame']) ? '<img alt="" ismap="ismap" src="http://de.mmogame.com/MMOCard/' . $row['user_mmogame'] . '.png" />' : '',
+				'cr_hosting'		=> ($row['user_cr_hosting']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . $row['user_cr_hosting'] : '',
+				'cr_hosting_sigi'	=> ($row['user_cr_hosting']) ? '<img src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.en.gif" alt="">' : '',
 				// End OGame-Mod]]></action>
 			</edit>
 			<edit>
@@ -131,6 +133,7 @@ $user->add_lang('mods/ogame');
 		'U_MMOGAME'			=> $user_cache[$poster_id]['mmogame'],
 		'U_MMOGAME_CARD'	=> $user_cache[$poster_id]['mmogame_card'],
 		'U_CR_HOSTING'		=> $user_cache[$poster_id]['cr_hosting'],
+		'U_CR_HOSTING_SIGI'	=> $user_cache[$poster_id]['cr_hosting_sigi'],
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
@@ -374,7 +377,7 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 </ul>]]></comment>
 				<action type="after-add"><![CDATA[					<!-- OGame-Mod B -->
 					<!-- IF postrow.U_MMOGAME --><li class="mmogame-icon"><a href="{postrow.U_MMOGAME}" title="{L_MMOGAME}" class="mmogame-span"><span>{postrow.U_MMOGAME_CARD}</span></a></li><!-- ENDIF -->
-					<!-- IF postrow.U_CR_HOSTING --><li class="cr_hosting-icon"><a href="{postrow.U_CR_HOSTING}" title="{L_CR_HOSTING}"><span>{L_CR_HOSTING}</span></a></li><!-- ENDIF -->
+					<!-- IF postrow.U_CR_HOSTING --><li class="cr_hosting-icon"><a href="{postrow.U_CR_HOSTING}" title="{L_CR_HOSTING}" class="mmogame-span"><span>{postrow.U_CR_HOSTING_SIGI}</span></a></li><!-- ENDIF -->
 					<!-- OGame-Mod E -->]]></action>
 			</edit>
 		</open>
