@@ -6,8 +6,7 @@
 * @author Unmatr1x admin@un1matr1x.de - http://un1matr1x.de
 *
 * @package language
-* @version $Id$
-* @copyright (c) 2007 Deine Gruppe
+* @copyright (c) 2011 Un1matr1x
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */

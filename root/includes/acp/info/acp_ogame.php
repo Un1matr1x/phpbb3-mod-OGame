@@ -3,7 +3,6 @@
 /**
 *
 * @package - OGame-Mod
-* @version $Id:  $
 * @copyright (c) Un1matr1x ( http://un1matr1x.de/ )
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License 
 *
