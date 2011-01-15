@@ -87,8 +87,10 @@ $user->add_lang('mods/ogame');
 			<edit>
 				<find><![CDATA[		'USER_ICQ'			=> $data['user_icq'],]]></find>
 				<action type="before-add"><![CDATA[		// Begin OGame-Mod
-		'U_MMOGAME'		=> ($data['user_mmogame']) ? 'http://mmogame.com/profile/show/' . urlencode($data['user_mmogame']) : '',
-		'U_CR_HOSTING'	=> ($data['user_cr_hosting']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($data['user_cr_hosting']) : '',
+		'U_MMOGAME'			=> ($data['user_mmogame']) ? 'http://mmogame.com/get_MMOCard/' . urlencode($data['user_mmogame']) : '',
+		'U_MMOGAME_CARD'	=> ($data['user_mmogame']) ? '<img alt="" ismap="ismap" src="http://mmogame.com/MMOCard/' . urlencode($data['user_mmogame']) . '.png" />' : '',
+		'U_CR_HOSTING'		=> ($data['user_cr_hosting']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($data['user_cr_hosting']) : '',
+		'U_CR_HOSTING_SIGI'	=> ($data['user_cr_hosting']) ? '<img src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.en.gif" alt="" />' : '',
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
@@ -234,9 +236,9 @@ $user->add_lang('mods/ogame');
 			<edit>
 				<find><![CDATA[		'U_JABBER'		=> ($user_info['user_jabber'] && $auth->acl_get('u_sendim')) ? append_sid("{$phpbb_root_path}memberlist.$phpEx", 'mode=contact&amp;action=jabber&amp;u=' . $author_id) : '',]]></find>
 				<action type="after-add"><![CDATA[		// Begin OGame-Mod
-		'U_MMOGAME'			=> ($user_info['user_mmogame']) ? 'http://mmogame.com/profile/show/' . urlencode($user_info['user_mmogame']) : '',
-		'U_MMOGAME_CARD'	=> ($user_info['user_mmogame']) ? '<img alt="" ismap="ismap" src="http://de.mmogame.com/MMOCard/' . urlencode($user_info['user_mmogame']) . '.png" />' : '',
-		'U_CR_HOSTING'		=> ($user_info['user_cr_hosting']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&u=' . urlencode($user_info['user_cr_hosting']) : '',
+		'U_MMOGAME'			=> ($user_info['user_mmogame']) ? 'http://mmogame.com/get_MMOCard/' . urlencode($user_info['user_mmogame']) : '',
+		'U_MMOGAME_CARD'	=> ($user_info['user_mmogame']) ? '<img alt="" ismap="ismap" src="http://mmogame.com/MMOCard/' . urlencode($user_info['user_mmogame']) . '.png" />' : '',
+		'U_CR_HOSTING'		=> ($user_info['user_cr_hosting']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($user_info['user_cr_hosting']) : '',
 		'U_CR_HOSTING_SIGI'	=> ($user_info['user_cr_hosting']) ? '<img src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($user_info['user_cr_hosting']) . '.en.gif" alt="" />' : '',
 		// End OGame-Mod]]></action>
 			</edit>
@@ -304,6 +306,44 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 		<!-- IF U_MMOGAME or USER_MMOGAME --><dt>{L_MMOGAME}:</dt> <dd><a href="{U_MMOGAME}">{L_VIEW_MMOGAME}</a></dd><!-- ENDIF -->
 		<!-- IF U_CR_HOSTING or USER_CR_HOSTING --><dt>{L_CR_HOSTING}:</dt> <dd><a href="{U_CR_HOSTING}">{L_VIEW_CR_HOSTING}</a></dd><!-- ENDIF -->		
 		<!-- OGame-Mod E -->]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[<!-- IF SIGNATURE -->
+<div class="panel bg1">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+		<h3>{L_SIGNATURE}</h3>
+
+		<div class="postbody"><div class="signature" style="border-top:none; margin-top: 0;">{SIGNATURE}</div></div>
+	
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[
+<!-- IF U_MMOGAME or USER_MMOGAME or U_CR_HOSTING or USER_CR_HOSTING -->
+<div class="panel bg<!-- IF SIGNATURE -->2<!-- ELSE -->1<!-- ENDIF -->">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+	<!-- IF U_MMOGAME or USER_MMOGAME -->
+	<div class="column1">
+		<h3>{L_MMOGAME}</h3>
+		
+		<a href="{U_MMOGAME}" title="{L_MMOGAME}">{U_MMOGAME_CARD}</a>
+	</div>
+	<!-- ENDIF -->
+	
+	<!-- IF U_CR_HOSTING or USER_CR_HOSTING -->	
+	<div class="column<!-- IF U_MMOGAME or USER_MMOGAME -->2<!-- ELSE -->1<!-- ENDIF -->">
+		<h3>{L_CR_HOSTING}</h3>
+		
+		<a href="{U_CR_HOSTING}" title="{L_CR_HOSTING}">{U_CR_HOSTING_SIGI}</a>
+	</div>	
+	<!-- ENDIF -->
+	
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->
+]]></action>
 			</edit>
 		</open>
 		<open src="styles/prosilver/template/ucp_pm_viewmessage.html">

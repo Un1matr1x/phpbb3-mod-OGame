@@ -31,6 +31,14 @@
 		<copy>
 			<file from="root/language/de/mods/ogame.php" to="language/de/mods/ogame.php"/>
 		</copy>
+		<open src="memberlist.php">
+			<edit>
+				<comment lang="en"><![CDATA[The following FIND can only be done if the main-mod is allready installed]]></comment>
+				<comment lang="de"><![CDATA[Die folgende FINDE Anweisung kann erst nach der Installation des Haupt-Mods befolgt werden]]></comment>
+				<find><![CDATA[		'U_CR_HOSTING_SIGI'	=> ($data['user_cr_hosting']) ? '<img src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.en.gif" alt="" />' : '',]]></find>
+				<action type="replace-with"><![CDATA[		'U_CR_HOSTING_SIGI'	=> ($data['user_cr_hosting']) ? '<img src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.de.gif" alt="" />' : '',]]></action>
+			</edit>
+		</open>
 		<open src="viewtopic.php">
 			<edit>
 				<comment lang="en"><![CDATA[The following FIND can only be done if the main-mod is allready installed]]></comment>
