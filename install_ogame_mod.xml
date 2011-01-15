@@ -17,7 +17,7 @@
 				<email><![CDATA[admin@un1matr1x.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>0.0.2 -dev</mod-version>
+		<mod-version>0.0.3 -dev</mod-version>
 		<installation>
 			<level>intermediate</level>
 			<time>1800</time>
@@ -36,6 +36,13 @@
 				<rev-version>0.0.2 -dev</rev-version>
 				<changelog lang="en">
 					<change><![CDATA[add mmocard-support]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-01-15</date>
+				<rev-version>0.0.3 -dev</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[ACP-Module added]]></change>
 				</changelog>
 			</entry>
 		</history>

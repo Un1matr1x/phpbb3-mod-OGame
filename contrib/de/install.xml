@@ -16,7 +16,7 @@
 				<email><![CDATA[admin@un1matr1x.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>0.0.2 -dev</mod-version>
+		<mod-version>0.0.3 -dev</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>300</time>
@@ -29,7 +29,7 @@
 	</header>
 	<action-group>
 		<copy>
-			<file from="root/language/de/mods/ogame.php" to="language/de/mods/ogame.php"/>
+			<file from="root/language/de/mods/info_acp_ogame.php" to="language/de/mods/info_acp_ogame.php"/>
 		</copy>
 		<open src="memberlist.php">
 			<edit>
