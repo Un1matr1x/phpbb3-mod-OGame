@@ -53,15 +53,15 @@
 	</header>
 	<action-group>
 		<copy>
-			<file from="root/language/en/mods/info_acp_ogame.php" to="/language/en/mods/info_acp_ogame.php"/>
-			<file from="root/styles/prosilver/imageset/icon_contact_mmogame.gif" to="styles/prosilver/imageset/icon_contact_mmogame.gif"/>
-			<file from="root/styles/prosilver/imageset/icon_contact_cr_hosting.gif" to="styles/prosilver/imageset/icon_contact_cr_hosting.gif"/>
-			<file from="root/install/index.php" to="install/index.php"/>
-			<file from="root/umil/*.*" to="umil/*.*"/>
 			<file from="root/adm/mods/ogame_mod_version.php" to="adm/mods/ogame_mod_version.php"/>
 			<file from="root/adm/style/acp_ogame.html" to="adm/style/acp_ogame.html"/>
 			<file from="root/includes/acp/acp_ogame.php" to="includes/acp/acp_ogame.php"/>
 			<file from="root/includes/acp/info/acp_ogame.php" to="includes/acp/info/acp_ogame.php"/>
+			<file from="root/install/index.php" to="install/index.php"/>
+			<file from="root/language/en/mods/info_acp_ogame.php" to="/language/en/mods/info_acp_ogame.php"/>
+			<file from="root/styles/prosilver/imageset/icon_contact_mmogame.gif" to="styles/prosilver/imageset/icon_contact_mmogame.gif"/>
+			<file from="root/styles/prosilver/imageset/icon_contact_cr_hosting.gif" to="styles/prosilver/imageset/icon_contact_cr_hosting.gif"/>
+			<file from="root/umil/*.*" to="umil/*.*"/>
 		</copy>
 		<open src="memberlist.php">
 			<edit>
@@ -75,10 +75,10 @@ $user->add_lang('mods/ogame');
 			</edit>
 			<edit>
 				<find><![CDATA[			'JABBER_IMG'	=> $user->img('icon_contact_jabber', $user->lang['JABBER']),]]></find>
-				<action type="after-add"><![CDATA[			// Begin OGame-Mod
-			'MMOGAME_IMG'		=> ($config['ogame_mmogame_show']) ? $user->img('icon_contact_mmogame', $user->lang['MMOGAME']) : '',
-			'CR_HOSTING_IMG'	=> ($config['ogame_cr_hosting_show']) ? $user->img('icon_contact_cr_hosting', $user->lang['CR_HOSTING']) : '',			
-			// End OGame-Mod]]></action>
+				<action type="after-add"><![CDATA[	// Begin OGame-Mod
+	'MMOGAME_IMG'		=> ($config['ogame_mmogame_show']) ? $user->img('icon_contact_mmogame', 'MMOGAME') : '',
+	'CR_HOSTING_IMG'	=> ($config['ogame_cr_hosting_show']) ? $user->img('icon_contact_cr_hosting', 'CR_HOSTING') : '',			
+	// End OGame-Mod]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[				'JABBER'	=> $jabber,]]></find>
@@ -89,10 +89,12 @@ $user->add_lang('mods/ogame');
 			</edit>
 			<edit>
 				<find><![CDATA[			'JABBER_IMG'	=> $user->img('icon_contact_jabber', $user->lang['JABBER']),]]></find>
-				<action type="after-add"><![CDATA[			// Begin OGame-Mod
-			'MMOGAME_IMG'		=> $user->img('icon_contact_mmogame', $user->lang['MMOGAME']),
-			'CR_HOSTING_IMG'	=> $user->img('icon_contact_cr_hosting', $user->lang['CR_HOSTING']),
-			// End OGame-Mod]]></action>
+				<action type="after-add"><![CDATA[				// Begin OGame-Mod
+				'mmogame'			=> ($row['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://mmogame.com/get_MMOCard/' . $row['user_mmogame'] : '',
+				'mmogame_card'		=> ($row['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://mmogame.com/MMOCard/' . $row['user_mmogame'] . '.png" />' : '',
+				'cr_hosting'		=> ($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . $row['user_cr_hosting'] : '',
+				'cr_hosting_sigi'	=> ($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.en.gif" />' : '',
+				// End OGame-Mod]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[		'USER_ICQ'			=> $data['user_icq'],]]></find>
