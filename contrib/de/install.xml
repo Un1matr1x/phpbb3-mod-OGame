@@ -35,24 +35,24 @@
 			<edit>
 				<comment lang="en"><![CDATA[The following FIND can only be done if the main-mod is allready installed]]></comment>
 				<comment lang="de"><![CDATA[Die folgende FINDE Anweisung kann erst nach der Installation des Haupt-Mods befolgt werden]]></comment>
-				<find><![CDATA[		'U_CR_HOSTING_SIGI'	=> ($data['user_cr_hosting']) ? '<img src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.en.gif" alt="" />' : '',]]></find>
-				<action type="replace-with"><![CDATA[		'U_CR_HOSTING_SIGI'	=> ($data['user_cr_hosting']) ? '<img src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.de.gif" alt="" />' : '',]]></action>
+				<find><![CDATA[		'U_CR_HOSTING_SIGI'	=> ($data['user_cr_hosting']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.en.gif" />' : '',]]></find>
+				<action type="replace-with"><![CDATA[		'U_CR_HOSTING_SIGI'	=> ($data['user_cr_hosting']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.de.gif" />' : '',]]></action>
 			</edit>
 		</open>
 		<open src="viewtopic.php">
 			<edit>
 				<comment lang="en"><![CDATA[The following FIND can only be done if the main-mod is allready installed]]></comment>
 				<comment lang="de"><![CDATA[Die folgende FINDE Anweisung kann erst nach der Installation des Haupt-Mods befolgt werden]]></comment>
-				<find><![CDATA[				'cr_hosting_sigi'	=> ($row['user_cr_hosting']) ? '<img src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.en.gif" alt="">' : '',]]></find>
-				<action type="replace-with"><![CDATA[				'cr_hosting_sigi'	=> ($row['user_cr_hosting']) ? '<img src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.de.gif" alt="">' : '',]]></action>
+				<find><![CDATA[				'cr_hosting_sigi'	=> ($row['user_cr_hosting']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.en.gif" />' : '',]]></find>
+				<action type="replace-with"><![CDATA[				'cr_hosting_sigi'	=> ($row['user_cr_hosting']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.de.gif" />' : '',]]></action>
 			</edit>
 		</open>
 		<open src="includes/ucp/ucp_pm_viewmessage.php">
 			<edit>
 				<comment lang="en"><![CDATA[The following FIND can only be done if the main-mod is allready installed]]></comment>
 				<comment lang="de"><![CDATA[Die folgende FINDE Anweisung kann erst nach der Installation des Haupt-Mods befolgt werden]]></comment>
-				<find><![CDATA[		'U_CR_HOSTING_SIGI'	=> ($user_info['user_cr_hosting']) ? '<img src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($user_info['user_cr_hosting']) . '.en.gif" alt="" />' : '',]]></find>
-				<action type="replace-with"><![CDATA[		'U_CR_HOSTING_SIGI'	=> ($user_info['user_cr_hosting']) ? '<img src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($user_info['user_cr_hosting']) . '.de.gif" alt="" />' : '',]]></action>
+				<find><![CDATA[		'U_CR_HOSTING_SIGI'	=> ($user_info['user_cr_hosting']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($user_info['user_cr_hosting']) . '.en.gif" />' : '',]]></find>
+				<action type="replace-with"><![CDATA[		'U_CR_HOSTING_SIGI'	=> ($user_info['user_cr_hosting']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($user_info['user_cr_hosting']) . '.de.gif" />' : '',]]></action>
 			</edit>
 		</open>
 	</action-group>
