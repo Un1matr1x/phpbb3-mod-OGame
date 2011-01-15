@@ -297,8 +297,10 @@ $user->add_lang('mods/ogame');
 
 					'ICQ'		=> $data['icq'],]]></find>
 				<action type="after-add"><![CDATA[					// Begin OGame-Mod
-					'MMOGAME'		=> $data['mmogame'],
-					'CR_HOSTING'	=> $data['cr_hosting'],
+					'SHOW_MMOGAME'		=> $config['ogame_mmogame_show'],
+					'MMOGAME'			=> $data['mmogame'],
+					'SHOW_CR_HOSTING'	=> $config['ogame_cr_hosting_show'],
+					'CR_HOSTING'		=> $data['cr_hosting'],
 					// End OGame-Mod]]></action>
 			</edit>
 		</open>
@@ -394,14 +396,18 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 		<dd><input type="text" name="website" id="website" maxlength="255" value="{WEBSITE}" class="inputbox" /></dd>
 	</dl>]]></find>
 				<action type="after-add"><![CDATA[	<!-- OGame-Mod B -->
+	<!-- IF SHOW_MMOGAME -->
 	<dl>
 		<dt><label for="mmogame">{L_UCP_MMOGAME}:</label><br /><span>{L_MMOGAME_EXPLAIN}</span></dt>
 		<dd><input type="text" name="mmogame" id="mmogame" maxlength="15" value="{MMOGAME}" class="inputbox" /></dd>
 	</dl>
+	<!-- ENDIF -->
+	<!-- IF SHOW_CR_HOSTING -->	
 	<dl>
 		<dt><label for="cr_hosting">{L_UCP_CR_HOSTING}:</label><br /><span>{L_CR_HOSTING_EXPLAIN}</span></dt>
 		<dd><input type="text" name="cr_hosting" id="cr_hosting" maxlength="15" value="{CR_HOSTING}" class="inputbox" /></dd>
 	</dl>
+	<!-- ENDIF -->
 	<!-- OGame-Mod E -->]]></action>
 			</edit>
 		</open>
