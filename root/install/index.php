@@ -58,17 +58,41 @@ $version_config_name = 'ogm_version';
 */
 $versions = array(
 
-	//Version 0.0.1 First Version https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.0.1
+	//Version 0.0.1 First Version
+	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.0.1
 	'0.0.1 -dev' => array(
 
 		'table_column_add' => array(
 			array('phpbb_users', 'user_mmogame', array('VCHAR:20', '')),
 			array('phpbb_users', 'user_cr_hosting', array('VCHAR:20', '')),
 		),
-
+	),
+	
 	// Version 0.0.2 MMOCard & CRHosting-Signature Version
+	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.0.2
 	'0.0.2 -dev'	=> array(
 	),
+
+	// Version 0.0.3 ACP-Page
+	'0.0.3 -dev'	=> array(
+	
+		'config_add' => array(
+			array('ogame_mmogame_show', 1),
+			array('ogame_cr_hosting_show', 1),
+		),
+		
+		'module_add' => array(
+			array('acp', 'ACP_CAT_DOT_MODS', 'OGAME'),
+
+			array('acp', 'OGAME', array(
+					'module_basename'	=> 'ogame',
+					'module_langname'	=> 'OGAME_CONFIG',
+					'module_mode'		=> 'overview',
+					'module_auth'		=> 'acl_a_board',
+				),
+			),
+			
+		),
 	
 	),
 );
