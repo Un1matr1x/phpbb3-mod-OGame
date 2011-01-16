@@ -199,6 +199,24 @@ $user->add_lang('mods/info_acp_ogame');
 					<inline-action type="after-add"><![CDATA[ && (substr($url,0,30) != 'http://kb.un1matr1x.de/kb.php?')]]></inline-action>
 				</inline-edit>
 			</edit>
+			<edit>
+				<find><![CDATA[/**
+* Censoring
+*/
+function censor_text($text)
+{
+	static $censors;
+
+	// Nothing to do?
+	if ($text === '')
+	{
+		return '';
+	}]]></find>
+				<action type="after-add"><![CDATA[
+	// Begin OGame-Mod
+	include('functions_ogame.php');
+	// End OGame-Mod]]></action>
+			</edit>
 		</open>
 		<open src="includes/acp/acp_language.php">
 			<edit>
