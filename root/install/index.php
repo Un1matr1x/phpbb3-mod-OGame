@@ -74,6 +74,7 @@ $versions = array(
 	),
 
 	// Version 0.0.3 ACP-Page
+	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.0.3
 	'0.0.3 -dev'	=> array(
 	
 		'config_add' => array(
@@ -94,6 +95,10 @@ $versions = array(
 			
 		),
 	
+	),
+	
+	// Version 0.1.0 CR-Hosting Link Replacement
+	'0.1.0 -dev'	=> array(
 	),
 );
 
