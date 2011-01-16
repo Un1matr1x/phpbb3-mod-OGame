@@ -70,7 +70,7 @@ $user->session_begin();
 $auth->acl($user->data);
 $user->setup(array('memberlist', 'groups'));]]></find>
 				<action type="after-add"><![CDATA[// Begin OGame-Mod
-$user->add_lang('mods/ogame');			
+$user->add_lang('mods/info_acp_ogame');			
 // End OGame-Mod]]></action>
 			</edit>
 			<edit>
@@ -112,7 +112,7 @@ $user->add_lang('mods/ogame');
 $user->session_begin();
 $auth->acl($user->data);]]></find>
 				<action type="after-add"><![CDATA[// Begin OGame-Mod
-$user->add_lang('mods/ogame');			
+$user->add_lang('mods/info_acp_ogame');			
 // End OGame-Mod]]></action>
 			</edit>
 			<edit>
@@ -183,7 +183,7 @@ $user->add_lang('mods/ogame');
 			<edit>
 				<find><![CDATA[		$user->add_lang('acp/styles');]]></find>
 				<action type="after-add"><![CDATA[		// Begin OGame-Mod
-		$user->add_lang('mods/ogame');			
+		$user->add_lang('mods/info_acp_ogame');			
 		// End OGame-Mod]]></action>
 			</edit>
 			<edit>
@@ -199,7 +199,7 @@ $user->add_lang('mods/ogame');
 			<edit>
 				<find><![CDATA[		$user->add_lang(array('posting', 'ucp', 'acp/users'));]]></find>
 				<action type="after-add"><![CDATA[		// Begin OGame-Mod
-		$user->add_lang('mods/ogame');			
+		$user->add_lang('mods/info_acp_ogame');			
 		// End OGame-Mod]]></action>
 			</edit>
 			<edit>
@@ -242,7 +242,7 @@ $user->add_lang('mods/ogame');
 			<edit>
 				<find><![CDATA[	$user->add_lang(array('viewtopic', 'memberlist'));]]></find>
 				<action type="after-add"><![CDATA[	// Begin OGame-Mod
-	$user->add_lang('mods/ogame');			
+	$user->add_lang('mods/info_acp_ogame');			
 	// End OGame-Mod]]></action>
 			</edit>
 			<edit>
@@ -259,7 +259,7 @@ $user->add_lang('mods/ogame');
 			<edit>
 				<find><![CDATA[		$user->add_lang('posting');]]></find>
 				<action type="after-add"><![CDATA[		// Begin OGame-Mod
-		$user->add_lang('mods/ogame');			
+		$user->add_lang('mods/info_acp_ogame');			
 		// End OGame-Mod]]></action>
 			</edit>
 			<edit>
