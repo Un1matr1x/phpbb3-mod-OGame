@@ -43,12 +43,12 @@ $lang = array_merge($lang, array(
 	'CR_HOSTING_EXPLAIN'			=> 'Enter your CR-Hosting-User-ID.<br /> In case of  http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&u=<b>2</b> choose 2',
 	'CR_HOSTING_S_EXPLAIN'			=> 'Show the CR-Hosting-ID & Signature',
 
-	'IMG_ICON_CONTACT_MMOGAME'		=> 'MMOGame',
+	'IMG_ICON_CONTACT_MMOGAME'		=> 'Gameforge',
 	'IMG_ICON_CONTACT_CR_HOSTING'	=> 'CR-Hosting',
 
-	'MMOGAME'						=> 'MMOGame',
-	'MMOGAME_EXPLAIN'				=> 'Enter your MMOGame-ID.<br /> In case of http://de.mmogame.com/profile/show/Un1matr1x-<b>47634</b> choose 47634',
-	'MMOGAME_S_EXPLAIN'				=> 'Show the MMOGame-ID & MMOCard',
+	'MMOGAME'						=> 'Gameforge',
+	'MMOGAME_EXPLAIN'				=> 'Enter your Gameforge-ID.<br /> In case of http://gameforge.com/profile/show/Nickname-<b>47634</b> choose 47634',
+	'MMOGAME_S_EXPLAIN'				=> 'Show the Gameforge-ID & G-Card',
 
 	'OGAME'							=> 'OGame',
 	'OGAME_CONFIG'					=> 'Configuration',
@@ -57,10 +57,10 @@ $lang = array_merge($lang, array(
 	'UCP_MMOGAME'					=> 'MMOGame-ID',
 	'UCP_CR_HOSTING'				=> 'CR-Hosting-Profile-ID',
 	
-	'VIEW_MMOGAME'					=> 'visit MMOGame-Profile',
+	'VIEW_MMOGAME'					=> 'visit Gameforge-Profile',
 	'VIEW_CR_HOSTING'				=> 'visit CR-Hosting-Profile',
 	
-	'WRONG_DATA_MMOGAME'			=> 'Your MMOGame-ID should only contain Integer.',
+	'WRONG_DATA_MMOGAME'			=> 'Your Gameforge-ID should only contain Integer.',
 	'WRONG_DATA_CR_HOSTING'			=> 'Your CR-Hosting-User-ID should only contain Integer.',
 ));
 ?>

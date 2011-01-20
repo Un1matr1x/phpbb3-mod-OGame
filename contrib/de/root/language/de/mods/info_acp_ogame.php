@@ -43,24 +43,24 @@ $lang = array_merge($lang, array(
 	'CR_HOSTING_EXPLAIN'			=> 'Gib deine KB-Hosting-Benutzer-ID ein.<br /> Bei http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&u=<b>2</b> wäre es 2',
 	'CR_HOSTING_S_EXPLAIN'			=> 'Zeigt die KB-Hosting-ID & Signature an',
 
-	'IMG_ICON_CONTACT_MMOGAME'		=> 'MMOGame',
+	'IMG_ICON_CONTACT_MMOGAME'		=> 'Gameforge',
 	'IMG_ICON_CONTACT_CR_HOSTING'	=> 'KB-Hosting',
 
-	'MMOGAME'						=> 'MMOGame',
-	'MMOGAME_EXPLAIN'				=> 'Gib deine MMOGame-ID ein.<br /> Bei http://de.mmogame.com/profile/show/Un1matr1x-<b>47634</b> wäre es 47634',
-	'MMOGAME_S_EXPLAIN'				=> 'Zeigt die MMOGame-ID & MMOCard an',
+	'MMOGAME'						=> 'Gameforge',
+	'MMOGAME_EXPLAIN'				=> 'Gib deine Gameforge-ID ein.<br /> Bei http://gameforge.com/profile/show/Nickname-<b>47634</b> wäre es 47634',
+	'MMOGAME_S_EXPLAIN'				=> 'Zeigt die Gameforge-ID & G-Card an',
 
 	'OGAME'							=> 'OGame',
 	'OGAME_CONFIG'					=> 'Einstellung',
 	'OGAME_SAVED'					=> 'Einstellung gespeichert',
 	
-	'UCP_MMOGAME'					=> 'MMOGame-ID',
+	'UCP_MMOGAME'					=> 'Gameforge-ID',
 	'UCP_CR_HOSTING'				=> 'KB-Hosting-Profil-ID',
 	
-	'VIEW_MMOGAME'					=> 'MMOGame Profil ansehen',
+	'VIEW_MMOGAME'					=> 'Gameforge Profil ansehen',
 	'VIEW_CR_HOSTING'				=> 'KB-Hosting Profil ansehen',
 	
-	'WRONG_DATA_MMOGAME'			=> 'Deine MMOGame-ID darf nur aus ganzen Zahlen bestehen.',
+	'WRONG_DATA_MMOGAME'			=> 'Deine Gameforge-ID darf nur aus ganzen Zahlen bestehen.',
 	'WRONG_DATA_CR_HOSTING'			=> 'Deine KB-Hosting-Benutzer-ID darf nur aus ganzen Zahlen bestehen.',
 ));
 ?>
