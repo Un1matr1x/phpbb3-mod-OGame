@@ -105,7 +105,7 @@ $user->add_lang('mods/info_acp_ogame');
 			<edit>
 				<find><![CDATA[			'JABBER_IMG'	=> $user->img('icon_contact_jabber', $user->lang['JABBER']),]]></find>
 				<action type="after-add"><![CDATA[				// Begin OGame-Mod
-				'mmogame'			=> ($row['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/get_MMOCard/' . $row['user_mmogame'] : '',
+				'mmogame'			=> ($row['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . $row['user_mmogame'] : '',
 				'mmogame_card'		=> ($row['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . $row['user_mmogame'] . '.png" />' : '',
 				'cr_hosting'		=> ($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . $row['user_cr_hosting'] : '',
 				'cr_hosting_sigi'	=> ($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.en.gif" />' : '',
@@ -114,7 +114,7 @@ $user->add_lang('mods/info_acp_ogame');
 			<edit>
 				<find><![CDATA[		'USER_ICQ'			=> $data['user_icq'],]]></find>
 				<action type="before-add"><![CDATA[		// Begin OGame-Mod
-		'U_MMOGAME'			=> ($data['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/get_MMOCard/' . urlencode($data['user_mmogame']) : '',
+		'U_MMOGAME'			=> ($data['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . urlencode($data['user_mmogame']) : '',
 		'U_MMOGAME_CARD'	=> ($data['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . urlencode($data['user_mmogame']) . '.png" />' : '',
 		'U_CR_HOSTING'		=> ($data['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($data['user_cr_hosting']) : '',
 		'U_CR_HOSTING_SIGI'	=> ($data['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.en.gif" />' : '',
