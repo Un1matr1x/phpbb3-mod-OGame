@@ -25,6 +25,8 @@ If you want to install this modification you have to open the install_ogame_mod.
 ------------------------
 
 - on low resolutions the the mmocard & cr-hosting-signature might reach out of the image and/or is coverd by other parts of the board
-	» with the -X px in the buttons.css this shouldn't be an issuse anymore, but maybe i will make the mouseovers ACP-Setable
+	* with the -X px in the buttons.css this shouldn't be an issuse anymore, but maybe i will make the mouseovers ACP-Setable
 - CR-ID on images/ogame/cr.php could only reach 2147483647 (32-Bit) / 9223372036854775807 (64-Bit)
-	» if http://kb.un1matr1x.de ever reaches that much combat reports i might take care of this :P
+	* if http://kb.un1matr1x.de ever reaches that much combat reports i might take care of this :P
+- The former mmogame.com-page is still in the source-code & config as name
+	* dunno if i will ever change the names, "critical-code" is allready changed, even if gf uses redirects for old requests
