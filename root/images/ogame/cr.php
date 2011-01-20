@@ -29,8 +29,8 @@ if ((strlen($cr_id)) == 1) {
 }
 
 
-$image = "cr.png";
-$font = 'liberationsans-bold.ttf';
+$image = "./cr.png";
+$font = './liberationsans-bold.ttf';
 
 $img = imagecreatefrompng($image);
 imagealphablending($img, true);
