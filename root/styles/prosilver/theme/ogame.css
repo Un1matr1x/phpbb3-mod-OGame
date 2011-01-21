@@ -359,3 +359,20 @@ padding-top: 5px;
 vertical-align: middle;
 width: 95%;
 }
+
+
+.mmogame-icon, .mmogame-icon a			{ background: none top left no-repeat; }
+.cr_hosting-icon, .cr_hosting-icon a		{ background: none top left no-repeat; }
+a.mmogame-span							{ text-decoration: none !important; }
+a.cr-hosting-span						{ text-decoration: none !important; }
+a.mmogame-span span 						{ display: none;}
+a.mmogame-span:hover span				{ display: inline; position: relative; left: -125px; top: -100px; z-index: 9999;}
+a.cr-hosting-span span 					{ display: none;}
+a.cr-hosting-span:hover span				{ display: inline; position: relative; left: -200px; top: -100px; z-index: 9999; }
+
+ul.profile-icons li.mmogame-icon	{ width: {IMG_ICON_CONTACT_MMOGAME_WIDTH}px; height: {IMG_ICON_CONTACT_MMOGAME_HEIGHT}px; }
+ul.profile-icons li.cr_hosting-icon	{ width: {IMG_ICON_CONTACT_CR_HOSTING_WIDTH}px; height: {IMG_ICON_CONTACT_CR_HOSTING_HEIGHT}px; }
+
+
+.mmogame-icon, .mmogame-icon a			{ background-image: url("{IMG_ICON_CONTACT_MMOGAME_SRC}"); }
+.cr_hosting-icon, .cr_hosting-icon a		{ background-image: url("{IMG_ICON_CONTACT_CR_HOSTING_SRC}"); }

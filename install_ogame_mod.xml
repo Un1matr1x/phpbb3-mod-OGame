@@ -10,7 +10,8 @@
 		<description lang="en"><![CDATA[This mod adds some features for player of ogame
 Features:
 - "connect" your Gameforge-ID and your CR-Hosting-ID to your profile
-- nice link-replacement for crs from http://kb.un1matr1x.de]]></description>
+- nice link-replacement for crs from http://kb.un1matr1x.de
+- an improved version of ScannBB added]]></description>
 		<author-notes lang="en"><![CDATA[more features will come]]></author-notes>
 		<author-group>
 			<author>
@@ -18,6 +19,22 @@ Features:
 				<username><![CDATA[Unimatrix_0]]></username>
 				<homepage><![CDATA[http://un1matr1x.de]]></homepage>
 				<email><![CDATA[admin@un1matr1x.de]]></email>
+				<contributions-group>
+					<contributions status="current" position="OGame-Mod Developer"/>
+				</contributions-group>
+			</author>
+			<author>
+				<username><![CDATA[Pionier]]></username>
+				<email><![CDATA[pionier@allytools.de]]></email>
+				<contributions-group>
+					<contributions status="past" from="0.0.0" to="0.0.0" position="ScannBB / Cool KB developer / maintainer"/>
+				</contributions-group>
+			</author>
+			<author>
+				<username phpbbcom="no"><![CDATA[eXochron (aka skYforge)]]></username>
+				<contributions-group>
+					<contributions status="past" from="0.0.0" to="0.0.0" position="ScannBB / Cool KB developer / maintainer"/>
+				</contributions-group>
 			</author>
 		</author-group>
 		<mod-version>0.1.1 -dev</mod-version>
@@ -55,6 +72,13 @@ Features:
 					<change><![CDATA[CR-Link-Replacment added]]></change>
 				</changelog>
 			</entry>
+			<entry>
+				<date>2011-01-21</date>
+				<rev-version>0.1.1 -dev</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[ScannBB adden and improved]]></change>
+				</changelog>
+			</entry>
 		</history>
 		<link-group>
 			<link type="language" href="contrib/de/install.xml" lang="en">Manual for German Language-set</link>
@@ -76,6 +100,7 @@ Features:
 			<file from="root/language/en/mods/info_acp_ogame.php" to="/language/en/mods/info_acp_ogame.php"/>
 			<file from="root/styles/prosilver/imageset/icon_contact_mmogame.gif" to="styles/prosilver/imageset/icon_contact_mmogame.gif"/>
 			<file from="root/styles/prosilver/imageset/icon_contact_cr_hosting.gif" to="styles/prosilver/imageset/icon_contact_cr_hosting.gif"/>
+			<file from="root/styles/prosilver/theme/ogame.css" to="styles/prosilver/theme/ogame.css"/>
 			<file from="root/umil/*.*" to="umil/*.*"/>
 		</copy>
 		<open src="memberlist.php">
@@ -487,38 +512,10 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 					<!-- OGame-Mod E -->]]></action>
 			</edit>
 		</open>
-		<open src="styles/prosilver/theme/buttons.css">
+		<open src="styles/prosilver/theme/stylesheet.css">
 			<edit>
-				<find><![CDATA[.pm-icon, .pm-icon a				{ background: none top left no-repeat; }
-.quote-icon, .quote-icon a		{ background: none top left no-repeat; }]]></find>
-				<action type="after-add"><![CDATA[/* Begin OGame-Mod */
-.mmogame-icon, .mmogame-icon a			{ background: none top left no-repeat; }
-.cr_hosting-icon, .cr_hosting-icon a		{ background: none top left no-repeat; }
-a.mmogame-span							{ text-decoration: none !important; }
-a.cr-hosting-span						{ text-decoration: none !important; }
-a.mmogame-span span 						{ display: none;}
-a.mmogame-span:hover span				{ display: inline; position: relative; left: -125px; top: -100px; z-index: 9999;}
-a.cr-hosting-span span 					{ display: none;}
-a.cr-hosting-span:hover span				{ display: inline; position: relative; left: -200px; top: -100px; z-index: 9999; }
-/* End OGame-Mod */]]></action>
-			</edit>
-			<edit>
-				<find><![CDATA[ul.profile-icons li.pm-icon		{ width: {IMG_ICON_CONTACT_PM_WIDTH}px; height: {IMG_ICON_CONTACT_PM_HEIGHT}px; }
-ul.profile-icons li.quote-icon	{ width: {IMG_ICON_POST_QUOTE_WIDTH}px; height: {IMG_ICON_POST_QUOTE_HEIGHT}px; }]]></find>
-				<action type="after-add"><![CDATA[/* Begin OGame-Mod */
-ul.profile-icons li.mmogame-icon	{ width: {IMG_ICON_CONTACT_MMOGAME_WIDTH}px; height: {IMG_ICON_CONTACT_MMOGAME_HEIGHT}px; }
-ul.profile-icons li.cr_hosting-icon	{ width: {IMG_ICON_CONTACT_CR_HOSTING_WIDTH}px; height: {IMG_ICON_CONTACT_CR_HOSTING_HEIGHT}px; }
-/* End OGame-Mod */]]></action>
-			</edit>
-		</open>
-		<open src="styles/prosilver/theme/colours.css">
-			<edit>
-				<find><![CDATA[.pm-icon, .pm-icon a				{ background-image: url("{IMG_ICON_CONTACT_PM_SRC}"); }
-.quote-icon, .quote-icon a		{ background-image: url("{IMG_ICON_POST_QUOTE_SRC}"); }]]></find>
-				<action type="after-add"><![CDATA[/* Begin OGame-Mod */
-.mmogame-icon, .mmogame-icon a			{ background-image: url("{IMG_ICON_CONTACT_MMOGAME_SRC}"); }
-.cr_hosting-icon, .cr_hosting-icon a		{ background-image: url("{IMG_ICON_CONTACT_CR_HOSTING_SRC}"); }
-/* End OGame-Mod */]]></action>
+				<find><![CDATA[@import url("colours.css");]]></find>
+				<action type="after-add"><![CDATA[@import url("ogame.css");]]></action>
 			</edit>
 		</open>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
