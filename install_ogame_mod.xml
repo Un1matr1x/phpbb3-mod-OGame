@@ -494,6 +494,8 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 				<action type="after-add"><![CDATA[/* Begin OGame-Mod */
 .mmogame-icon, .mmogame-icon a			{ background: none top left no-repeat; }
 .cr_hosting-icon, .cr_hosting-icon a		{ background: none top left no-repeat; }
+a.mmogame-span							{ text-decoration: none !important; }
+a.cr-hosting-span						{ text-decoration: none !important; }
 a.mmogame-span span 						{ display: none;}
 a.mmogame-span:hover span				{ display: inline; position: relative; left: -125px; top: -100px; z-index: 9999;}
 a.cr-hosting-span span 					{ display: none;}
