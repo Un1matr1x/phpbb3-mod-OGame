@@ -98,7 +98,12 @@ $versions = array(
 	),
 	
 	// Version 0.1.0 CR-Hosting Link Replacement
+	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.1.0
 	'0.1.0 -dev'	=> array(
+	),
+	
+	// Version 0.2.0 ScannBB added and improved
+	'0.2.0 -dev'	=> array(
 	),
 );
 

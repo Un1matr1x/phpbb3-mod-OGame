@@ -37,7 +37,7 @@ Features:
 				</contributions-group>
 			</author>
 		</author-group>
-		<mod-version>0.1.1 -dev</mod-version>
+		<mod-version>0.2.0 -dev</mod-version>
 		<installation>
 			<level>intermediate</level>
 			<time>1800</time>
@@ -74,7 +74,7 @@ Features:
 			</entry>
 			<entry>
 				<date>2011-01-21</date>
-				<rev-version>0.1.1 -dev</rev-version>
+				<rev-version>0.2.0 -dev</rev-version>
 				<changelog lang="en">
 					<change><![CDATA[ScannBB adden and improved]]></change>
 				</changelog>
