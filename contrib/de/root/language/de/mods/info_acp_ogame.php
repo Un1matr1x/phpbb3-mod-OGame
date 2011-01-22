@@ -60,7 +60,7 @@ $lang = array_merge($lang, array(
 	'MMOGAME_S'							=> 'erlaube Gameforge Portal Verbindung',
 	'MMOGAME_S_EXPLAIN'					=> 'aktiviert die Gameforge Einstellungen und zeigt die Gameforge-Benutzer-ID im (Mini-)Profil an',
 	'MMOGAME_STYLE'						=> 'Standard G-Card Design',
-	'MMOGAME_STYLE_EXPLAIN'				=> 'die standart G-Card hat die Größe von 225px x 150px , die Slim-Variante ist nicht standart mit 452px x 102px',
+	'MMOGAME_STYLE_EXPLAIN'				=> 'die Standart G-Card hat die Größe von 225px x 150px , die Slim-Variante ist nicht standart mit 452px x 102px',
 
 	'OGAME'								=> 'OGame',
 	'OGAME_CONFIG'						=> 'Einstellung',

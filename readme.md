@@ -15,7 +15,7 @@ This MOD has been licensed under the following license:
 http://opensource.org/licenses/gpl-license.php GNU General Public License v2
 You can also take a look into the license.txt inside this package.
 
-The included Mods (ScannBB & Cool KB) was initialy by eXochron (aka skYforge) without any license information and re-released by Pionier (http://www.phpbb.com/community/memberlist.php?mode=viewprofile&un=Pionier | pionier@allytools.de) under GNU General Public License v2.
+The included Mods (ScannBB & Cool KB) was initialy by eXochron (aka skYforge) without any license information and re-released by Pionier ( http://www.phpbb.com/community/memberlist.php?mode=viewprofile&un=Pionier | pionier@allytools.de ) under GNU General Public License v2.
 
 
 2. Installation
