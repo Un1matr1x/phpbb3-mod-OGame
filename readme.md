@@ -1,11 +1,12 @@
 phpBB 3 Modification - OGame
 ============================
 
+Table of Content
+----------------
 1. License
 2. Installation
 3. Known Bugs and Issues
 
-============================
 
 1. License
 ----------
