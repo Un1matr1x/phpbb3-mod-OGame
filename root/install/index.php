@@ -107,6 +107,7 @@ $versions = array(
 	),
 	
 	// Version 0.2.1 more ACP setings added
+	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.2.1
 	'0.2.1 -dev'	=> array(
 	
 		'config_add' => array(
