@@ -12,7 +12,6 @@ Features:
 - "connect" your Gameforge-ID and your CR-Hosting-ID to your profile
 - nice link-replacement for crs from http://kb.un1matr1x.de
 - an improved version of ScannBB added]]></description>
-		<author-notes lang="en"><![CDATA[more features will come]]></author-notes>
 		<author-group>
 			<author>
 				<realname><![CDATA[Falk Seidel]]></realname>
@@ -192,11 +191,13 @@ $user->add_lang('mods/info_acp_ogame');
 			<edit>
 				<find><![CDATA[		'U_JABBER'		=> $user_cache[$poster_id]['jabber'],]]></find>
 				<action type="after-add"><![CDATA[		// Begin OGame-Mod
-		'U_MMOGAME'			=> $user_cache[$poster_id]['mmogame'],
-		'U_MMOGAME_CARD'	=> $user_cache[$poster_id]['mmogame_card'],
-		'U_MMOGAME_STYLE'	=> ($config['ogame_mmogame_card_style']) ? true : false,
-		'U_CR_HOSTING'		=> $user_cache[$poster_id]['cr_hosting'],
-		'U_CR_HOSTING_SIGI'	=> $user_cache[$poster_id]['cr_hosting_sigi'],
+		'U_MMOGAME'					=> $user_cache[$poster_id]['mmogame'],
+		'U_MMOGAME_CARD'			=> $user_cache[$poster_id]['mmogame_card'],
+		'U_MMOGAME_STYLE'			=> ($config['ogame_mmogame_card_style']) ? true : false,
+		'U_MMOGAME_MOUSEOVER_SHOW'	=> ($config['ogame_mmogame_card_mouseover_show']) ? true : false,
+		'U_CR_HOSTING'				=> $user_cache[$poster_id]['cr_hosting'],
+		'U_CR_HOSTING_SIGI'			=> $user_cache[$poster_id]['cr_hosting_sigi'],
+		'CR_HOSTING_MOUSEOVER_SHOW'	=> ($config['ogame_cr_hosting_card_mouseover_show']) ? true : false,
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
@@ -330,11 +331,13 @@ function censor_text($text)
 			<edit>
 				<find><![CDATA[		'U_JABBER'		=> ($user_info['user_jabber'] && $auth->acl_get('u_sendim')) ? append_sid("{$phpbb_root_path}memberlist.$phpEx", 'mode=contact&amp;action=jabber&amp;u=' . $author_id) : '',]]></find>
 				<action type="after-add"><![CDATA[		// Begin OGame-Mod
-		'U_MMOGAME'			=> ($user_info['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . urlencode($user_info['user_mmogame']) : '',
-		'U_MMOGAME_CARD'	=> ($user_info['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . urlencode($user_info['user_mmogame']) . '.png" />' : '',
-		'U_MMOGAME_STYLE'	=> ($config['ogame_mmogame_card_style']) ? true : false,
-		'U_CR_HOSTING'		=> ($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($user_info['user_cr_hosting']) : '',
-		'U_CR_HOSTING_SIGI'	=> ($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($user_info['user_cr_hosting']) . '.en.gif" />' : '',
+		'U_MMOGAME'					=> ($user_info['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . urlencode($user_info['user_mmogame']) : '',
+		'U_MMOGAME_CARD'			=> ($user_info['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . urlencode($user_info['user_mmogame']) . '.png" />' : '',
+		'U_MMOGAME_STYLE'			=> ($config['ogame_mmogame_card_style']) ? true : false,
+		'U_MMOGAME_MOUSEOVER_SHOW'	=> ($config['ogame_mmogame_card_mouseover_show']) ? true : false,
+		'U_CR_HOSTING'				=> ($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($user_info['user_cr_hosting']) : '',
+		'U_CR_HOSTING_SIGI'			=> ($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($user_info['user_cr_hosting']) . '.en.gif" />' : '',
+		'CR_HOSTING_MOUSEOVER_SHOW'	=> ($config['ogame_cr_hosting_card_mouseover_show']) ? true : false,
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
@@ -462,8 +465,8 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 <ul class="profile-icons">
 </ul>]]></comment>
 				<action type="after-add"><![CDATA[			<!-- OGame-Mod B -->
-			<!-- IF U_MMOGAME --><li class="mmogame-icon"><a href="{U_MMOGAME}" title="{L_MMOGAME}" class="mmogame-span<!-- IF not U_MMOGAME_STYLE --> just_move<!-- ENDIF -->"><span>{U_MMOGAME_CARD}</span></a></li><!-- ENDIF -->
-			<!-- IF U_CR_HOSTING --><li class="cr_hosting-icon"><a href="{U_CR_HOSTING}" title="{L_CR_HOSTING}" class="cr-hosting-span"><span>{U_CR_HOSTING_SIGI}</span></a></li><!-- ENDIF -->
+			<!-- IF U_MMOGAME --><li class="mmogame-icon"><a href="{U_MMOGAME}" title="{L_MMOGAME}"<!-- IF U_MMOGAME_MOUSEOVER_SHOW --> class="mmogame-span<!-- IF not U_MMOGAME_STYLE --> just_move<!-- ENDIF -->"<!-- ENDIF -->><span><!-- IF U_MMOGAME_MOUSEOVER_SHOW -->{U_MMOGAME_CARD}<!-- ELSE -->{L_MMOGAME}<!-- ENDIF --></span></a></li><!-- ENDIF -->
+			<!-- IF U_CR_HOSTING --><li class="cr_hosting-icon"><a href="{U_CR_HOSTING}" title="{L_CR_HOSTING}"<!-- IF CR_HOSTING_MOUSEOVER_SHOW --> class="cr-hosting-span"<!-- ENDIF -->"><span><!-- IF CR_HOSTING_MOUSEOVER_SHOW -->{U_CR_HOSTING_SIGI}<!-- ELSE -->{L_CR_HOSTING}<!-- ENDIF --></span></a></li><!-- ENDIF -->
 			<!-- OGame-Mod E -->]]></action>
 			</edit>
 		</open>
@@ -516,8 +519,8 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 <ul class="profile-icons">
 </ul>]]></comment>
 				<action type="after-add"><![CDATA[					<!-- OGame-Mod B -->
-					<!-- IF postrow.U_MMOGAME --><li class="mmogame-icon"><a href="{postrow.U_MMOGAME}" title="{L_MMOGAME}" class="mmogame-span<!-- IF not postrow.U_MMOGAME_STYLE --> just_move<!-- ENDIF -->"><span>{postrow.U_MMOGAME_CARD}</span></a></li><!-- ENDIF -->
-					<!-- IF postrow.U_CR_HOSTING --><li class="cr_hosting-icon"><a href="{postrow.U_CR_HOSTING}" title="{L_CR_HOSTING}" class="cr-hosting-span"><span>{postrow.U_CR_HOSTING_SIGI}</span></a></li><!-- ENDIF -->
+					<!-- IF postrow.U_MMOGAME --><li class="mmogame-icon"><a href="{postrow.U_MMOGAME}" title="{L_MMOGAME}"<!-- IF postrow.U_MMOGAME_MOUSEOVER_SHOW --> class="mmogame-span<!-- IF not postrow.U_MMOGAME_STYLE --> just_move<!-- ENDIF -->"<!-- ENDIF -->><span><!-- IF postrow.U_MMOGAME_MOUSEOVER_SHOW -->{postrow.U_MMOGAME_CARD}<!-- ELSE -->{L_MMOGAME}<!-- ENDIF --></span></a></li><!-- ENDIF -->
+					<!-- IF postrow.U_CR_HOSTING --><li class="cr_hosting-icon"><a href="{postrow.U_CR_HOSTING}" title="{L_CR_HOSTING}"<!-- IF postrow.CR_HOSTING_MOUSEOVER_SHOW --> class="cr-hosting-span"<!-- ENDIF -->><span><!-- IF postrow.CR_HOSTING_MOUSEOVER_SHOW -->{postrow.U_CR_HOSTING_SIGI}<!-- ELSE -->{L_CR_HOSTING}<!-- ENDIF --></span></a></li><!-- ENDIF -->
 					<!-- OGame-Mod E -->]]></action>
 			</edit>
 		</open>
