@@ -147,10 +147,10 @@ $user->add_lang('mods/info_acp_ogame');
 				<find><![CDATA[		'USER_ICQ'			=> $data['user_icq'],]]></find>
 				<action type="before-add"><![CDATA[		// Begin OGame-Mod
 		'U_MMOGAME'			=> ($data['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . urlencode($data['user_mmogame']) : '',
-		'U_MMOGAME_CARD'	=> ($data['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . urlencode($data['user_mmogame']) . '.png" />' : '',
+		'U_MMOGAME_CARD'	=> ($data['user_mmogame'] && $config['ogame_mmogame_show'] && $config['ogame_mmogame_card_profile_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . urlencode($data['user_mmogame']) . '.png" />' : '',
 		'U_MMOGAME_STYLE'	=> ($config['ogame_mmogame_card_style']) ? true : false,
 		'U_CR_HOSTING'		=> ($data['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($data['user_cr_hosting']) : '',
-		'U_CR_HOSTING_SIGI'	=> ($data['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.en.gif" />' : '',
+		'U_CR_HOSTING_SIGI'	=> ($data['user_cr_hosting'] && $config['ogame_cr_hosting_show'] && $config['ogame_cr_hosting_card_profile_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.en.gif" />' : '',
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
@@ -416,11 +416,11 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 	<span class="corners-bottom"><span></span></span></div>
 </div>
 <!-- ENDIF -->]]></find>
-				<action type="after-add"><![CDATA[<!-- IF U_MMOGAME or USER_MMOGAME or U_CR_HOSTING or USER_CR_HOSTING -->
+				<action type="after-add"><![CDATA[<!-- IF U_MMOGAME_CARD  or U_CR_HOSTING_SIGI -->
 <div class="panel bg<!-- IF SIGNATURE -->2<!-- ELSE -->1<!-- ENDIF -->">
 	<div class="inner"><span class="corners-top"><span></span></span>
 
-	<!-- IF U_MMOGAME or USER_MMOGAME -->
+	<!-- IF U_MMOGAME_CARD -->
 	<div class="column1">
 		<h3>{L_MMOGAME}</h3>
 		
@@ -428,8 +428,8 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 	</div>
 	<!-- ENDIF -->
 	
-	<!-- IF U_CR_HOSTING or USER_CR_HOSTING -->	
-	<div class="column<!-- IF U_MMOGAME or USER_MMOGAME -->2<!-- ELSE -->1<!-- ENDIF -->">
+	<!-- IF U_CR_HOSTING_SIGI -->	
+	<div class="column<!-- IF U_MMOGAME_CARD -->2<!-- ELSE -->1<!-- ENDIF -->">
 		<h3>{L_CR_HOSTING}</h3>
 		
 		<a href="{U_CR_HOSTING}" title="{L_CR_HOSTING}">{U_CR_HOSTING_SIGI}</a>
@@ -438,8 +438,7 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 	
 	<span class="corners-bottom"><span></span></span></div>
 </div>
-<!-- ENDIF -->
-]]></action>
+<!-- ENDIF -->]]></action>
 			</edit>
 		</open>
 		<open src="styles/prosilver/template/ucp_pm_viewmessage.html">
