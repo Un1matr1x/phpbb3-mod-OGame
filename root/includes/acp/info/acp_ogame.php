@@ -17,7 +17,7 @@ class acp_ogame_info
 		return array(
 			'filename'	=> 'acp_ogame',
 			'title'		=> 'OGAME',
-			'version'	=> '0.2.0',
+			'version'	=> '0.2.1',
 			'modes'		=> array(
 				'adjust_news'	=> array(
 					'title'		=> 'OGAME_CONFIG',

@@ -2,7 +2,6 @@
 /**
  *
  * @author Unimatrix_0 (Falk Seidel) unimatrix_0@gmx.net
- * @version $Id$
  * @copyright (c) 2011 Un1matr1x
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
@@ -103,8 +102,19 @@ $versions = array(
 	),
 	
 	// Version 0.2.0 ScannBB added and improved
+	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.2.0
 	'0.2.0 -dev'	=> array(
 	),
+	
+	// Version 0.2.1 more ACP setings added
+	'0.2.1 -dev'	=> array(
+	
+		'config_add' => array(
+			array('ogame_mmogame_card_show', 1),
+			array('ogame_cr_hosting_card_show', 1),
+		),
+	),
+	
 );
 
 // Include the UMIL Auto file, it handles the rest
