@@ -110,8 +110,11 @@ $versions = array(
 	'0.2.1 -dev'	=> array(
 	
 		'config_add' => array(
-			array('ogame_mmogame_card_show', 1),
-			array('ogame_cr_hosting_card_show', 1),
+			array('ogame_mmogame_card_style', 1),
+			array('ogame_mmogame_card_profile_show', 1),
+			array('ogame_mmogame_card_mouseover_show', 1),
+			array('ogame_cr_hosting_card_profile_show', 1),
+			array('ogame_cr_hosting_card_mouseover_show', 1),
 		),
 	),
 	
