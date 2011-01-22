@@ -42,15 +42,26 @@ class acp_ogame
 			}
 
 			set_config('ogame_mmogame_show', request_var('ogame_mmogame_show', 0));
-			set_config('ogame_cr_hosting_show', request_var('ogame_cr_hosting_show', 0));
+			set_config('ogame_mmogame_card_style', request_var('ogame_mmogame_style', 1));
+			set_config('ogame_mmogame_card_profile_show', request_var('ogame_mmogame_profile_show', 1));
+			set_config('ogame_mmogame_card_mouseover_show', request_var('ogame_mmogame_mouseover_show', 1));
 
+			set_config('ogame_cr_hosting_show', request_var('ogame_cr_hosting_show', 0));
+			set_config('ogame_cr_hosting_card_profile_show', request_var('ogame_cr_hosting_profile_show', 1));
+			set_config('ogame_cr_hosting_card_mouseover_show', request_var('ogame_cr_mouseover_show', 1));
+			
 			trigger_error($user->lang['OGAME_SAVED'] . adm_back_link($this->u_action));
 		}
 
 		$template->assign_vars(array(
-			'U_ACTION'				=> $this->u_action,
-			'MMOGAME_S'				=> $config['ogame_mmogame_show'],
-			'CR_HOSTING_S'			=> $config['ogame_cr_hosting_show'],
+			'U_ACTION'						=> $this->u_action,
+			'MMOGAME_S'						=> $config['ogame_mmogame_show'],
+			'MMOGAME_STYLE'					=> $config['ogame_mmogame_card_style'],
+			'MMOGAME_PROFILE_SHOW'			=> $config['ogame_mmogame_card_profile_show'],
+			'MMOGAME_MOUSEOVER_SHOW'		=> $config['ogame_mmogame_card_mouseover_show'],
+			'CR_HOSTING_S'					=> $config['ogame_cr_hosting_show'],
+			'CR_HOSTING_PROFILE_SHOW'		=> $config['ogame_cr_hosting_card_profile_show'],
+			'CR_HOSTING_MOUSEOVER_SHOW'		=> $config['ogame_cr_hosting_card_mouseover_show'],
 		));
 	}
 }
