@@ -10,6 +10,7 @@
 			<dd><input type="radio" class="radio" name="ogame_mmogame_show" value="1" <!-- IF MMOGAME_S -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
 				<input type="radio" class="radio" name="ogame_mmogame_show" value="0" <!-- IF not MMOGAME_S -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
+		<!-- IF MMOGAME_S -->
 		<dl>
 			<dt><label for="ogame_mmogame_style">{L_MMOGAME_STYLE}:</label><br /><span>{L_MMOGAME_STYLE_EXPLAIN}</span></dt>
 			<dd><input type="radio" class="radio" name="ogame_mmogame_style" value="1" <!-- IF MMOGAME_STYLE -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
@@ -25,6 +26,7 @@
 			<dd><input type="radio" class="radio" name="ogame_mmogame_mouseover_show" value="1" <!-- IF MMOGAME_MOUSEOVER_SHOW -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
 				<input type="radio" class="radio" name="ogame_mmogame_mouseover_show" value="0" <!-- IF not MMOGAME_MOUSEOVER_SHOW -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
+		<!-- ENDIF -->
 	</fieldset>
 	
 	<fieldset>
@@ -34,6 +36,7 @@
 			<dd><input type="radio" class="radio" name="ogame_cr_hosting_show" value="1" <!-- IF CR_HOSTING_S -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
 				<input type="radio" class="radio" name="ogame_cr_hosting_show" value="0" <!-- IF not CR_HOSTING_S -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
+		<!-- IF CR_HOSTING_S -->
 		<dl>
 			<dt><label for="ogame_cr_hosting_show">{L_CR_HOSTING_PROFILE_SHOW}:</label><br /><span>{L_CR_HOSTING_PROFILE_SHOW_EXPLAIN}</span></dt>
 			<dd><input type="radio" class="radio" name="ogame_cr_hosting_profile_show" value="1" <!-- IF CR_HOSTING_PROFILE_SHOW -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
@@ -44,6 +47,7 @@
 			<dd><input type="radio" class="radio" name="ogame_cr_mouseover_show" value="1" <!-- IF CR_HOSTING_MOUSEOVER_SHOW -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
 				<input type="radio" class="radio" name="ogame_cr_mouseover_show" value="0" <!-- IF not CR_HOSTING_MOUSEOVER_SHOW -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
+		<!-- ENDIF -->
 	</fieldset>
 	
 	<fieldset class="submit-buttons">
