@@ -39,28 +39,40 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 
-	'CR_HOSTING'					=> 'KB-Hosting',
-	'CR_HOSTING_EXPLAIN'			=> 'Gib deine KB-Hosting-Benutzer-ID ein.<br /> Bei http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&u=<b>2</b> wäre es 2',
-	'CR_HOSTING_S_EXPLAIN'			=> 'Zeigt die KB-Hosting-ID & Signature an',
+	'CR_HOSTING'						=> 'KB-Hosting',
+	'CR_HOSTING_EXPLAIN'				=> 'Gib deine KB-Hosting-Benutzer-ID ein.<br /> Bei http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&u=<b>2</b> wäre es 2',
+	'CR_HOSTING_MOUSEOVER_SHOW'			=> 'KB-Hosting-Sigi im Miniprofil',
+	'CR_HOSTING_MOUSEOVER_SHOW_EXPLAIN' => 'zeige die KB-Hosting-Sigi beim MouseOver über das KB-Hosting-Icon an',
+	'CR_HOSTING_PROFILE_SHOW'			=> 'KB-Hosting-Sigi im Profil',
+	'CR_HOSTING_PROFILE_SHOW_EXPLAIN'	=> 'zeige die KB-Hosting-Sigi unter der Signatur oder den Kontaktdaten in der Mitgliederliste an',
+	'CR_HOSTING_S'						=> 'erlaube KB-Hosting Verbindung',
+	'CR_HOSTING_S_EXPLAIN'				=> 'aktiviert die KB-Hosting Einstellungen und zeigt die KB-Hosting-Benutzer-ID im (Mini-)Profil an',
 
-	'IMG_ICON_CONTACT_MMOGAME'		=> 'Gameforge',
-	'IMG_ICON_CONTACT_CR_HOSTING'	=> 'KB-Hosting',
+	'IMG_ICON_CONTACT_MMOGAME'			=> 'Gameforge',
+	'IMG_ICON_CONTACT_CR_HOSTING'		=> 'KB-Hosting',
 
-	'MMOGAME'						=> 'Gameforge',
-	'MMOGAME_EXPLAIN'				=> 'Gib deine Gameforge-ID ein.<br /> Bei http://gameforge.com/profile/show/Nickname-<b>47634</b> wäre es 47634',
-	'MMOGAME_S_EXPLAIN'				=> 'Zeigt die Gameforge-ID & G-Card an',
+	'MMOGAME'							=> 'Gameforge',
+	'MMOGAME_EXPLAIN'					=> 'Gib deine Gameforge-ID ein.<br /> Bei http://gameforge.com/profile/show/Nickname-<b>47634</b> wäre es 47634',
+	'MMOGAME_MOUSEOVER_SHOW'			=> 'G-Card im Miniprofil',
+	'MMOGAME_MOUSEOVER_SHOW_EXPLAIN'	=> 'zeige die G-Card beim MouseOver über das G-Icon an',
+	'MMOGAME_PROFILE_SHOW'				=> 'G-Card im Profil',
+	'MMOGAME_PROFILE_SHOW_EXPLAIN'		=> 'zeige die G-Card unter der Signatur oder den Kontaktdaten in der Mitgliederliste an',
+	'MMOGAME_S'							=> 'erlaube Gameforge Portal Verbindung',
+	'MMOGAME_S_EXPLAIN'					=> 'aktiviert die Gameforge Einstellungen und zeigt die Gameforge-Benutzer-ID im (Mini-)Profil an',
+	'MMOGAME_STYLE'						=> 'Standard G-Card Design',
+	'MMOGAME_STYLE_EXPLAIN'				=> 'die standart G-Card hat die Größe von 225px x 150px , die Slim-Variante ist nicht standart mit 452px x 102px',
 
-	'OGAME'							=> 'OGame',
-	'OGAME_CONFIG'					=> 'Einstellung',
-	'OGAME_SAVED'					=> 'Einstellung gespeichert',
+	'OGAME'								=> 'OGame',
+	'OGAME_CONFIG'						=> 'Einstellung',
+	'OGAME_SAVED'						=> 'Einstellung gespeichert',
 	
-	'UCP_MMOGAME'					=> 'Gameforge-ID',
-	'UCP_CR_HOSTING'				=> 'KB-Hosting-Profil-ID',
+	'UCP_MMOGAME'						=> 'Gameforge-ID',
+	'UCP_CR_HOSTING'					=> 'KB-Hosting-Profil-ID',
 	
-	'VIEW_MMOGAME'					=> 'Gameforge Profil ansehen',
-	'VIEW_CR_HOSTING'				=> 'KB-Hosting Profil ansehen',
+	'VIEW_MMOGAME'						=> 'Gameforge Profil ansehen',
+	'VIEW_CR_HOSTING'					=> 'KB-Hosting Profil ansehen',
 	
-	'WRONG_DATA_MMOGAME'			=> 'Deine Gameforge-ID darf nur aus ganzen Zahlen bestehen.',
-	'WRONG_DATA_CR_HOSTING'			=> 'Deine KB-Hosting-Benutzer-ID darf nur aus ganzen Zahlen bestehen.',
-));
+	'WRONG_DATA_MMOGAME'				=> 'Deine Gameforge-ID darf nur aus ganzen Zahlen bestehen.',
+	'WRONG_DATA_CR_HOSTING'				=> 'Deine KB-Hosting-Benutzer-ID darf nur aus ganzen Zahlen bestehen.',
+));	
 ?>
