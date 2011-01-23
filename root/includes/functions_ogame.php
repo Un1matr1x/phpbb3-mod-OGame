@@ -47,7 +47,8 @@ if (!isset($scanpattern))
 {
 	$scanpattern		= array();
 	$scanpattern['de']	= "/Rohstoffe.auf(.){1,25}\[(.+?)Spionageabwehr(.+?)\%/s";	
-	$scanpattern['org']	= "/Resources.at(.){1,25}\[(.+?)counter-espionage(.+?)\%/s";
+	$scanpattern['org']	= "/Resources.at(.){1,25}\[(.+?)counter-espionage(.+?)\%/s";	
+	$scanpattern['fr']	= "/Ressources.sur(.){1,50}\[(.+?)contre-espionnage(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -91,7 +92,7 @@ if(!function_exists('ogame_scan'))
 			$header['org']		= "/(Resources at .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 			$activity['org']	= "/(Activity)(?!( on| within| means))/";
 			$activity_exp['org']= "/Activity means that the scanned player has been active on that planet or another player had fleet contact with the planet you scanned\./";
-			$probs_act['de']	= "/(Your espionage .*)([1-5][0-9])(.*)\./";
+			$probs_act['org']	= "/(Your espionage .*)([1-5][0-9])(.*)\./";
 			$probs['org']		= "/(Your espionage .*)\./";
 			$fleet['org']		= "/(fleets)/";
 			$fleet['org_1']		= "/(Fleets)/";
@@ -99,6 +100,22 @@ if(!function_exists('ogame_scan'))
 			$build['org']		= "/(Building)/";
 			$research['org']	= "/(Research)(?!( Lab| Network))/";
 			$chance['org']		= "/(Chance)(.*)/";
+		
+			//French
+			$line_1[2]			= "/(M".utf8_encode('é')."tal).{1,}(Cristal)/";
+			$line_1[3]			= "/(Métal).{1,}(Cristal)/";
+			$line_2[2]			= "/(Deut".utf8_encode('é')."rium).{1,}(Energie)/";
+			$line_2[3]			= "/(Deutérium).{1,}(Energie)/";
+			$header['fr']		= "/(Ressources sur .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['fr']		= "/(Activité)(?!( signifie| sur| means))/";
+			$activity_exp['fr']	= "/Activité signifie que le joueur scanné était actif sur la planète au moment du scan ou qu`un autre joueur a eu un contact de flotte avec cette planète à ce moment là\./";
+			$probs_act['fr']	= "/(Le scanner .*)([1-5][0-9])(.*)\./";
+			$probs['fr']		= "/(Le scanner .*)\./";
+			$fleet['fr']		= "/(Flottes)/";
+			$def['fr']			= "/(Défense)/";
+			$build['fr']		= "/(Bâtiment)/";
+			$research['fr']		= "/(?<!Laboratoire de )(Recherche)(?! intergalactique)/";
+			$chance['fr']		= "/(Probabilité)(.*)/";
 			
         $txt=$treffer[0];
 		
@@ -150,8 +167,8 @@ if(!function_exists('ogame_scan'))
                 if($rowsold[$i]==$rows[$i])
 				{
                     preg_match_all("/(-?(?:\.?\d)+)/",$rows[$i],$dots, PREG_SET_ORDER);
-                    if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-z:".utf8_encode("ßöäü")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-z:".utf8_encode("ßöäü")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
-                    if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-z:".utf8_encode("ßöäü")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key" colspan="3">\\1</td><td class="value" colspan="1">\\2</td></tr>',$rows[$i]);
+                    if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-z:`".utf8_encode("ßöäüáàâéèêíìîóòôúùû")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-z:`".utf8_encode("ßöäüáàâéèêíìîóòôúùû")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
+                    if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-z:`".utf8_encode("ßöäüáàâéèêíìîóòôúùû")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key" colspan="3">\\1</td><td class="value" colspan="1">\\2</td></tr>',$rows[$i]);
                 }
             }
                 $txt=join('',$rows);
