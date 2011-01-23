@@ -119,6 +119,11 @@ $versions = array(
 		),
 	),
 	
+	// Version 0.2.2 more languages & some fixes
+	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.2.2
+	'0.2.2 -dev'	=> array(
+	),
+	
 );
 
 // Include the UMIL Auto file, it handles the rest

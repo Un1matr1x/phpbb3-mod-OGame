@@ -25,7 +25,7 @@ class ogame_mod_version
 			'author'	=> 'Un1matr1x',
 			'title'		=> 'OGame-Mod',
 			'tag'		=> 'ogame_mod',
-			'version'	=> '0.2.1',
+			'version'	=> '0.2.2',
 			'file'		=> array('un1matr1x.de', 'check', 'ogm.xml'),
 		);
 	}
