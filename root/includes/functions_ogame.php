@@ -72,9 +72,10 @@ if(!function_exists('ogame_scan'))
 			$line_2[0]			= "/(Deuterium).{1,}(Energie)/";
 			$header['de']		= "/(Rohstoffe auf .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 			$activity['de']		= "/(Aktivit".utf8_encode('ä')."t)(?!( auf| bedeutet))/";
-			$activity['de_1']	= "/(Aktivit&auml;t)(?!( auf| bedeutet))/";
-			$activity['de_2']	= "/(Aktivität)(?!( auf| bedeutet))/";
+			$activity['de_1']	= "/(Aktivit&auml;t)(?!( auf| bedeutet|  innerhalb))/";
+			$activity['de_2']	= "/(Aktivität)(?!( auf| bedeutet| innerhalb))/";
 			$activity_exp['de']	= "/Aktivität bedeutet, dass entweder der gescannte Spieler in dieser Zeit auf dem Planeten aktiv war oder ein anderer Spieler mit diesem Planeten Flottenkontakt hatte\./";
+			$probs_act['de']	= "/(Dein Sondenscan .*)([1-5][0-9])(.*)\./";
 			$probs['de']		= "/(Dein Sondenscan .*)\./";
 			$fleet['de']		= "/(Flotten)/";
 			$def['de']			= "/(Verteidigung)/";
@@ -88,8 +89,9 @@ if(!function_exists('ogame_scan'))
 			$line_1[1]			= "/(Metal).{1,}(Crystal)/";
 			$line_2[1]			= "/(Deuterium).{1,}(Energy)/";
 			$header['org']		= "/(Resources at .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-			$activity['org']	= "/(Activity)(?!( on| within))/";
+			$activity['org']	= "/(Activity)(?!( on| within| means))/";
 			$activity_exp['org']= "/Activity means that the scanned player has been active on that planet or another player had fleet contact with the planet you scanned\./";
+			$probs_act['de']	= "/(Your espionage .*)([1-5][0-9])(.*)\./";
 			$probs['org']		= "/(Your espionage .*)\./";
 			$fleet['org']		= "/(fleets)/";
 			$fleet['org_1']		= "/(Fleets)/";
@@ -135,9 +137,10 @@ if(!function_exists('ogame_scan'))
         if ($countrows>3 && $countrows<42 && $p1 && $p2){
             for ($i=0; $i<$countrows; $i++)
 			{
-                $rows[$i]=preg_replace($activity_exp,'',$rows[$i]);
                 $rows[$i]=preg_replace($header,'<tr><th class="area" colspan="6">\\1[<span class="coords">\\2</span>]\\3</th></tr>',$rows[$i]);
-				$rows[$i]=preg_replace($activity,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
+				$rows[$i]=preg_replace($activity,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);				
+                $rows[$i]=preg_replace($activity_exp,'',$rows[$i]);
+				$rows[$i]=preg_replace($probs_act,'<tr><td colspan="4" class="activity">\\1<font color="red">\\2</font>\\3</td></tr>',$rows[$i]);				
 				$rows[$i]=preg_replace($probs,'<tr><td colspan="4" class="activity">\\1</td></tr>',$rows[$i]);
                 $rows[$i]=preg_replace($fleet,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
                 $rows[$i]=preg_replace($def,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
