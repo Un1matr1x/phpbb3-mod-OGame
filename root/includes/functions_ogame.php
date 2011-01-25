@@ -50,8 +50,10 @@ if (!isset($scanpattern))
 	$scanpattern['org']				= "/Resources.at(.){1,25}\[(.+?)counter-espionage(.+?)\%/s";
 	$scanpattern['fr']				= "/Ressources.sur(.){1,25}\[(.+?)contre-espionnage(.+?)\%/s";
 	$scanpattern['hr']				= "/Resursi.na(.){1,25}\[(.+?)špijunaže(.+?)\%/s";
-	$scanpattern['es_ar']				= "/Recursos.en(.){1,25}\[(.+?)Posibilidad.de.captura(.+?)\%/s";
 	$scanpattern['es']				= "/Recursos.en(.){1,25}\[(.+?)contra-espionaje(.+?)\%/s";
+	$scanpattern['es_ar']			= "/Recursos.en(.){1,25}\[(.+?)Posibilidad.de.captura(.+?)\%/s";
+	$scanpattern['pt']				= "/Recursos.em(.){1,25}\[(.+?)contra-espionagem(.+?)\%/s";
+	$scanpattern['pt_br']			= "/Recursos.no(.){1,25}\[(.+?)contra-espionagem(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -75,7 +77,7 @@ if(!function_exists('ogame_scan'))
 			$line_1[1]				= "/(Metal).{1,}(Crystal)/";
 			$line_2[1]				= "/(Deuterium).{1,}(Energy)/";
 			$header['org']			= "/(Resources at .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-			$activity['org']		= "/(Activity)(?!( on| within| means))/";
+			$activity['org']		= "/(Activity)\b(?!( on| within| means))/";
 			$activity_exp['org']	= "/Activity means that the scanned player has been active on that planet or another player had fleet contact with the planet you scanned\./";
 			$probs_act['org']		= "/(Your espionage .*)([1-5][0-9])(.*)\./";
 			$probs['org']			= "/(Your espionage .*)\./";
@@ -91,8 +93,8 @@ if(!function_exists('ogame_scan'))
 			$line_2[0]				= "/(Deuterium).{1,}(Energie)/";
 			$header['de']			= "/(Rohstoffe auf .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 			$activity['de']			= "/(Aktivit".utf8_encode('ä')."t)(?!( auf| bedeutet))/";
-			$activity['de_1']		= "/(Aktivit&auml;t)(?!( auf| bedeutet|  innerhalb))/";
-			$activity['de_2']		= "/(Aktivität)(?!( auf| bedeutet| innerhalb))/";
+			$activity['de_1']		= "/(Aktivit&auml;t)\b(?!( auf| bedeutet|  innerhalb))/";
+			$activity['de_2']		= "/(Aktivität)\b(?!( auf| bedeutet| innerhalb))/";
 			$activity_exp['de']		= "/Aktivität bedeutet, dass entweder der gescannte Spieler in dieser Zeit auf dem Planeten aktiv war oder ein anderer Spieler mit diesem Planeten Flottenkontakt hatte\./";
 			$probs_act['de']		= "/(Dein Sondenscan .*)([1-5][0-9])(.*)\./";
 			$probs['de']			= "/(Dein Sondenscan .*)\./";
@@ -111,20 +113,21 @@ if(!function_exists('ogame_scan'))
 			$line_2[3]				= "/(Deutérium).{1,}(Energie)/";
 			$header['fr']			= "/(Ressources sur .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 			$activity['fr']			= "/(Activité)(?!( signifie| sur| means))/";
+			$activity['fr_1']		= "/(Activit".utf8_encode('é').")(?!( signifie| sur| means))/";
 			$activity_exp['fr']		= "/Activité signifie que le joueur scanné était actif sur la planète au moment du scan ou qu`un autre joueur a eu un contact de flotte avec cette planète à ce moment là\./";
 			$probs_act['fr']		= "/(Le scanner .*)([1-5][0-9])(.*)\./";
 			$probs['fr']			= "/(Le scanner .*)\./";
 			$fleet['fr']			= "/(Flottes)/";
 			$def['fr']				= "/(Défense)/";
 			$build['fr']			= "/(Bâtiment)/";
-			$research['fr']			= "/(?<!Laboratoire de )(Recherche)(?! intergalactique)/";
+			$research['fr']			= "/(?<!de )(Recherche)(?! intergalactique)/";
 			$chance['fr']			= "/(Probabilité)(.*)/";
 
 			//Croatian
 			$line_1[4]				= "/(Metal).{1,}(Kristal)/";
 			$line_2[4]				= "/(Deuterij).{1,}(Energija)/";
 			$header['hr']			= "/(Resursi na .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-			$activity['hr']			= "/(Aktivnost)(?!( znači| na))/";
+			$activity['hr']			= "/(Aktivnost)\b(?!( znači| na))/";
 			$activity_exp['hr']		= "/Aktivnost znači da je skenirani igrač bio aktivan na toj planeti ili je neki drugi igrač imao kontakt flotom sa planetom koju ste skenirali\./";
 			$activity_exp['hr_1']	= "/Aktivnost zna".utf8_encode('č')."i da je skenirani igra".utf8_encode('č')." bio aktivan na toj planeti ili je neki drugi igra".utf8_encode('č')." imao kontakt flotom sa planetom koju ste skenirali\./";
 			$probs_act['hr']		= "/(Vaša špijunaža .*)([1-5][0-9])(.*)\./";
@@ -135,7 +138,7 @@ if(!function_exists('ogame_scan'))
 			$research['hr']			= "/(Istraživanje)/";
 			$chance['hr']			= "/(Šansa za obranu od špijunaže)(.*)/";
 
-			//Spanish (+ Argentine +Mexican)
+			//Spanish (+Argentine +Mexican)
 			$line_1[5]				= "/(Metal).{1,}(Cristal)/";
 			$line_1[6]				= "/(Metal).{1,}(Cristal)/";
 			$line_1[7]				= "/(Metal).{1,}(Cristal)/";
@@ -143,7 +146,7 @@ if(!function_exists('ogame_scan'))
 			$line_2[6]				= "/(Deuterio).{1,}(Energía)/";
 			$line_2[7]				= "/(Deuterio).{1,}(Energ".utf8_encode('í')."a)/";
 			$header['es']			= "/(Recursos en .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-			$activity['es']			= "/(Actividad)(?!( significa| en))/";
+			$activity['es']			= "/(Actividad)\b(?!( significa| en))/";
 			$activity_exp['es']		= "/Actividad significa que el jugador escaneado ha estado activo en el planeta o que otro jugador tuvo contacto de flota con el planeta escaneado\./";
 			$activity_exp['es_ar']	= "/La actividad significa que el jugador espiado estubo activo en el planeta o que otro jugador hiso contacto de flota con el planeta escaneado\./";
 			$activity_exp['es_mx']	= "/Actividad significa, que el jugador espiado ha estado activo en el planeta o que otro jugador tuvo contacto de flota con el planeta espiado\./";
@@ -157,11 +160,30 @@ if(!function_exists('ogame_scan'))
 			$fleet['ar_1']			= "/(Escuadr".utf8_encode('ó')."n)/";
 			$def['es']				= "/(Defensa)/";
 			$build['es']			= "/(Edificio)/";
-			$research['es']			= "/(?<!Laboratorio de )(Investigación)(?! inter)/";
-			$research['es1']		= "/(?<!Laboratorio de )(Investigaci".utf8_encode('ó')."n)(?! inter)/";
-			$chance['es']			= "/(Posibilidades)(.*)/";
-			$chance['es_ar']		= "/(Posibilidad)(.*)/";
+			$research['es']			= "/(?<!de )(Investigación)(?! inter)/";
+			$research['es1']		= "/(?<!de )(Investigaci".utf8_encode('ó')."n)(?! inter)/";
+			$chance['es']			= "/(Posibilidades)\b(.*)/";
+			$chance['es_ar']		= "/(Posibilidad)\b(.*)/";
 
+			//Portuguese (+Brazilian)
+			$line_1[8]				= "/(Metal).{1,}(Cristal)/";
+			$line_1[9]				= "/(Metal).{1,}(Cristal)/";
+			$line_2[8]				= "/(Deutério).{1,}(Energia)/";
+			$line_2[9]				= "/(Deut".utf8_encode('é')."rio).{1,}(Energia)/";
+			$header['pt']			= "/(Recursos em .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$header['pt_br']		= "/(Recursos no .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['pt']			= "/(Actividade)\b(?!( indica| existente))/";
+			$activity['pt_br']		= "/(Atividade)\b(?!( indica| no))/";
+			$activity_exp['pt']		= "/Actividade indica que o jogador esteve activo naquele planeta ou que houve contacto de outra frota, de um outro jogador, com o planeta espiado\./";
+			$activity_exp['pt_br']	= "/Atividade indica que o jogador espiado esteve ativo naquele planeta ou que houve contato de outra frota, de um outro jogador, no planeta espiado\./";
+			$probs_act['pt']		= "/(A sua espionagem .*)([1-5][0-9])(.*)\./";
+			$probs['pt']			= "/(A sua espionagem .*)\./";
+			$fleet['pt']			= "/(Frotas)/";
+			$def['pt']				= "/(Defesas)/";
+			$build['pt']			= "/(Edifícios)/";
+			$build['pt_1']			= "/(Edif".utf8_encode('í')."cios)/";
+			$research['pt']			= "/(?<!de )(Pesquisas)\b/";
+			$chance['pt']			= "/(Probabilidade)(.*)/";
 		$txt=$treffer[0];
 
 		//Array has to be build up
@@ -217,8 +239,8 @@ if(!function_exists('ogame_scan'))
 				if($rowsold[$i]==$rows[$i])
 				{
 					preg_match_all("/(-?(?:\.?\d)+)/",$rows[$i],$dots, PREG_SET_ORDER);
-					if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-zž:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉž")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-zž:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉž")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
-					if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-zž:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉž")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td> </td><td> </td></tr>',$rows[$i]);
+					if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍ:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍ")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍ:`".utf8_encode("ÍßöäüáàâéèêíìîóòôúùûÈÉžçõã")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
+					if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍ:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍ")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td> </td><td> </td></tr>',$rows[$i]);
 				}
 			}
 				$txt=join('',$rows);
