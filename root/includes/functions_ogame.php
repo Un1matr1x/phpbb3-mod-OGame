@@ -46,10 +46,11 @@ $text = preg_replace($search_kb, $replace_kb, $text);
 if (!isset($scanpattern))
 {
 	$scanpattern		= array();
-	$scanpattern['de']	= "/Rohstoffe.auf(.){1,25}\[(.+?)Spionageabwehr(.+?)\%/s";	
-	$scanpattern['org']	= "/Resources.at(.){1,25}\[(.+?)counter-espionage(.+?)\%/s";	
-	$scanpattern['fr']	= "/Ressources.sur(.){1,25}\[(.+?)contre-espionnage(.+?)\%/s";	
+	$scanpattern['de']	= "/Rohstoffe.auf(.){1,25}\[(.+?)Spionageabwehr(.+?)\%/s";
+	$scanpattern['org']	= "/Resources.at(.){1,25}\[(.+?)counter-espionage(.+?)\%/s";
+	$scanpattern['fr']	= "/Ressources.sur(.){1,25}\[(.+?)contre-espionnage(.+?)\%/s";
 	$scanpattern['hr']	= "/Resursi.na(.){1,25}\[(.+?)špijunaže(.+?)\%/s";
+	$scanpattern['ar']	= "/Recursos.en(.){1,25}\[(.+?)captura(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -101,7 +102,7 @@ if(!function_exists('ogame_scan'))
 			$build['org']		= "/(Building)/";
 			$research['org']	= "/(Research)(?!( Lab| Network))/";
 			$chance['org']		= "/(Chance)(.*)/";
-		
+
 			//French
 			$line_1[2]			= "/(M".utf8_encode('é')."tal).{1,}(Cristal)/";
 			$line_1[3]			= "/(Métal).{1,}(Cristal)/";
@@ -117,7 +118,7 @@ if(!function_exists('ogame_scan'))
 			$build['fr']		= "/(Bâtiment)/";
 			$research['fr']		= "/(?<!Laboratoire de )(Recherche)(?! intergalactique)/";
 			$chance['fr']		= "/(Probabilité)(.*)/";
-		
+
 			//Croatian
 			$line_1[4]				= "/(Metal).{1,}(Kristal)/";
 			$line_2[4]				= "/(Deuterij).{1,}(Energija)/";
@@ -132,9 +133,25 @@ if(!function_exists('ogame_scan'))
 			$build['hr']			= "/(Gradi se)/";
 			$research['hr']			= "/(Istraživanje)/";
 			$chance['hr']			= "/(Šansa za obranu od špijunaže)(.*)/";
-			
+
+			//Argentine
+			$line_1[5]			= "/(Metal).{1,}(Cristal)/";
+			$line_2[5]			= "/(Deuterio).{1,}(Energia)/";
+			$header['ar']		= "/(Recursos en .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['ar']		= "/(Actividad)(?!( significa| en))/";
+			$activity_exp['ar']	= "/La actividad significa que el jugador espiado estubo activo en el planeta o que otro jugador hiso contacto de flota con el planeta escaneado\./";
+			$probs_act['ar']	= "/(Tu espionaje .*)([1-5][0-9])(.*)\./";
+			$probs['ar']		= "/(Tu espionaje .*)\./";
+			$fleet['ar']		= "/(Escuadrón)/";
+			$fleet['ar_1']		= "/(Escuadr".utf8_encode('ó')."n)/";
+			$def['ar']			= "/(Defensa)/";
+			$build['ar']		= "/(Edificio)/";
+			$research['ar']		= "/(?<!Laboratorio de )(Investigación)(?! inter)/";
+			$research['ar_1']	= "/(?<!Laboratorio de )(Investigaci".utf8_encode('ó')."n)(?! inter)/";
+			$chance['ar']		= "/(Posibilidad)(.*)/";
+
         $txt=$treffer[0];
-		
+
 		//Array has to be build up
         if(substr_count($txt,"<br />")>0) 
 		{
@@ -172,9 +189,9 @@ if(!function_exists('ogame_scan'))
             for ($i=0; $i<$countrows; $i++)
 			{
                 $rows[$i]=preg_replace($header,'<tr><th class="area" colspan="6">\\1[<span class="coords">\\2</span>]\\3</th></tr>',$rows[$i]);
-				$rows[$i]=preg_replace($activity,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);				
+				$rows[$i]=preg_replace($activity,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
                 $rows[$i]=preg_replace($activity_exp,'',$rows[$i]);
-				$rows[$i]=preg_replace($probs_act,'<tr><td colspan="4" class="activity">\\1<font color="red">\\2</font>\\3</td></tr>',$rows[$i]);				
+				$rows[$i]=preg_replace($probs_act,'<tr><td colspan="4" class="activity">\\1<font color="red">\\2</font>\\3</td></tr>',$rows[$i]);
 				$rows[$i]=preg_replace($probs,'<tr><td colspan="4" class="activity">\\1</td></tr>',$rows[$i]);
                 $rows[$i]=preg_replace($fleet,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
                 $rows[$i]=preg_replace($def,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
