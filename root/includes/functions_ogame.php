@@ -60,6 +60,7 @@ if (!isset($scanpattern))
 	$scanpattern['hu']				= "/Nyersanyagok.itt(.){1,25}\[(.+?)Esély.a.kémelhárításra(.+?)\%/s";
 	$scanpattern['nl']				= "/Grondstoffen.op(.){1,25}\[(.+?)contraspionage(.+?)\%/s";
 	$scanpattern['no']				= "/Ressurser.på(.){1,25}\[(.+?)spionasjeforsvar(.+?)\%/s";
+	$scanpattern['sk']				= "/Zdroje.na(.){1,25}\[(.+?)špionáže(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -139,7 +140,7 @@ if(!function_exists('ogame_scan'))
 			$probs_act['hr']		= "/(Vaša špijunaža .*)([1-5][0-9])(.*)\./";
 			$probs['hr']			= "/(Vaša špijunaža .*)\./";
 			$fleet['hr']			= "/(Slotovi)\b/";
-			$def['hr']				= "/(Obrana)\b/";
+		//	$def['hr']				take a look at cz
 			$build['hr']			= "/(Gradi se)/";
 			$research['hr']			= "/(Istraživanje)\b/";
 			$chance['hr']			= "/(Šansa za obranu od špijunaže)\b(.*)/";
@@ -201,8 +202,8 @@ if(!function_exists('ogame_scan'))
 			$probs['cz']			= "/(Špionáž neukázala .*)\./";
 			$fleet['cz']			= "/(letek)\b/";
 			$fleet['cz_1']			= "/(Letek)\b/";
-			$def['cz']				= "/(Obrana)\b/";
-			$build['cz']			= "/(Budovy)/";
+			$def['cz_sk_hr']		= "/(Obrana)\b/";
+			$build['cz_sk']			= "/(Budovy)/";
 			$research['cz']			= "/(Výzkum)\b/";
 			$chance['cz']			= "/(Šance na odvrácení)(.*)/";
 
@@ -215,9 +216,9 @@ if(!function_exists('ogame_scan'))
 			$probs_act['dk']		= "/(Din spionage .*)([1-5][0-9])(.*)\./";
 			$probs['dk']			= "/(Din spionage .*)\./";
 			$fleet['dk']			= "/(Flåder)\b/";
-			$def['dk']				= "/(?<!spionage )(Forsvar)\b/";
-			$build['dk']			= "/(Bygning)\b/";
-			$research['dk']			= "/(Forskning)\b/";
+			$def['dk_no']			= "/(?<!spionage )(Forsvar(?!:))\b/";
+			$build['dk_no']			= "/(Bygning)\b/";
+			$research['dk_no']		= "/(Forskning)\b/";
 			$chance['dk']			= "/(Chancen)\b(.*)/";
 
 			//Finnish
@@ -274,10 +275,25 @@ if(!function_exists('ogame_scan'))
 			$probs['no']			= "/(Din spionasje .*)\./";
 			$fleet['no']			= "/(flåter)\b/";
 			$fleet['no_1']			= "/(Flåter)\b/";
-			$def['no']				= "/(Forsvar)\b/";
-			$build['no']			= "/(Bygning)\b/";
-			$research['no']			= "/(Forskning)\b/";
+		//	$def['no']				take a look at dk
+		//	$build['no']			take a look at dk
+		//	$research['no']			take a look at dk
 			$chance['no']			= "/(Sjanse for spionasjeforsvar)(.*)/";
+
+			//Slovak
+			$line_1[14]				= "/(Kovy).{1,}(Kryštály)/";
+			$line_2[14]				= "/(Deutérium).{1,}(Energia)/";
+			$header['sk']			= "/(Zdroje na .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['sk']			= "/(Aktivity)\b(?!( betekent| in))/";
+			$activity_exp['sk']		= "/Aktivitou sa rozumie, že skenovaný hráč vykonal nejaké zmeny na planéte, alebo že flotila iného hráča je v kontakte so skenovanou planétou\./";
+			$probs_act['sk']		= "/(Výsledky špionáže .*)([1-5][0-9])(.*)\./";
+			$probs['sk']			= "/(Výsledky špionáže .*)\./";
+			$fleet['sk']			= "/(flotily)\b/";
+			$fleet['sk_1']			= "/(Flotily)\b/";
+		//	$def['sk']				take a look at cz
+		//	$build['sk']			take a look at cz
+			$research['sk']			= "/(Výskum)\b/";
+			$chance['sk']			= "/(Šanca na odvrátenie špionáže)(.*)/";
 
 		$txt=$treffer[0];
 
@@ -324,21 +340,21 @@ if(!function_exists('ogame_scan'))
 		if ($countrows>3 && $countrows<42 && $p1 && $p2){
 		for ($i=0; $i<$countrows; $i++)
 			{
-				$rows[$i]=preg_replace($header,'<tr><th class="area" colspan="6">\\1[<span class="coords">\\2</span>]\\3</th></tr>',$rows[$i]);
-				$rows[$i]=preg_replace($activity,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
+				$rows[$i]=preg_replace($header,'<tr><th class="area esp_header" colspan="6">\\1[<span class="coords">\\2</span>]\\3</th></tr>',$rows[$i]);
+				$rows[$i]=preg_replace($activity,'<tr><th class="area esp_activ" colspan="6">\\1</th></tr>',$rows[$i]);
 				$rows[$i]=preg_replace($activity_exp,'',$rows[$i]);
 				$rows[$i]=preg_replace($probs_act,'<tr><td colspan="4" class="activity">\\1<font color="red">\\2</font>\\3</td></tr>',$rows[$i]);
 				$rows[$i]=preg_replace($probs,'<tr><td colspan="4" class="activity">\\1</td></tr>',$rows[$i]);
-				$rows[$i]=preg_replace($fleet,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
-				$rows[$i]=preg_replace($def,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
-				$rows[$i]=preg_replace($build,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
-				$rows[$i]=preg_replace($research,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
+				$rows[$i]=preg_replace($fleet,'<tr><th class="area esp_fleet" colspan="6">\\1</th></tr>',$rows[$i]);
+				$rows[$i]=preg_replace($def,'<tr><th class="area esp_def" colspan="6">\\1</th></tr>',$rows[$i]);
+				$rows[$i]=preg_replace($build,'<tr><th class="area esp_build" colspan="6">\\1</th></tr>',$rows[$i]);
+				$rows[$i]=preg_replace($research,'<tr><th class="area esp_research" colspan="6">\\1</th></tr>',$rows[$i]);
 				$rows[$i]=preg_replace($chance,'<tr><th class="defense" colspan="4">\\1\\2</th></tr>',$rows[$i]);
 				if($rowsold[$i]==$rows[$i])
 				{
 					preg_match_all("/(-?(?:\.?\d)+)/",$rows[$i],$dots, PREG_SET_ORDER);
-					if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæåőű,:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűő")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæőűå,:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãőõÍűýůřŠæå")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
-					if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæőåű,:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűő")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td> </td><td> </td></tr>',$rows[$i]);
+					if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæåőűĽ,:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűőĽ")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæőűåĽ,:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãőõÍűýůřŠæåĽ")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
+					if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæőåűĽ,:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűőĽ")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td> </td><td> </td></tr>',$rows[$i]);
 				}
 			}
 				$txt=join('',$rows);
