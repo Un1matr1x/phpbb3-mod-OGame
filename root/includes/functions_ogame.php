@@ -48,7 +48,7 @@ if (!isset($scanpattern))
 	$scanpattern		= array();
 	$scanpattern['de']	= "/Rohstoffe.auf(.){1,25}\[(.+?)Spionageabwehr(.+?)\%/s";	
 	$scanpattern['org']	= "/Resources.at(.){1,25}\[(.+?)counter-espionage(.+?)\%/s";	
-	$scanpattern['fr']	= "/Ressources.sur(.){1,50}\[(.+?)contre-espionnage(.+?)\%/s";
+	$scanpattern['fr']	= "/Ressources.sur(.){1,25}\[(.+?)contre-espionnage(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -133,13 +133,14 @@ if(!function_exists('ogame_scan'))
 		$countrows=count($rows);
 		for ($i=0; $i<$countrows; $i++)
 		{
-			if (($rows[$i] == "<br />") OR ($rows[$i] == "\n") OR ($rows[$i] == "	"))
+			$rows[$i] = trim($rows[$i]);
+			if (!$rows[$i])
 			{
 				unset ($rows[$i]);
 			}
 		}
 		$rows = $rowsold = array_values(array_unique($rows));
-		//print_r ($rows);		
+		//print_r ($rows);
         $countrows=count($rows);
 		$precount = count($line_1);
 		$p1 = $p2 = 0;
@@ -167,8 +168,8 @@ if(!function_exists('ogame_scan'))
                 if($rowsold[$i]==$rows[$i])
 				{
                     preg_match_all("/(-?(?:\.?\d)+)/",$rows[$i],$dots, PREG_SET_ORDER);
-                    if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-z:`".utf8_encode("ßöäüáàâéèêíìîóòôúùû")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-z:`".utf8_encode("ßöäüáàâéèêíìîóòôúùû")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
-                    if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-z:`".utf8_encode("ßöäüáàâéèêíìîóòôúùû")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key" colspan="3">\\1</td><td class="value" colspan="1">\\2</td></tr>',$rows[$i]);
+                    if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-z:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉ")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-z:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉ")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
+                    if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-z:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉ")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key" colspan="3">\\1</td><td class="value" colspan="1">\\2</td></tr>',$rows[$i]);
                 }
             }
                 $txt=join('',$rows);
