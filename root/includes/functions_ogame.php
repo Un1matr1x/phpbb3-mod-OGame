@@ -57,6 +57,7 @@ if (!isset($scanpattern))
 	$scanpattern['cz']				= "/Suroviny.na(.){1,25}\[(.+?)odvrácení.špionáže(.+?)\%/s";
 	$scanpattern['dk']				= "/Ressurcer.på(.){1,25}\[(.+?)spionage.forsvar(.+?)\%/s";
 	$scanpattern['fi']				= "/Resurssit(.){1,25}\[(.+?)Vastavakoilun.mahdollisuus(.+?)\%/s";
+	$scanpattern['hu']				= "/Nyersanyagok itt(.){1,25}\[(.+?)Esély.a.kémelhárításra(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -232,6 +233,20 @@ if(!function_exists('ogame_scan'))
 			$research['fi']			= "/(Tutkimus)\b/";
 			$chance['fi']			= "/(Vastavakoilun)\b(.*)/";
 
+			//Hungarian
+			$line_1[13]				= "/(Fém).{1,}(Kristály)/";
+			$line_2[13]				= "/(Deutérium).{1,}(Energia)/";
+			$header['hu']			= "/(Nyersanyagok itt.*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['hu']			= "/(Aktivitás)\b(?!( azt| a))/";
+			$activity_exp['hu']		= "/Az aktivitás azt jelenti, hogy a megvizsgált bolygó aktív volt vagy egy másik játékos flottája kapcsolatban állt a megvizsgált bolygóval\./";
+			$probs_act['hu']		= "/(A Kémed nem .*)([1-5][0-9])(.*)\./";
+			$probs['hu']			= "/(A Kémed nem .*)\./";
+			$fleet['hu']			= "/(Flották)\b/";
+			$def['hu']				= "/(Védelem)\b/";
+			$build['hu']			= "/(Építés)\b/";
+			$research['hu']			= "/(Kutatás)\b/";
+			$chance['hu']			= "/(Esély a kémelhárításra)(.*)/";
+
 		$txt=$treffer[0];
 
 		//Array has to be build up
@@ -287,8 +302,8 @@ if(!function_exists('ogame_scan'))
 				if($rowsold[$i]==$rows[$i])
 				{
 					preg_match_all("/(-?(?:\.?\d)+)/",$rows[$i],$dots, PREG_SET_ORDER);
-					if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæå:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæå")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæå:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæå")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
-					if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæå:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæå")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td> </td><td> </td></tr>',$rows[$i]);
+					if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæåőű:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűő")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæőűå:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãőõÍűýůřŠæå")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
+					if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæőåű:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűő")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td> </td><td> </td></tr>',$rows[$i]);
 				}
 			}
 				$txt=join('',$rows);
