@@ -56,6 +56,7 @@ if (!isset($scanpattern))
 	$scanpattern['pt_br']			= "/Recursos.no(.){1,25}\[(.+?)contra-espionagem(.+?)\%/s";
 	$scanpattern['cz']				= "/Suroviny.na(.){1,25}\[(.+?)odvrácení.špionáže(.+?)\%/s";
 	$scanpattern['dk']				= "/Ressurcer.på(.){1,25}\[(.+?)spionage.forsvar(.+?)\%/s";
+	$scanpattern['fi']				= "/Resurssit(.){1,25}\[(.+?)Vastavakoilun.mahdollisuus(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -215,6 +216,21 @@ if(!function_exists('ogame_scan'))
 			$build['dk']			= "/(Bygning)\b/";
 			$research['dk']			= "/(Forskning)\b/";
 			$chance['dk']			= "/(Chancen)\b(.*)/";
+
+			//Finnish
+			$line_1[12]				= "/(Metalli).{1,}(Kristalli)/";
+			$line_2[12]				= "/(Deuterium).{1,}(Energia)/";
+			$header['fi']			= "/(Resurssit .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['fi']			= "/(Aktiivisuus)\b(?!( tarkoittaa| viimeiseen))/";
+			$activity_exp['fi']		= "/Aktiivisuus tarkoittaa, että skannattu pelaaja on ollut aktiivinen kyseisellä planeetalla, tai toisella pelaajalla on yhteys skannaamaasi planeettaan\./";
+			$probs_act['fi']		= "/(Vakoilutoimintasi ei .*)([1-5][0-9])(.*)\./";
+			$probs['fi']			= "/(Vakoilutoimintasi ei .*)\./";
+			$fleet['fi']			= "/(laivueet)\b/";
+			$fleet['fi_1']			= "/(Laivueet)\b/";
+			$def['fi']				= "/(Puolustus)\b/";
+			$build['fi']			= "/(Rakennus)\b/";
+			$research['fi']			= "/(Tutkimus)\b/";
+			$chance['fi']			= "/(Vastavakoilun)\b(.*)/";
 
 		$txt=$treffer[0];
 
