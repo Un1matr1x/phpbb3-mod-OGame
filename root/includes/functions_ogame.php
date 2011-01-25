@@ -61,6 +61,7 @@ if (!isset($scanpattern))
 	$scanpattern['nl']				= "/Grondstoffen.op(.){1,25}\[(.+?)contraspionage(.+?)\%/s";
 	$scanpattern['no']				= "/Ressurser.på(.){1,25}\[(.+?)spionasjeforsvar(.+?)\%/s";
 	$scanpattern['sk']				= "/Zdroje.na(.){1,25}\[(.+?)špionáže(.+?)\%/s";
+	$scanpattern['se']				= "/Resurser.på(.){1,25}\[(.+?)upptäckt(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -211,14 +212,14 @@ if(!function_exists('ogame_scan'))
 			$line_1[11]				= "/(Metal).{1,}(Krystal)/";
 			$line_2[11]				= "/(Deuterium).{1,}(Energi)/";
 			$header['dk']			= "/(Ressurcer på .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-			$activity['dk_no']		= "/(Aktivitet)\b(?!( betyder| ved| betyr| på))/";
+			$activity['dk_no_se']	= "/(Aktivitet)\b(?!( betyder| ved| betyr| på| menas| där))/";
 			$activity_exp['dk']		= "/Aktivitet betyder at den scannede spiller har været aktiv på den planet, eller en anden spiller har haft flådekontakt med den planet du har scannet\./";
 			$probs_act['dk']		= "/(Din spionage .*)([1-5][0-9])(.*)\./";
 			$probs['dk']			= "/(Din spionage .*)\./";
 			$fleet['dk']			= "/(Flåder)\b/";
 			$def['dk_no']			= "/(?<!spionage )(Forsvar(?!:))\b/";
 			$build['dk_no']			= "/(Bygning)\b/";
-			$research['dk_no']		= "/(Forskning)\b/";
+			$research['dk_no_se']	= "/(Forskning)\b/";
 			$chance['dk']			= "/(Chancen)\b(.*)/";
 
 			//Finnish
@@ -281,8 +282,8 @@ if(!function_exists('ogame_scan'))
 			$chance['no']			= "/(Sjanse for spionasjeforsvar)(.*)/";
 
 			//Slovak
-			$line_1[14]				= "/(Kovy).{1,}(Kryštály)/";
-			$line_2[14]				= "/(Deutérium).{1,}(Energia)/";
+			$line_1[16]				= "/(Kovy).{1,}(Kryštály)/";
+			$line_2[16]				= "/(Deutérium).{1,}(Energia)/";
 			$header['sk']			= "/(Zdroje na .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 			$activity['sk']			= "/(Aktivity)\b(?!( betekent| in))/";
 			$activity_exp['sk']		= "/Aktivitou sa rozumie, že skenovaný hráč vykonal nejaké zmeny na planéte, alebo že flotila iného hráča je v kontakte so skenovanou planétou\./";
@@ -294,6 +295,21 @@ if(!function_exists('ogame_scan'))
 		//	$build['sk']			take a look at cz
 			$research['sk']			= "/(Výskum)\b/";
 			$chance['sk']			= "/(Šanca na odvrátenie špionáže)(.*)/";
+
+			//Swedish
+		//	$line_1					take a look at no
+		//	$line_2					take a look at no
+			$header['se']			= "/(Resurser på .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+		//	$activity['se']			take a look at dk
+			$activity_exp['se']		= "/Aktivitet menas att den scannade spelaren har varit aktiv på den planeten eller att en annan spelare har haft flottkontakt med planeten du scannade\./";
+			$probs_act['se']		= "/(Din spionagerapport .*)([1-5][0-9])(.*)\./";
+			$probs['se']			= "/(Din spionagerapport .*)\./";
+			$fleet['se']			= "/(flottor)\b/";
+			$fleet['se_1']			= "/(Flottor)\b/";
+			$def['se']				= "/(Försvar)\b/";
+			$build['se']			= "/(Byggnader)/";
+		//	$research['se']			take a look at dk
+			$chance['se']			= "/(Chans för upptäckt)(.*)/";
 
 		$txt=$treffer[0];
 
