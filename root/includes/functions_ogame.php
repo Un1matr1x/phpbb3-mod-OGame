@@ -368,6 +368,12 @@ if(!function_exists('ogame_scan'))
 				$p2=preg_match($line_2[$i],$rows[2]);
 			}
 		}
+
+		//All chars a Shipname, Building, ... could have
+		$name = '[A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæåőűĽ'
+		  .utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűőĽ").
+				'\-\t&;,:` ]';
+
 		if ($countrows>3 && $countrows<42 && $p1 && $p2){
 		for ($i=0; $i<$countrows; $i++)
 			{
@@ -384,8 +390,8 @@ if(!function_exists('ogame_scan'))
 				if($rowsold[$i]==$rows[$i])
 				{
 					preg_match_all("/(-?(?:\.?\d)+)/",$rows[$i],$dots, PREG_SET_ORDER);
-					if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæåőűĽ,:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűőĽ")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæőűåĽ,:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãőõÍűýůřŠæåĽ")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
-					if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæőåűĽ,:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűőĽ")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td> </td><td> </td></tr>',$rows[$i]);
+					if(count($dots)==2) $rows[$i]=preg_replace("/($name+)(-?(?:\.?\d)+)($name+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
+					if(count($dots)==1) $rows[$i]=preg_replace("/($name+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td> </td><td> </td></tr>',$rows[$i]);
 				}
 			}
 				$txt=join('',$rows);
