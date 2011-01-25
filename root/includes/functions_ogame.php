@@ -45,12 +45,12 @@ $text = preg_replace($search_kb, $replace_kb, $text);
 //EspionageReports
 if (!isset($scanpattern))
 {
-	$scanpattern		= array();
-	$scanpattern['de']	= "/Rohstoffe.auf(.){1,25}\[(.+?)Spionageabwehr(.+?)\%/s";
-	$scanpattern['org']	= "/Resources.at(.){1,25}\[(.+?)counter-espionage(.+?)\%/s";
-	$scanpattern['fr']	= "/Ressources.sur(.){1,25}\[(.+?)contre-espionnage(.+?)\%/s";
-	$scanpattern['hr']	= "/Resursi.na(.){1,25}\[(.+?)špijunaže(.+?)\%/s";
-	$scanpattern['ar']	= "/Recursos.en(.){1,25}\[(.+?)captura(.+?)\%/s";
+	$scanpattern					= array();
+	$scanpattern['de']				= "/Rohstoffe.auf(.){1,25}\[(.+?)Spionageabwehr(.+?)\%/s";
+	$scanpattern['org']				= "/Resources.at(.){1,25}\[(.+?)counter-espionage(.+?)\%/s";
+	$scanpattern['fr']				= "/Ressources.sur(.){1,25}\[(.+?)contre-espionnage(.+?)\%/s";
+	$scanpattern['hr']				= "/Resursi.na(.){1,25}\[(.+?)špijunaže(.+?)\%/s";
+	$scanpattern['ar']				= "/Recursos.en(.){1,25}\[(.+?)captura(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -58,66 +58,66 @@ if(!function_exists('ogame_scan'))
 	function ogame_scan($treffer)
 	{
 
-			$line_1				= array();
-			$line_2				= array();
-			$header				= array();
-			$activity			= array();
-			$activity_exp		= array();
-			$probs				= array();
-			$fleet				= array();
-			$def				= array();
-			$build				= array();
-			$research			= array();
-			$chance				= array();
+			$line_1					= array();
+			$line_2					= array();
+			$header					= array();
+			$activity				= array();
+			$activity_exp			= array();
+			$probs					= array();
+			$fleet					= array();
+			$def					= array();
+			$build					= array();
+			$research				= array();
+			$chance					= array();
 
 			//German
-			$line_1[0]			= "/(Metall).{1,}(Kristall)/";
-			$line_2[0]			= "/(Deuterium).{1,}(Energie)/";
-			$header['de']		= "/(Rohstoffe auf .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-			$activity['de']		= "/(Aktivit".utf8_encode('ä')."t)(?!( auf| bedeutet))/";
-			$activity['de_1']	= "/(Aktivit&auml;t)(?!( auf| bedeutet|  innerhalb))/";
-			$activity['de_2']	= "/(Aktivität)(?!( auf| bedeutet| innerhalb))/";
-			$activity_exp['de']	= "/Aktivität bedeutet, dass entweder der gescannte Spieler in dieser Zeit auf dem Planeten aktiv war oder ein anderer Spieler mit diesem Planeten Flottenkontakt hatte\./";
-			$probs_act['de']	= "/(Dein Sondenscan .*)([1-5][0-9])(.*)\./";
-			$probs['de']		= "/(Dein Sondenscan .*)\./";
-			$fleet['de']		= "/(Flotten)/";
-			$def['de']			= "/(Verteidigung)/";
-			$build['de']		= "/(Geb&auml;ude)/";
-			$build['de_1']		= "/(Geb".utf8_encode("ä")."ude)/";
-			$build['de_2']		= "/(Gebäude)/";
-			$research['de']		= "/(Forschung)\b/";
-			$chance['de']		= "/(Chance)(.*)/";
+			$line_1[0]				= "/(Metall).{1,}(Kristall)/";
+			$line_2[0]				= "/(Deuterium).{1,}(Energie)/";
+			$header['de']			= "/(Rohstoffe auf .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['de']			= "/(Aktivit".utf8_encode('ä')."t)(?!( auf| bedeutet))/";
+			$activity['de_1']		= "/(Aktivit&auml;t)(?!( auf| bedeutet|  innerhalb))/";
+			$activity['de_2']		= "/(Aktivität)(?!( auf| bedeutet| innerhalb))/";
+			$activity_exp['de']		= "/Aktivität bedeutet, dass entweder der gescannte Spieler in dieser Zeit auf dem Planeten aktiv war oder ein anderer Spieler mit diesem Planeten Flottenkontakt hatte\./";
+			$probs_act['de']		= "/(Dein Sondenscan .*)([1-5][0-9])(.*)\./";
+			$probs['de']			= "/(Dein Sondenscan .*)\./";
+			$fleet['de']			= "/(Flotten)/";
+			$def['de']				= "/(Verteidigung)/";
+			$build['de']			= "/(Geb&auml;ude)/";
+			$build['de_1']			= "/(Geb".utf8_encode("ä")."ude)/";
+			$build['de_2']			= "/(Gebäude)/";
+			$research['de']			= "/(Forschung)\b/";
+			$chance['de']			= "/(Chance)(.*)/";
 
 			//English (GB)
-			$line_1[1]			= "/(Metal).{1,}(Crystal)/";
-			$line_2[1]			= "/(Deuterium).{1,}(Energy)/";
-			$header['org']		= "/(Resources at .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-			$activity['org']	= "/(Activity)(?!( on| within| means))/";
-			$activity_exp['org']= "/Activity means that the scanned player has been active on that planet or another player had fleet contact with the planet you scanned\./";
-			$probs_act['org']	= "/(Your espionage .*)([1-5][0-9])(.*)\./";
-			$probs['org']		= "/(Your espionage .*)\./";
-			$fleet['org']		= "/(fleets)/";
-			$fleet['org_1']		= "/(Fleets)/";
-			$def['org']			= "/(Defense)/";
-			$build['org']		= "/(Building)/";
-			$research['org']	= "/(Research)(?!( Lab| Network))/";
-			$chance['org']		= "/(Chance)(.*)/";
+			$line_1[1]				= "/(Metal).{1,}(Crystal)/";
+			$line_2[1]				= "/(Deuterium).{1,}(Energy)/";
+			$header['org']			= "/(Resources at .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['org']		= "/(Activity)(?!( on| within| means))/";
+			$activity_exp['org']	= "/Activity means that the scanned player has been active on that planet or another player had fleet contact with the planet you scanned\./";
+			$probs_act['org']		= "/(Your espionage .*)([1-5][0-9])(.*)\./";
+			$probs['org']			= "/(Your espionage .*)\./";
+			$fleet['org']			= "/(fleets)/";
+			$fleet['org_1']			= "/(Fleets)/";
+			$def['org']				= "/(Defense)/";
+			$build['org']			= "/(Building)/";
+			$research['org']		= "/(Research)(?!( Lab| Network))/";
+			$chance['org']			= "/(Chance)(.*)/";
 
 			//French
-			$line_1[2]			= "/(M".utf8_encode('é')."tal).{1,}(Cristal)/";
-			$line_1[3]			= "/(Métal).{1,}(Cristal)/";
-			$line_2[2]			= "/(Deut".utf8_encode('é')."rium).{1,}(Energie)/";
-			$line_2[3]			= "/(Deutérium).{1,}(Energie)/";
-			$header['fr']		= "/(Ressources sur .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-			$activity['fr']		= "/(Activité)(?!( signifie| sur| means))/";
-			$activity_exp['fr']	= "/Activité signifie que le joueur scanné était actif sur la planète au moment du scan ou qu`un autre joueur a eu un contact de flotte avec cette planète à ce moment là\./";
-			$probs_act['fr']	= "/(Le scanner .*)([1-5][0-9])(.*)\./";
-			$probs['fr']		= "/(Le scanner .*)\./";
-			$fleet['fr']		= "/(Flottes)/";
-			$def['fr']			= "/(Défense)/";
-			$build['fr']		= "/(Bâtiment)/";
-			$research['fr']		= "/(?<!Laboratoire de )(Recherche)(?! intergalactique)/";
-			$chance['fr']		= "/(Probabilité)(.*)/";
+			$line_1[2]				= "/(M".utf8_encode('é')."tal).{1,}(Cristal)/";
+			$line_1[3]				= "/(Métal).{1,}(Cristal)/";
+			$line_2[2]				= "/(Deut".utf8_encode('é')."rium).{1,}(Energie)/";
+			$line_2[3]				= "/(Deutérium).{1,}(Energie)/";
+			$header['fr']			= "/(Ressources sur .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['fr']			= "/(Activité)(?!( signifie| sur| means))/";
+			$activity_exp['fr']		= "/Activité signifie que le joueur scanné était actif sur la planète au moment du scan ou qu`un autre joueur a eu un contact de flotte avec cette planète à ce moment là\./";
+			$probs_act['fr']		= "/(Le scanner .*)([1-5][0-9])(.*)\./";
+			$probs['fr']			= "/(Le scanner .*)\./";
+			$fleet['fr']			= "/(Flottes)/";
+			$def['fr']				= "/(Défense)/";
+			$build['fr']			= "/(Bâtiment)/";
+			$research['fr']			= "/(?<!Laboratoire de )(Recherche)(?! intergalactique)/";
+			$chance['fr']			= "/(Probabilité)(.*)/";
 
 			//Croatian
 			$line_1[4]				= "/(Metal).{1,}(Kristal)/";
@@ -135,20 +135,20 @@ if(!function_exists('ogame_scan'))
 			$chance['hr']			= "/(Šansa za obranu od špijunaže)(.*)/";
 
 			//Argentine
-			$line_1[5]			= "/(Metal).{1,}(Cristal)/";
-			$line_2[5]			= "/(Deuterio).{1,}(Energia)/";
-			$header['ar']		= "/(Recursos en .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-			$activity['ar']		= "/(Actividad)(?!( significa| en))/";
-			$activity_exp['ar']	= "/La actividad significa que el jugador espiado estubo activo en el planeta o que otro jugador hiso contacto de flota con el planeta escaneado\./";
-			$probs_act['ar']	= "/(Tu espionaje .*)([1-5][0-9])(.*)\./";
-			$probs['ar']		= "/(Tu espionaje .*)\./";
-			$fleet['ar']		= "/(Escuadrón)/";
-			$fleet['ar_1']		= "/(Escuadr".utf8_encode('ó')."n)/";
-			$def['ar']			= "/(Defensa)/";
-			$build['ar']		= "/(Edificio)/";
-			$research['ar']		= "/(?<!Laboratorio de )(Investigación)(?! inter)/";
-			$research['ar_1']	= "/(?<!Laboratorio de )(Investigaci".utf8_encode('ó')."n)(?! inter)/";
-			$chance['ar']		= "/(Posibilidad)(.*)/";
+			$line_1[5]				= "/(Metal).{1,}(Cristal)/";
+			$line_2[5]				= "/(Deuterio).{1,}(Energia)/";
+			$header['ar']			= "/(Recursos en .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['ar']			= "/(Actividad)(?!( significa| en))/";
+			$activity_exp['ar']		= "/La actividad significa que el jugador espiado estubo activo en el planeta o que otro jugador hiso contacto de flota con el planeta escaneado\./";
+			$probs_act['ar']		= "/(Tu espionaje .*)([1-5][0-9])(.*)\./";
+			$probs['ar']			= "/(Tu espionaje .*)\./";
+			$fleet['ar']			= "/(Escuadrón)/";
+			$fleet['ar_1']			= "/(Escuadr".utf8_encode('ó')."n)/";
+			$def['ar']				= "/(Defensa)/";
+			$build['ar']			= "/(Edificio)/";
+			$research['ar']			= "/(?<!Laboratorio de )(Investigación)(?! inter)/";
+			$research['ar_1']		= "/(?<!Laboratorio de )(Investigaci".utf8_encode('ó')."n)(?! inter)/";
+			$chance['ar']			= "/(Posibilidad)(.*)/";
 
 		$txt=$treffer[0];
 
