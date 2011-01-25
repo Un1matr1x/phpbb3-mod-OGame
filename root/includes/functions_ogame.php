@@ -62,6 +62,7 @@ if (!isset($scanpattern))
 	$scanpattern['no']				= "/Ressurser.på(.){1,25}\[(.+?)spionasjeforsvar(.+?)\%/s";
 	$scanpattern['sk']				= "/Zdroje.na(.){1,25}\[(.+?)špionáže(.+?)\%/s";
 	$scanpattern['se']				= "/Resurser.på(.){1,25}\[(.+?)upptäckt(.+?)\%/s";
+	$scanpattern['ro']				= "/Resurse.la(.){1,25}\[(.+?)contra-spionaj(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -310,6 +311,20 @@ if(!function_exists('ogame_scan'))
 			$build['se']			= "/(Byggnader)/";
 		//	$research['se']			take a look at dk
 			$chance['se']			= "/(Chans för upptäckt)(.*)/";
+
+			//Romanian
+			$line_1[17]				= "/(Metal).{1,}(Cristal)/";
+			$line_2[17]				= "/(Deuteriu).{1,}(Energie)/";
+			$header['ro']			= "/(Resurse la .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['ro']			= "/(Activitate)\b(?! pe)/";
+			$activity_exp['ro']		= "/Activitatea inseamna ca jucatorul scanat a fost activ pe planeta sau un alt jucator a avut contact cu flota pe planeta scanata de tine\./";
+			$probs_act['ro']		= "/(Proba ta de spionaj .*)([1-5][0-9])(.*)\./";
+			$probs['ro']			= "/(Proba ta de spionaj .*)\./";
+			$fleet['ro']			= "/(Flote)\b/";
+			$def['ro']				= "/(Aparare)\b/";
+			$build['ro']			= "/(Cladire)\b/";
+			$research['ro']			= "/(?<!de )(Cercetari)\b/";
+			$chance['ro']			= "/(Sansa de contra-spionaj)(.*)/";
 
 		$txt=$treffer[0];
 
