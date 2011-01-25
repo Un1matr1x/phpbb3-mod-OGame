@@ -59,6 +59,7 @@ if (!isset($scanpattern))
 	$scanpattern['fi']				= "/Resurssit(.){1,25}\[(.+?)Vastavakoilun.mahdollisuus(.+?)\%/s";
 	$scanpattern['hu']				= "/Nyersanyagok.itt(.){1,25}\[(.+?)Esély.a.kémelhárításra(.+?)\%/s";
 	$scanpattern['nl']				= "/Grondstoffen.op(.){1,25}\[(.+?)contraspionage(.+?)\%/s";
+	$scanpattern['no']				= "/Ressurser.på(.){1,25}\[(.+?)spionasjeforsvar(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -209,7 +210,7 @@ if(!function_exists('ogame_scan'))
 			$line_1[11]				= "/(Metal).{1,}(Krystal)/";
 			$line_2[11]				= "/(Deuterium).{1,}(Energi)/";
 			$header['dk']			= "/(Ressurcer på .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-			$activity['dk']			= "/(Aktivitet)\b(?!( betyder| ved))/";
+			$activity['dk_no']		= "/(Aktivitet)\b(?!( betyder| ved| betyr| på))/";
 			$activity_exp['dk']		= "/Aktivitet betyder at den scannede spiller har været aktiv på den planet, eller en anden spiller har haft flådekontakt med den planet du har scannet\./";
 			$probs_act['dk']		= "/(Din spionage .*)([1-5][0-9])(.*)\./";
 			$probs['dk']			= "/(Din spionage .*)\./";
@@ -263,6 +264,21 @@ if(!function_exists('ogame_scan'))
 			$research['nl']			= "/(Onderzoek)\b/";
 			$chance['nl']			= "/(Kans op contraspionage)(.*)/";
 
+			//Norwegian
+			$line_1[15]				= "/(Metall).{1,}(Krystall)/";
+			$line_2[15]				= "/(Deuterium).{1,}(Energi)/";
+			$header['no']			= "/(Ressurser på.*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+		//	$activity['no']			take a look at dk
+			$activity_exp['no']		= "/Aktivitet betyr at spilleren du skannet har vært aktiv på planeten eller en annen spiller har hatt flåtekontakt med planeten du skannet\./";
+			$probs_act['no']		= "/(Din spionasje .*)([1-5][0-9])(.*)\./";
+			$probs['no']			= "/(Din spionasje .*)\./";
+			$fleet['no']			= "/(flåter)\b/";
+			$fleet['no_1']			= "/(Flåter)\b/";
+			$def['no']				= "/(Forsvar)\b/";
+			$build['no']			= "/(Bygning)\b/";
+			$research['no']			= "/(Forskning)\b/";
+			$chance['no']			= "/(Sjanse for spionasjeforsvar)(.*)/";
+
 		$txt=$treffer[0];
 
 		//Array has to be build up
@@ -274,11 +290,14 @@ if(!function_exists('ogame_scan'))
 		{
 			$rows=explode("\n",$txt);
 		}
-		
-		//Remove FF-c&p-generated parts
+
 		$countrows=count($rows);
 		for ($i=0; $i<$countrows; $i++)
 		{
+			//Why the hell does the GF use . & , for thousands separator? lets fix this
+			$rows[$i]=preg_replace("/([0-9]),([0-9])/",'\\1.\\2',$rows[$i]);
+
+			//We don't need lines without content
 			$rows[$i] = trim($rows[$i]);
 			if (!$rows[$i])
 			{
@@ -318,8 +337,8 @@ if(!function_exists('ogame_scan'))
 				if($rowsold[$i]==$rows[$i])
 				{
 					preg_match_all("/(-?(?:\.?\d)+)/",$rows[$i],$dots, PREG_SET_ORDER);
-					if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæåőű:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűő")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæőűå:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãőõÍűýůřŠæå")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
-					if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæőåű:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűő")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td> </td><td> </td></tr>',$rows[$i]);
+					if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæåőű,:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűő")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæőűå,:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãőõÍűýůřŠæå")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
+					if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæőåű,:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűő")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td> </td><td> </td></tr>',$rows[$i]);
 				}
 			}
 				$txt=join('',$rows);
