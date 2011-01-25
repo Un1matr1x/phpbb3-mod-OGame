@@ -57,7 +57,8 @@ if (!isset($scanpattern))
 	$scanpattern['cz']				= "/Suroviny.na(.){1,25}\[(.+?)odvrácení.špionáže(.+?)\%/s";
 	$scanpattern['dk']				= "/Ressurcer.på(.){1,25}\[(.+?)spionage.forsvar(.+?)\%/s";
 	$scanpattern['fi']				= "/Resurssit(.){1,25}\[(.+?)Vastavakoilun.mahdollisuus(.+?)\%/s";
-	$scanpattern['hu']				= "/Nyersanyagok itt(.){1,25}\[(.+?)Esély.a.kémelhárításra(.+?)\%/s";
+	$scanpattern['hu']				= "/Nyersanyagok.itt(.){1,25}\[(.+?)Esély.a.kémelhárításra(.+?)\%/s";
+	$scanpattern['nl']				= "/Grondstoffen.op(.){1,25}\[(.+?)contraspionage(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -246,6 +247,21 @@ if(!function_exists('ogame_scan'))
 			$build['hu']			= "/(Építés)\b/";
 			$research['hu']			= "/(Kutatás)\b/";
 			$chance['hu']			= "/(Esély a kémelhárításra)(.*)/";
+
+			//Dutch
+			$line_1[14]				= "/(Metaal).{1,}(Kristal)/";
+			$line_2[14]				= "/(Deuterium).{1,}(Energie)/";
+			$header['nl']			= "/(Grondstoffen op.*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['nl']			= "/(Activiteit)\b(?!( betekent| in))/";
+			$activity_exp['nl']		= "/Activiteit betekent dat de gescande speler actief was op deze planeet of dat er een andere speler vlootcontact heeft gemaakt met deze planeet\./";
+			$probs_act['nl']		= "/(Je spionage .*)([1-5][0-9])(.*)\./";
+			$probs['nl']			= "/(Je spionage .*)\./";
+			$fleet['nl']			= "/(vloten)\b/";
+			$fleet['nl_1']			= "/(Vloten)\b/";
+			$def['nl']				= "/(Verdediging)\b/";
+			$build['nl']			= "/(Gebouw)\b/";
+			$research['nl']			= "/(Onderzoek)\b/";
+			$chance['nl']			= "/(Kans op contraspionage)(.*)/";
 
 		$txt=$treffer[0];
 
