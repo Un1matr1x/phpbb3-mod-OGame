@@ -69,7 +69,7 @@ if(!function_exists('ogame_scan'))
 			$build				= array();
 			$research			= array();
 			$chance				= array();
-			
+
 			//German
 			$line_1[0]			= "/(Metall).{1,}(Kristall)/";
 			$line_2[0]			= "/(Deuterium).{1,}(Energie)/";
@@ -87,7 +87,7 @@ if(!function_exists('ogame_scan'))
 			$build['de_2']		= "/(Gebäude)/";
 			$research['de']		= "/(Forschung)\b/";
 			$chance['de']		= "/(Chance)(.*)/";
-		
+
 			//English (GB)
 			$line_1[1]			= "/(Metal).{1,}(Crystal)/";
 			$line_2[1]			= "/(Deuterium).{1,}(Energy)/";
@@ -150,17 +150,17 @@ if(!function_exists('ogame_scan'))
 			$research['ar_1']	= "/(?<!Laboratorio de )(Investigaci".utf8_encode('ó')."n)(?! inter)/";
 			$chance['ar']		= "/(Posibilidad)(.*)/";
 
-        $txt=$treffer[0];
+		$txt=$treffer[0];
 
 		//Array has to be build up
-        if(substr_count($txt,"<br />")>0) 
+		if(substr_count($txt,"<br />")>0) 
 		{
 			$rows=explode("<br />",$txt);
 		}
-        else
+		else
 		{
 			$rows=explode("\n",$txt);
-        }
+		}
 		
 		//Remove FF-c&p-generated parts
 		$countrows=count($rows);
@@ -174,7 +174,7 @@ if(!function_exists('ogame_scan'))
 		}
 		$rows = $rowsold = array_values(array_unique($rows));
 		//print_r ($rows);
-        $countrows=count($rows);
+		$countrows=count($rows);
 		$precount = count($line_1);
 		$p1 = $p2 = 0;
 		for ($i=0; $i<$precount; $i++)
@@ -185,31 +185,31 @@ if(!function_exists('ogame_scan'))
 				$p2=preg_match($line_2[$i],$rows[2]);
 			}
 		}
-        if ($countrows>3 && $countrows<42 && $p1 && $p2){
-            for ($i=0; $i<$countrows; $i++)
+		if ($countrows>3 && $countrows<42 && $p1 && $p2){
+		for ($i=0; $i<$countrows; $i++)
 			{
-                $rows[$i]=preg_replace($header,'<tr><th class="area" colspan="6">\\1[<span class="coords">\\2</span>]\\3</th></tr>',$rows[$i]);
+				$rows[$i]=preg_replace($header,'<tr><th class="area" colspan="6">\\1[<span class="coords">\\2</span>]\\3</th></tr>',$rows[$i]);
 				$rows[$i]=preg_replace($activity,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
-                $rows[$i]=preg_replace($activity_exp,'',$rows[$i]);
+				$rows[$i]=preg_replace($activity_exp,'',$rows[$i]);
 				$rows[$i]=preg_replace($probs_act,'<tr><td colspan="4" class="activity">\\1<font color="red">\\2</font>\\3</td></tr>',$rows[$i]);
 				$rows[$i]=preg_replace($probs,'<tr><td colspan="4" class="activity">\\1</td></tr>',$rows[$i]);
-                $rows[$i]=preg_replace($fleet,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
-                $rows[$i]=preg_replace($def,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
-                $rows[$i]=preg_replace($build,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
-                $rows[$i]=preg_replace($research,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
-                $rows[$i]=preg_replace($chance,'<tr><th class="defense" colspan="4">\\1\\2</th></tr>',$rows[$i]);
-                if($rowsold[$i]==$rows[$i])
+				$rows[$i]=preg_replace($fleet,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
+				$rows[$i]=preg_replace($def,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
+				$rows[$i]=preg_replace($build,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
+				$rows[$i]=preg_replace($research,'<tr><th class="area" colspan="6">\\1</th></tr>',$rows[$i]);
+				$rows[$i]=preg_replace($chance,'<tr><th class="defense" colspan="4">\\1\\2</th></tr>',$rows[$i]);
+				if($rowsold[$i]==$rows[$i])
 				{
-                    preg_match_all("/(-?(?:\.?\d)+)/",$rows[$i],$dots, PREG_SET_ORDER);
-                    if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-zž:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉž")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-zž:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉž")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
-                    if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-zž:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉž")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key" colspan="3">\\1</td><td class="value" colspan="1">\\2</td></tr>',$rows[$i]);
-                }
-            }
-                $txt=join('',$rows);
-                $txt='<div class="textWrapper"><div class="node"><table cellpadding="0" cellspacing="0" class="material spy">'.$txt.'</table></div></div>';
-            }				
-        return $txt;
-        }
+					preg_match_all("/(-?(?:\.?\d)+)/",$rows[$i],$dots, PREG_SET_ORDER);
+					if(count($dots)==2) $rows[$i]=preg_replace("/([A-Za-zž:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉž")."\-\t&; ]+)(-?(?:\.?\d)+)([A-Za-zž:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉž")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
+					if(count($dots)==1) $rows[$i]=preg_replace("/([A-Za-zž:`".utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉž")."\-\t&; ]+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td> </td><td> </td></tr>',$rows[$i]);
+				}
+			}
+				$txt=join('',$rows);
+				$txt='<div class="textWrapper"><div class="node"><table cellpadding="0" cellspacing="0" class="material spy">'.$txt.'</table></div></div>';
+			}
+		return $txt;
+		}
 }
 
 $text = preg_replace_callback($scanpattern,'ogame_scan',$text);
