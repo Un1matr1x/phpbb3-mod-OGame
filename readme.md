@@ -1,8 +1,10 @@
 phpBB 3 Modification - OGame
 ============================
 
-This is a modification for the burning board software called [phpbb 3](http://www.phpbb.com/).
+This is a modification for the burning board software [phpbb 3](http://www.phpbb.com/).
+
 Following features will be add:
+
 * "connect" your GF-Portal-ID & CR-Hosting-ID to your board profile
 * prettify CR-Hosting-Links
 * prettify Espionagereports (working for de/org/fr/hr/es/ar/mx/pt/br)
