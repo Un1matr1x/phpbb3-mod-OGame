@@ -113,7 +113,7 @@ if(!function_exists('ogame_scan'))
 			$build['de_1']			= "/(Geb".utf8_encode("ä")."ude)\b/";
 			$build['de_2']			= "/(Gebäude)\b/";
 			$research['de']			= "/(Forschung)\b/";
-			$chance['de']			= "/(Chance)(.*)/";
+			$chance['de']			= "/(Chance)\b(.*)/";
 
 			//French
 			$line_1[2]				= "/(M".utf8_encode('é')."tal).{1,}(Cristal)/";

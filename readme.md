@@ -7,7 +7,7 @@ Following features will be add:
 
 * "connect" your GF-Portal-ID & CR-Hosting-ID to your board profile
 * prettify CR-Hosting-Links
-* prettify Espionagereports (working for ogame \<dot\> de|org|fr|hr|es|ar|mx|pt|br|cz|dk|fi|hu|nl|no|sk|se|ro)
+* prettify Espionagereports (working for ogame \<dot\> ar|br|cz|de|dk|es|fi|fr|hr|org|hr|hu|mx|nl|no|pt|ro|sk|se)
 
 Table of Content
 ----------------
@@ -23,7 +23,7 @@ This MOD has been licensed under the following license:
 http://opensource.org/licenses/gpl-license.php GNU General Public License v2
 You can also take a look into the license.txt inside this package.
 
-The included Mods (ScannBB & Cool KB) was initialy by eXochron (aka skYforge) without any license information and re-released by Pionier ( http://www.phpbb.com/community/memberlist.php?mode=viewprofile&un=Pionier | pionier@allytools.de ) under GNU General Public License v2.
+The included Mod (ScannBB) was initialy by eXochron (aka skYforge) without any license information and re-released by Pionier ( http://www.phpbb.com/community/memberlist.php?mode=viewprofile&un=Pionier | pionier@allytools.de ) under GNU General Public License v2.
 
 
 2. Installation
