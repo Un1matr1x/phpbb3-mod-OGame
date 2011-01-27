@@ -63,6 +63,7 @@ if (!isset($scanpattern))
 	$scanpattern['sk']				= "/Zdroje.na(.){1,25}\[(.+?)špionáže(.+?)\%/s";
 	$scanpattern['se']				= "/Resurser.på(.){1,25}\[(.+?)upptäckt(.+?)\%/s";
 	$scanpattern['ro']				= "/Resurse.la(.){1,25}\[(.+?)contra-spionaj(.+?)\%/s";
+	$scanpattern['it']				= "/Risorse.su(.){1,25}\[(.+?)controspionaggio(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -325,6 +326,22 @@ if(!function_exists('ogame_scan'))
 			$build['ro']			= "/(Cladire)\b/";
 			$research['ro']			= "/(?<!de )(Cercetari)\b/";
 			$chance['ro']			= "/(Sansa de contra-spionaj)(.*)/";
+
+			//Italian
+			$line_1[18]				= "/(Metallo).{1,}(Cristallo)/";
+			$line_2[18]				= "/(Deuterio).{1,}(Energia)/";
+			$header['it']			= "/(Risorse su .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['it']			= "/(Attivit".utf8_encode('à').")(?!( significa| sul))/";
+			$activity['it_1']		= "/(Attività)(?!( significa| sul))/";
+			$activity_exp['it']		= "/Attività significa che il giocatore spiato è stato attivo su quel pianeta o un altro giocatore ha avuto un contatto di flotta con il pianeta spiato\./";
+			$activity_exp['it_1']	= "/Attività  significa che il giocatore spiato è stato attivo su quel pianeta o un altro giocatore ha avuto un contatto di flotta con il pianeta spiato\./";
+			$probs_act['it']		= "/(Il tuo spionaggio .*)([1-5][0-9])(.*)\./";
+			$probs['it']			= "/(Il tuo spionaggio .*)\./";
+			$fleet['it']			= "/(Flotte)\b/";
+			$def['it']				= "/(Difesa)\b/";
+			$build['it']			= "/(Edifici)\b/";
+			$research['it']			= "/(Ricerca)\b/";
+			$chance['it']			= "/(Possibilità di controspionaggio)(.*)/";
 
 		$txt=$treffer[0];
 
