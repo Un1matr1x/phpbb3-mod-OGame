@@ -75,7 +75,7 @@ $versions = array(
 	// Version 0.0.3 ACP-Page
 	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.0.3
 	'0.0.3 -dev'	=> array(
-	
+
 		'config_add' => array(
 			array('ogame_mmogame_show', 1),
 			array('ogame_cr_hosting_show', 1),
@@ -93,23 +93,23 @@ $versions = array(
 			),
 			
 		),
-	
+
 	),
-	
+
 	// Version 0.1.0 CR-Hosting Link Replacement
 	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.1.0
 	'0.1.0 -dev'	=> array(
 	),
-	
+
 	// Version 0.2.0 ScannBB added and improved
 	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.2.0
 	'0.2.0 -dev'	=> array(
 	),
-	
+
 	// Version 0.2.1 more ACP setings added
 	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.2.1
 	'0.2.1 -dev'	=> array(
-	
+
 		'config_add' => array(
 			array('ogame_mmogame_card_style', 1),
 			array('ogame_mmogame_card_profile_show', 1),
@@ -118,10 +118,15 @@ $versions = array(
 			array('ogame_cr_hosting_card_mouseover_show', 1),
 		),
 	),
-	
+
 	// Version 0.2.2 more languages & some fixes
 	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.2.2
 	'0.2.2 -dev'	=> array(
+	),
+
+	// Version 0.2.3
+	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.2.3
+	'0.2.3 -dev'	=> array(
 	),
 	
 );
