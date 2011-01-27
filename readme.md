@@ -7,7 +7,7 @@ Following features will be add:
 
 * "connect" your GF-Portal-ID & CR-Hosting-ID to your board profile
 * prettify CR-Hosting-Links
-* prettify Espionagereports (working for ogame \<dot\> ar|br|cz|de|dk|es|fi|fr|hr|hr|hu|it|lt|mx|nl|no|org|pt|ro|sk|se)
+* prettify Espionagereports (working for ogame \<dot\> ar|br|cz|de|dk|es|fi|fr|hr|hr|hu|it|lt|lv|mx|nl|no|org|pt|ro|sk|se)
 
 Table of Content
 ----------------

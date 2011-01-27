@@ -65,6 +65,7 @@ if (!isset($scanpattern))
 	$scanpattern['ro']				= "/Resurse.la(.){1,25}\[(.+?)contra-spionaj(.+?)\%/s";
 	$scanpattern['it']				= "/Risorse.su(.){1,25}\[(.+?)controspionaggio(.+?)\%/s";
 	$scanpattern['lt']				= "/Resursų(.){1,25}\[(.+?)Kontra-šnipinėjimo(.+?)\%/s";
+	$scanpattern['lv']				= "/Resursi.uz(.){1,25}\[(.+?)Pretspiegošanas(.+?)\%/s";
 }
 
 if(!function_exists('ogame_scan'))
@@ -322,7 +323,8 @@ if(!function_exists('ogame_scan'))
 			$activity_exp['ro']		= "/Activitatea inseamna ca jucatorul scanat a fost activ pe planeta sau un alt jucator a avut contact cu flota pe planeta scanata de tine\./";
 			$probs_act['ro']		= "/(Proba ta de spionaj .*)([1-5][0-9])(.*)\./";
 			$probs['ro']			= "/(Proba ta de spionaj .*)\./";
-			$fleet['ro']			= "/(Flote)\b/";
+			$fleet['ro_lv']			= "/(Flote)\b/";
+			$fleet['ro_lv_1']		= "/(flote)\b/";
 			$def['ro']				= "/(Aparare)\b/";
 			$build['ro']			= "/(Cladire)\b/";
 			$research['ro']			= "/(?<!de )(Cercetari)\b/";
@@ -348,7 +350,7 @@ if(!function_exists('ogame_scan'))
 			$line_1[19]				= "/(Metalas).{1,}(Kristalai)/";
 			$line_2[19]				= "/(Deuteris).{1,}(Energija)/";
 			$header['lt']			= "/(Resursų .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-			$activity['lt']			= "/(Aktyvumas)\b(?!( significa| sul))/";
+			$activity['lt']			= "/(Aktyvumas)\b/";
 			$activity_exp['lt']		= "/Veiklumas reiškia, kad skanuotasis žaidėjas buvo aktyvus toje planetoje arba kito žaidėjo laivynas turėjo kontaktą su nuskanuotuoju\./";
 			$probs_act['lt']		= "/(Jūsų šnipinėjimo .*)([1-5][0-9])(.*)\./";
 			$probs['lt']			= "/(Jūsų šnipinėjimo .*)\./";
@@ -357,6 +359,20 @@ if(!function_exists('ogame_scan'))
 			$build['lt']			= "/(Pastatas)\b/";
 			$research['lt']			= "/(Išradimai)\b/";
 			$chance['lt']			= "/(Kontra-šnipinėjimo šansas)(.*)/";
+
+			//Latvian
+			$line_1[20]				= "/(Metāls).{1,}(Kristāls)/";
+			$line_2[20]				= "/(Deitērijs).{1,}(Enerģija)/";
+			$header['lv']			= "/(Resursi uz .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
+			$activity['lv']			= "/(Aktivitāte)\b(?!( nozīmē| sul))/";
+			$activity_exp['lv']		= "/Aktivitāte nozīmē, ka spēlētājs ir bijis aktīvs uz šīs planētas, vai arī ir bijis kuģu kontakts no cita spēlētāja ar planētu, kuru jūs skanējat\./";
+			$probs_act['lv']		= "/(Jūsu spiegošana .*)([1-5][0-9])(.*)\./";
+			$probs['lv']			= "/(Jūsu spiegošana .*)\./";
+		//	$fleet['lv']			take a look at ro
+			$def['lv']				= "/(Aizsardzība)\b/";
+			$build['lv']			= "/(Celtne)\b/";
+			$research['lv']			= "/(Pētniecība)\b/";
+			$chance['lv']			= "/(Pretspiegošanas iespēja)(.*)/";
 
 		$txt=$treffer[0];
 
@@ -402,8 +418,8 @@ if(!function_exists('ogame_scan'))
 		}
 
 		//All chars a Shipname, Building, ... could have
-		$name = '[A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæåőűĽė'
-		  .utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűőĽė").
+		$name = '[A-Za-zßöäüáàâéèêíìîóòôúùûÈÉžçãõÍůýřŠæåőűĽėēāīūķ'
+		  .utf8_encode("ßöäüáàâéèêíìîóòôúùûÈÉžçãõÍýůřŠæåűőĽėēāīūķ").
 				'\-\t&;,:` ]';
 
 		if ($countrows>3 && $countrows<42 && $p1 && $p2){
