@@ -26,13 +26,13 @@ Features:
 				<username><![CDATA[Pionier]]></username>
 				<email><![CDATA[pionier@allytools.de]]></email>
 				<contributions-group>
-					<contributions status="past" from="0.0.0" to="0.0.0" position="ScannBB / Cool KB developer / maintainer"/>
+					<contributions status="past" from="0.0.0" to="0.0.0" position="ScannBB developer / maintainer"/>
 				</contributions-group>
 			</author>
 			<author>
 				<username phpbbcom="no"><![CDATA[eXochron (aka skYforge)]]></username>
 				<contributions-group>
-					<contributions status="past" from="0.0.0" to="0.0.0" position="ScannBB / Cool KB developer / maintainer"/>
+					<contributions status="past" from="0.0.0" to="0.0.0" position="ScannBB developer / maintainer"/>
 				</contributions-group>
 			</author>
 		</author-group>
@@ -247,14 +247,9 @@ $user->add_lang('mods/info_acp_ogame');
 */
 function censor_text($text)
 {
-	static $censors;
-
-	// Nothing to do?
-	if ($text === '')
-	{
-		return '';
-	}]]></find>
-				<action type="after-add"><![CDATA[	// Begin OGame-Mod
+	static $censors;]]></find>
+				<action type="after-add"><![CDATA[
+	// Begin OGame-Mod
 	include('functions_ogame.php');
 	// End OGame-Mod]]></action>
 			</edit>
