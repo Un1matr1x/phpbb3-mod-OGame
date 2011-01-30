@@ -65,14 +65,18 @@ $lang = array_merge($lang, array(
 	'OGAME'								=> 'OGame',
 	'OGAME_CONFIG'						=> 'Einstellung',
 	'OGAME_SAVED'						=> 'Einstellung gespeichert',
-	
+
+	'SPY_CONV'							=> 'Spioangeberichte verschönern',
+	'SPY_CONV_EXPLAIN'					=> 'Konvertiert Spioberichte die mit "Ressourcen auf" beginnen und mit der Spioangeabwehr-Chance enden in ein schöneres Format.',
+
+
 	'UCP_MMOGAME'						=> 'Gameforge-ID',
 	'UCP_CR_HOSTING'					=> 'KB-Hosting-Profil-ID',
-	
+
 	'VIEW_MMOGAME'						=> 'Gameforge Profil ansehen',
 	'VIEW_CR_HOSTING'					=> 'KB-Hosting Profil ansehen',
-	
+
 	'WRONG_DATA_MMOGAME'				=> 'Deine Gameforge-ID darf nur aus ganzen Zahlen bestehen.',
 	'WRONG_DATA_CR_HOSTING'				=> 'Deine KB-Hosting-Benutzer-ID darf nur aus ganzen Zahlen bestehen.',
-));	
+));
 ?>
