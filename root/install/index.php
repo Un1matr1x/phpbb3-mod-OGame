@@ -66,7 +66,7 @@ $versions = array(
 			array('phpbb_users', 'user_cr_hosting', array('VCHAR:20', '')),
 		),
 	),
-	
+
 	// Version 0.0.2 MMOCard & CRHosting-Signature Version
 	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.0.2
 	'0.0.2 -dev'	=> array(
@@ -127,8 +127,12 @@ $versions = array(
 	// Version 0.2.3
 	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.2.3
 	'0.2.3 -dev'	=> array(
+
+		'config_add' => array(
+			array('ogame_spy_conv', 1),
+		),
 	),
-	
+
 );
 
 // Include the UMIL Auto file, it handles the rest

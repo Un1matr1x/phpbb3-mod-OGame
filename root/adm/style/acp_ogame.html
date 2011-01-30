@@ -4,31 +4,38 @@
 <form id="acp_board" method="post" action="{U_ACTION}">
 
 	<fieldset>
+		<legend>{L_ACP_CAT_GENERAL}</legend>
+		<dl>
+			<dt><label for="ogame_spy_conv">{L_SPY_CONV}:</label><br /><span>{L_SPY_CONV_EXPLAIN}</span></dt>
+			<dd><input type="radio" class="radio" name="ogame_spy_conv" value="1" <!-- IF S_SPY_CONV -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
+				<input type="radio" class="radio" name="ogame_spy_conv" value="0" <!-- IF not S_SPY_CONV -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+	</fieldset>
+
+	<fieldset>
 		<legend>{L_MMOGAME}</legend>
 		<dl>
 			<dt><label for="ogame_mmogame_show">{L_MMOGAME_S}:</label><br /><span>{L_MMOGAME_S_EXPLAIN}</span></dt>
 			<dd><input type="radio" class="radio" name="ogame_mmogame_show" value="1" <!-- IF MMOGAME_S -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
 				<input type="radio" class="radio" name="ogame_mmogame_show" value="0" <!-- IF not MMOGAME_S -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
-		</dl>
-		<!-- IF MMOGAME_S -->
-		<dl>
+		</dl>		
+		<dl<!-- IF not MMOGAME_S --> style="display:none"<!-- ENDIF -->>
 			<dt><label for="ogame_mmogame_style">{L_MMOGAME_STYLE}:</label><br /><span>{L_MMOGAME_STYLE_EXPLAIN}</span></dt>
 			<dd><input type="radio" class="radio" name="ogame_mmogame_style" value="1" <!-- IF MMOGAME_STYLE -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
 				<input type="radio" class="radio" name="ogame_mmogame_style" value="0" <!-- IF not MMOGAME_STYLE -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
-		<dl>
+		<dl<!-- IF not MMOGAME_S --> style="display:none"<!-- ENDIF -->>
 			<dt><label for="ogame_mmogame_show">{L_MMOGAME_PROFILE_SHOW}:</label><br /><span>{L_MMOGAME_PROFILE_SHOW_EXPLAIN}</span></dt>
 			<dd><input type="radio" class="radio" name="ogame_mmogame_profile_show" value="1" <!-- IF MMOGAME_PROFILE_SHOW -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
 				<input type="radio" class="radio" name="ogame_mmogame_profile_show" value="0" <!-- IF not MMOGAME_PROFILE_SHOW -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
-		<dl>
+		<dl<!-- IF not MMOGAME_S --> style="display:none"<!-- ENDIF -->>
 			<dt><label for="ogame_mmogame_show">{L_MMOGAME_MOUSEOVER_SHOW}:</label><br /><span>{L_MMOGAME_MOUSEOVER_SHOW_EXPLAIN}</span></dt>
 			<dd><input type="radio" class="radio" name="ogame_mmogame_mouseover_show" value="1" <!-- IF MMOGAME_MOUSEOVER_SHOW -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
 				<input type="radio" class="radio" name="ogame_mmogame_mouseover_show" value="0" <!-- IF not MMOGAME_MOUSEOVER_SHOW -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
-		<!-- ENDIF -->
 	</fieldset>
-	
+
 	<fieldset>
 		<legend>{L_CR_HOSTING}</legend>
 		<dl>
@@ -36,26 +43,24 @@
 			<dd><input type="radio" class="radio" name="ogame_cr_hosting_show" value="1" <!-- IF CR_HOSTING_S -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
 				<input type="radio" class="radio" name="ogame_cr_hosting_show" value="0" <!-- IF not CR_HOSTING_S -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
-		<!-- IF CR_HOSTING_S -->
-		<dl>
+		<dl<!-- IF not CR_HOSTING_S --> style="display:none"<!-- ENDIF -->>
 			<dt><label for="ogame_cr_hosting_show">{L_CR_HOSTING_PROFILE_SHOW}:</label><br /><span>{L_CR_HOSTING_PROFILE_SHOW_EXPLAIN}</span></dt>
 			<dd><input type="radio" class="radio" name="ogame_cr_hosting_profile_show" value="1" <!-- IF CR_HOSTING_PROFILE_SHOW -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
 				<input type="radio" class="radio" name="ogame_cr_hosting_profile_show" value="0" <!-- IF not CR_HOSTING_PROFILE_SHOW -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
-		<dl>
+		<dl<!-- IF not CR_HOSTING_S --> style="display:none"<!-- ENDIF -->>
 			<dt><label for="ogame_cr_hosting_show">{L_CR_HOSTING_MOUSEOVER_SHOW}:</label><br /><span>{L_CR_HOSTING_MOUSEOVER_SHOW_EXPLAIN}</span></dt>
 			<dd><input type="radio" class="radio" name="ogame_cr_mouseover_show" value="1" <!-- IF CR_HOSTING_MOUSEOVER_SHOW -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
 				<input type="radio" class="radio" name="ogame_cr_mouseover_show" value="0" <!-- IF not CR_HOSTING_MOUSEOVER_SHOW -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
 		</dl>
-		<!-- ENDIF -->
 	</fieldset>
-	
+
 	<fieldset class="submit-buttons">
 		<legend>{L_SUBMIT}</legend>
 		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
 		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
 		{S_FORM_TOKEN}
 	</fieldset>
-	
+
 </form>
 <!-- INCLUDE overall_footer.html -->

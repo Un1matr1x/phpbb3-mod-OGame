@@ -41,6 +41,8 @@ class acp_ogame
 				trigger_error('FORM_INVALID');
 			}
 
+			set_config('ogame_spy_conv', request_var('ogame_spy_conv', 0));
+
 			set_config('ogame_mmogame_show', request_var('ogame_mmogame_show', 0));
 			set_config('ogame_mmogame_card_style', request_var('ogame_mmogame_style', 1));
 			set_config('ogame_mmogame_card_profile_show', request_var('ogame_mmogame_profile_show', 1));
@@ -55,6 +57,7 @@ class acp_ogame
 
 		$template->assign_vars(array(
 			'U_ACTION'						=> $this->u_action,
+			'S_SPY_CONV'					=> $config['ogame_spy_conv'],
 			'MMOGAME_S'						=> $config['ogame_mmogame_show'],
 			'MMOGAME_STYLE'					=> $config['ogame_mmogame_card_style'],
 			'MMOGAME_PROFILE_SHOW'			=> $config['ogame_mmogame_card_profile_show'],
