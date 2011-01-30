@@ -13,7 +13,7 @@ if (!defined('IN_PHPBB'))
 	exit;
 }
 
-global $phpbb_root_path;
+global $phpbb_root_path, $config;
 
 //Replace CR-Links with nicer Images
 $search_kb 		= array();
