@@ -124,7 +124,7 @@ $versions = array(
 	'0.2.2 -dev'	=> array(
 	),
 
-	// Version 0.2.3
+	// Version 0.2.3 ACP setting for Espionagereport added
 	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/0.2.3
 	'0.2.3 -dev'	=> array(
 
