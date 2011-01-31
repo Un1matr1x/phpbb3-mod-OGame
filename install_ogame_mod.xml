@@ -92,10 +92,17 @@ Features:
 					<change><![CDATA[Some more espionage-languages added]]></change>
 				</changelog>
 			</entry>
+			<entry>
+				<date>2011-01-30</date>
+				<rev-version>0.2.3 -dev</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Espionage-Option @ ACP]]></change>
+				</changelog>
+			</entry>
 		</history>
 		<link-group>
-			<link type="language" href="contrib/de/install.xml" lang="en">Manual for German Language-set</link>
-			<link type="template" href="contrib/Flow/install.xml" lang="en">Manual for Flow Style</link>
+			<link type="language" href="contrib/de.xml" lang="en">Manual for German Language-set</link>
+			<link type="template" href="contrib/Flow.xml" lang="en">Manual for Flow Style</link>
 		</link-group>
 	</header>
 	<action-group>
@@ -248,8 +255,7 @@ $user->add_lang('mods/info_acp_ogame');
 function censor_text($text)
 {
 	static $censors;]]></find>
-				<action type="after-add"><![CDATA[
-	// Begin OGame-Mod
+				<action type="after-add"><![CDATA[	// Begin OGame-Mod
 	include('functions_ogame.php');
 	// End OGame-Mod]]></action>
 			</edit>

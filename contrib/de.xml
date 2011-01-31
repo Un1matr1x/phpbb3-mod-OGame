@@ -16,15 +16,15 @@
 				<email><![CDATA[admin@un1matr1x.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>0.2.2 -dev</mod-version>
+		<mod-version>0.2.3 -dev</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>300</time>
 			<target-version>3.0.8</target-version>
 		</installation>
 		<link-group>
-			<link type="parent" href="../../install_ogame_mod.xml" lang="de">Installations-Anleitung</link>
-			<link type="parent" href="../../install_ogame_mod.xml" lang="en">Installation-Manual</link>
+			<link type="parent" href="../install_ogame_mod.xml" lang="de">Installations-Anleitung</link>
+			<link type="parent" href="../install_ogame_mod.xml" lang="en">Installation-Manual</link>
 		</link-group>
 	</header>
 	<action-group>
