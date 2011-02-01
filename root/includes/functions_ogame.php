@@ -42,8 +42,8 @@ else
 	
 $text = preg_replace($search_kb, $replace_kb, $text);
 
-//EspionageReports
-if (!isset($scanpattern))
+
+if ($config['ogame_spy_conv'])
 {
 	$scanpattern					= array();
 	$scanpattern['de']				= "/Rohstoffe.auf(.){1,25}\[(.+?)Spionageabwehr(.+?)\%/s";
@@ -66,15 +66,11 @@ if (!isset($scanpattern))
 	$scanpattern['it']				= "/Risorse.su(.){1,25}\[(.+?)controspionaggio(.+?)\%/s";
 	$scanpattern['lt']				= "/Resursų(.){1,25}\[(.+?)Kontra-šnipinėjimo(.+?)\%/s";
 	$scanpattern['lv']				= "/Resursi.uz(.){1,25}\[(.+?)Pretspiegošanas(.+?)\%/s";
-}
 
-if ($config['ogame_spy_conv'])
-{
 	if(!function_exists('ogame_scan'))
 	{
 		function ogame_scan($treffer)
 		{
-
 				$line_1					= array();
 				$line_2					= array();
 				$header					= array();
