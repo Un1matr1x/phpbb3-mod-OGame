@@ -145,7 +145,7 @@ if ($config['ogame_spy_conv'])
 				$fleet['hr']			= "/(Slotovi)\b/";
 			//	$def['hr']				take a look at cz
 				$build['hr']			= "/(Gradi se)/";
-				$research['hr']			= "/((?<!za )Istraživanje)\b(?!( mreža)/";
+				$research['hr']			= "/((?<!za )Istraživanje)\b(?! mreža)/";
 				$chance['hr']			= "/(Šansa za obranu od špijunaže)\b(.*)/";
 
 				//Spanish (+Argentine +Mexican)
@@ -171,7 +171,7 @@ if ($config['ogame_spy_conv'])
 				$def['es']				= "/(Defensa)\b/";
 				$build['es']			= "/(Edificio)\b/";
 				$research['es']			= "/(?<!de )(Investigación)\b/";
-				$research['es_1']		= "/(?<!de )(Investigaci".utf8_encode('ó')."n)\b";
+				$research['es_1']		= "/(?<!de )(Investigaci".utf8_encode('ó')."n)\b/";
 				$chance['es']			= "/(Posibilidades)\b(.*)/";
 				$chance['es_ar']		= "/(Posibilidad)\b(.*)/";
 
