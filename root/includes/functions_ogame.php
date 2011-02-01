@@ -87,7 +87,7 @@ if ($config['ogame_spy_conv'])
 				$research				= array();
 				$chance					= array();
 
-				//English
+				//English (org & us)
 				$line_1[1]				= "/(Metal).{1,}(Crystal)/";
 				$line_2[1]				= "/(Deuterium).{1,}(Energy)/";
 				$header['org']			= "/(Resources at .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
@@ -134,7 +134,7 @@ if ($config['ogame_spy_conv'])
 				$fleet['fr']			= "/(Flottes)\b/";
 				$def['fr']				= "/(Défense)\b/";
 				$build['fr']			= "/(Bâtiment)\b/";
-				$research['fr']			= "/(?<!de )(Recherche)\b(?! intergalactique)/";
+				$research['fr']			= "/(?<!de )(Recherche)\b/";
 				$chance['fr']			= "/(Probabilité)(.*)/";
 
 				//Croatian
@@ -149,7 +149,7 @@ if ($config['ogame_spy_conv'])
 				$fleet['hr']			= "/(Slotovi)\b/";
 			//	$def['hr']				take a look at cz
 				$build['hr']			= "/(Gradi se)/";
-				$research['hr']			= "/(Istraživanje)\b/";
+				$research['hr']			= "/((?<!za )Istraživanje)\b(?!( mreža)/";
 				$chance['hr']			= "/(Šansa za obranu od špijunaže)\b(.*)/";
 
 				//Spanish (+Argentine +Mexican)
@@ -174,8 +174,8 @@ if ($config['ogame_spy_conv'])
 				$fleet['ar_1']			= "/(Escuadr".utf8_encode('ó')."n)\b/";
 				$def['es']				= "/(Defensa)\b/";
 				$build['es']			= "/(Edificio)\b/";
-				$research['es']			= "/(?<!de )(Investigación)\b(?! inter)/";
-				$research['es1']		= "/(?<!de )(Investigaci".utf8_encode('ó')."n)\b(?! inter)/";
+				$research['es']			= "/(?<!de )(Investigación)\b/";
+				$research['es_1']		= "/(?<!de )(Investigaci".utf8_encode('ó')."n)\b";
 				$chance['es']			= "/(Posibilidades)\b(.*)/";
 				$chance['es_ar']		= "/(Posibilidad)\b(.*)/";
 
@@ -345,7 +345,7 @@ if ($config['ogame_spy_conv'])
 				$fleet['it']			= "/(Flotte)\b/";
 				$def['it']				= "/(Difesa)\b/";
 				$build['it']			= "/(Edifici)\b/";
-				$research['it']			= "/(Ricerca)\b/";
+				$research['it']			= "/(?<!di )(Ricerca)\b/";
 				$chance['it']			= "/(Possibilità di controspionaggio)(.*)/";
 
 				//Lithuanian
