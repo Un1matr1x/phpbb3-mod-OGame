@@ -16,7 +16,7 @@
 				<email><![CDATA[admin@un1matr1x.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>0.2.2 -dev</mod-version>
+		<mod-version>0.2.3 -dev</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>300</time>
@@ -25,8 +25,7 @@
 	</header>
 	<action-group>
 		<copy>
-			<file from="root/adm/mods/ogame_mod_version.php" to="adm/mods/ogame_mod_version.php"/>
-			<file from="root/includes/functions_ogame.php" to="includes/functions_ogame.php"/>
+			<file from="root/*.*" to="*.*"/>
 		</copy>
 		<php-installer><![CDATA[install/index.php]]></php-installer>
 		<diy-instructions lang="en"><![CDATA[Just override the existing files with the new on and run the install file]]></diy-instructions>
