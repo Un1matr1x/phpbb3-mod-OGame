@@ -16,7 +16,7 @@
 				<email><![CDATA[admin@un1matr1x.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>0.2.3 -dev</mod-version>
+		<mod-version>1.0.0</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>300</time>
@@ -32,6 +32,140 @@
 			<file from="root/styles/Flow/imageset/icon_contact_mmogame.gif" to="styles/Flow/imageset/icon_contact_mmogame.gif"/>
 			<file from="root/styles/Flow/imageset/icon_contact_cr_hosting.gif" to="styles/Flow/imageset/icon_contact_cr_hosting.gif"/>
 		</copy>
+		<open src="styles/Flow/imageset/imageset.cfg">
+			<edit>
+				<find><![CDATA[img_icon_contact_www = icon_contact_www.gif*20*20]]></find>
+				<action type="before-add"><![CDATA[# Begin OGame-Mod
+img_icon_contact_cr_hosting = icon_contact_cr_hosting.gif*20*20
+img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
+# End OGame-Mod]]></action>
+			</edit>
+		</open>
+		<open src="styles/Flow/template/memberlist_view.html">
+			<edit>
+				<find><![CDATA[		<!-- IF U_JABBER and S_JABBER_ENABLED --><dt>{L_JABBER}:</dt> <dd><a href="{U_JABBER}" onclick="popup(this.href, 550, 320); return false;">{L_SEND_JABBER_MESSAGE}</a></dd><!-- ELSEIF USER_JABBER --><dt>{L_JABBER}:</dt> <dd>{USER_JABBER}</dd><!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[		<!-- OGame-Mod B -->
+		<!-- IF U_MMOGAME or USER_MMOGAME --><dt>{L_MMOGAME}:</dt> <dd><a href="{U_MMOGAME}">{L_VIEW_MMOGAME}</a></dd><!-- ENDIF -->
+		<!-- IF U_CR_HOSTING or USER_CR_HOSTING --><dt>{L_CR_HOSTING}:</dt> <dd><a href="{U_CR_HOSTING}">{L_VIEW_CR_HOSTING}</a></dd><!-- ENDIF -->		
+		<!-- OGame-Mod E -->]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[<!-- IF SIGNATURE -->
+<div class="panel bg1">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+		<h3>{L_SIGNATURE}</h3>
+
+		<div class="postbody"><div class="signature" style="border-top:none; margin-top: 0;">{SIGNATURE}</div></div>
+	
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[<!-- IF U_MMOGAME_CARD  or U_CR_HOSTING_SIGI -->
+<div class="panel bg<!-- IF SIGNATURE -->2<!-- ELSE -->1<!-- ENDIF -->">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+	<!-- IF U_MMOGAME_CARD -->
+	<div class="column1">
+		<h3>{L_MMOGAME}</h3>
+		
+		<a href="{U_MMOGAME}" title="{L_MMOGAME}">{U_MMOGAME_CARD}</a>
+	</div>
+	<!-- ENDIF -->
+	
+	<!-- IF U_CR_HOSTING_SIGI -->	
+	<div class="column<!-- IF U_MMOGAME_CARD -->2<!-- ELSE -->1<!-- ENDIF -->">
+		<h3>{L_CR_HOSTING}</h3>
+		
+		<a href="{U_CR_HOSTING}" title="{L_CR_HOSTING}">{U_CR_HOSTING_SIGI}</a>
+	</div>	
+	<!-- ENDIF -->
+	
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/Flow/template/ucp_pm_viewmessage.html">
+			<edit>
+				<find><![CDATA[		<!-- IF AUTHOR_JOINED --><dd><strong>{L_JOINED}:</strong> {AUTHOR_JOINED}</dd><!-- ENDIF -->
+		<!-- IF AUTHOR_FROM --><dd><strong>{L_LOCATION}:</strong> {AUTHOR_FROM}</dd><!-- ENDIF -->
+		
+		<!-- IF U_PM or U_EMAIL or U_WWW or U_MSN or U_ICQ or U_YIM or U_AIM or U_JABBER -->]]></find>
+				<inline-edit>
+					<inline-find><![CDATA[		<!-- IF U_PM or U_EMAIL or U_WWW or ]]></inline-find>
+					<inline-action type="after-add"><![CDATA[U_MMOGAME or U_CR_HOSTING or ]]></inline-action>
+				</inline-edit>
+			</edit>
+			<edit>
+				<find><![CDATA[		<dd>
+			<ul class="profile-icons">
+			<!-- IF U_PM --><li class="pm-icon"><a href="{U_PM}" title="{L_PRIVATE_MESSAGE}"><span>{L_PRIVATE_MESSAGE}</span></a></li><!-- ENDIF -->
+			<!-- IF U_EMAIL --><li class="email-icon"><a href="{U_EMAIL}" title="{L_SEND_EMAIL_USER} {MESSAGE_AUTHOR}"><span>{L_SEND_EMAIL_USER} {MESSAGE_AUTHOR}</span></a></li><!-- ENDIF -->
+			<!-- IF U_WWW --><li class="web-icon"><a href="{U_WWW}" title="{L_VISIT_WEBSITE}: {U_WWW}"><span>{L_WEBSITE}</span></a></li><!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[			<!-- OGame-Mod B -->
+			<!-- IF U_MMOGAME --><li class="mmogame-icon"><a href="{U_MMOGAME}" title="{L_MMOGAME}"<!-- IF U_MMOGAME_MOUSEOVER_SHOW --> class="mmogame-span<!-- IF not U_MMOGAME_STYLE --> just_move<!-- ENDIF -->"<!-- ENDIF -->><span><!-- IF U_MMOGAME_MOUSEOVER_SHOW -->{U_MMOGAME_CARD}<!-- ELSE -->{L_MMOGAME}<!-- ENDIF --></span></a></li><!-- ENDIF -->
+			<!-- IF U_CR_HOSTING --><li class="cr_hosting-icon"><a href="{U_CR_HOSTING}" title="{L_CR_HOSTING}"<!-- IF CR_HOSTING_MOUSEOVER_SHOW --> class="cr-hosting-span"<!-- ENDIF -->"><span><!-- IF CR_HOSTING_MOUSEOVER_SHOW -->{U_CR_HOSTING_SIGI}<!-- ELSE -->{L_CR_HOSTING}<!-- ENDIF --></span></a></li><!-- ENDIF -->
+			<!-- OGame-Mod E -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/Flow/template/ucp_profile_profile_info.html">
+			<edit>
+				<find><![CDATA[	<dl>
+		<dt><label for="jabber">{L_UCP_JABBER}:</label></dt>
+		<dd><input type="text" name="jabber" id="jabber" maxlength="255" value="{JABBER}" class="inputbox" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="website">{L_WEBSITE}:</label></dt>
+		<dd><input type="text" name="website" id="website" maxlength="255" value="{WEBSITE}" class="inputbox" /></dd>
+	</dl>]]></find>
+				<action type="after-add"><![CDATA[	<!-- OGame-Mod B -->
+	<!-- IF SHOW_MMOGAME -->
+	<dl>
+		<dt><label for="mmogame">{L_UCP_MMOGAME}:</label><br /><span>{L_MMOGAME_EXPLAIN}</span></dt>
+		<dd><input type="text" name="mmogame" id="mmogame" maxlength="15" value="{MMOGAME}" class="inputbox" /></dd>
+	</dl>
+	<!-- ENDIF -->
+	<!-- IF SHOW_CR_HOSTING -->	
+	<dl>
+		<dt><label for="cr_hosting">{L_UCP_CR_HOSTING}:</label><br /><span>{L_CR_HOSTING_EXPLAIN}</span></dt>
+		<dd><input type="text" name="cr_hosting" id="cr_hosting" maxlength="15" value="{CR_HOSTING}" class="inputbox" /></dd>
+	</dl>
+	<!-- ENDIF -->
+	<!-- OGame-Mod E -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/Flow/template/viewtopic_body.html">
+			<edit>
+				<action type="after-add"><![CDATA[		<!-- BEGIN custom_fields -->
+			<dd><strong>{postrow.custom_fields.PROFILE_FIELD_NAME}:</strong> {postrow.custom_fields.PROFILE_FIELD_VALUE}</dd>
+		<!-- END custom_fields -->
+
+		<!-- IF not S_IS_BOT -->
+		<!-- IF postrow.U_PM or postrow.U_EMAIL or postrow.U_WWW or postrow.U_MSN or postrow.U_ICQ or postrow.U_YIM or postrow.U_AIM or postrow.U_JABBER -->]]></action>
+				<inline-edit>
+					<inline-find><![CDATA[<!-- IF postrow.U_PM or postrow.U_EMAIL or postrow.U_WWW or ]]></inline-find>
+					<inline-action type="after-add"><![CDATA[postrow.U_MMOGAME or postrow.U_CR_HOSTING or ]]></inline-action>
+				</inline-edit>
+			</edit>
+			<edit>
+				<find><![CDATA[			<dd>
+				<ul class="profile-icons">
+					<!-- IF postrow.U_PM --><li class="pm-icon"><a href="{postrow.U_PM}" title="{L_PRIVATE_MESSAGE}"><span>{L_PRIVATE_MESSAGE}</span></a></li><!-- ENDIF -->
+					<!-- IF postrow.U_EMAIL --><li class="email-icon"><a href="{postrow.U_EMAIL}" title="{L_SEND_EMAIL_USER} {postrow.POST_AUTHOR}"><span>{L_SEND_EMAIL_USER} {postrow.POST_AUTHOR}</span></a></li><!-- ENDIF -->
+					<!-- IF postrow.U_WWW --><li class="web-icon"><a href="{postrow.U_WWW}" title="{L_VISIT_WEBSITE}: {postrow.U_WWW}"><span>{L_WEBSITE}</span></a></li><!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[					<!-- OGame-Mod B -->
+					<!-- IF postrow.U_MMOGAME --><li class="mmogame-icon"><a href="{postrow.U_MMOGAME}" title="{L_MMOGAME}"<!-- IF postrow.U_MMOGAME_MOUSEOVER_SHOW --> class="mmogame-span<!-- IF not postrow.U_MMOGAME_STYLE --> just_move<!-- ENDIF -->"<!-- ENDIF -->><span><!-- IF postrow.U_MMOGAME_MOUSEOVER_SHOW -->{postrow.U_MMOGAME_CARD}<!-- ELSE -->{L_MMOGAME}<!-- ENDIF --></span></a></li><!-- ENDIF -->
+					<!-- IF postrow.U_CR_HOSTING --><li class="cr_hosting-icon"><a href="{postrow.U_CR_HOSTING}" title="{L_CR_HOSTING}"<!-- IF postrow.CR_HOSTING_MOUSEOVER_SHOW --> class="cr-hosting-span"<!-- ENDIF -->><span><!-- IF postrow.CR_HOSTING_MOUSEOVER_SHOW -->{postrow.U_CR_HOSTING_SIGI}<!-- ELSE -->{L_CR_HOSTING}<!-- ENDIF --></span></a></li><!-- ENDIF -->
+					<!-- OGame-Mod E -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/Flow/theme/stylesheet.css">
+			<edit>
+				<find><![CDATA[@import url("colours.css");]]></find>
+				<action type="after-add"><![CDATA[@import url("ogame.css");]]></action>
+			</edit>
+		</open>
 		<diy-instructions lang="en"><![CDATA[This installation only provides only better fitting images. For the real installation for any style based on prosilver follow the prosilver-instructions @ the normal Installation-Manual]]></diy-instructions>
 	</action-group>
 </mod>

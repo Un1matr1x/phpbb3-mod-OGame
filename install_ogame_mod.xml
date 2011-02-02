@@ -12,6 +12,7 @@ Features:
 - "connect" your Gameforge-ID and your CR-Hosting-ID to your profile
 - nice link-replacement for crs from http://kb.un1matr1x.de
 - an improved version of ScannBB added]]></description>
+		<author-notes lang="en"><![CDATA[ScannBB developer / maintainer: eXochron (aka skYforge) & Pionier]]></author-notes>
 		<author-group>
 			<author>
 				<realname><![CDATA[Falk Seidel]]></realname>
@@ -22,21 +23,8 @@ Features:
 					<contributions status="current" position="OGame-Mod Developer"/>
 				</contributions-group>
 			</author>
-			<author>
-				<username><![CDATA[Pionier]]></username>
-				<email><![CDATA[pionier@allytools.de]]></email>
-				<contributions-group>
-					<contributions status="past" from="0.0.0" to="0.0.0" position="ScannBB developer / maintainer"/>
-				</contributions-group>
-			</author>
-			<author>
-				<username phpbbcom="no"><![CDATA[eXochron (aka skYforge)]]></username>
-				<contributions-group>
-					<contributions status="past" from="0.0.0" to="0.0.0" position="ScannBB developer / maintainer"/>
-				</contributions-group>
-			</author>
 		</author-group>
-		<mod-version>0.2.2 -dev</mod-version>
+		<mod-version>1.0.0</mod-version>
 		<installation>
 			<level>intermediate</level>
 			<time>1800</time>
@@ -97,6 +85,13 @@ Features:
 				<rev-version>0.2.3 -dev</rev-version>
 				<changelog lang="en">
 					<change><![CDATA[Espionage-Option @ ACP]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-02-03</date>
+				<rev-version>1.0.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[made mod valide for MPV]]></change>
 				</changelog>
 			</entry>
 		</history>
