@@ -134,7 +134,7 @@ $versions = array(
 	),
 
 	// Version 1.0.0 made mod valide for MPV
-	'1.0.0 -dev'	=> array(
+	'1.0.0'	=> array(
 	),
 
 );
