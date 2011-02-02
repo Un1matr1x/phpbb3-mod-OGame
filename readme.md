@@ -1,7 +1,7 @@
 phpBB 3 Modification - OGame
 ============================
 
-This is a modification for the burning board software [phpbb 3](http://www.phpbb.com/).
+This is a modification for the burning board software [![phpBB](http://www.phpbb.com/theme/images/logos/blue/160x52.png)](http://www.phpbb.com).
 
 Following features will be add:
 
@@ -28,8 +28,8 @@ The included Mod (ScannBB) was initialy by eXochron (aka skYforge) without any l
 
 2. Installation
 ---------------
-
-If you want to install this modification you have to open the install_ogame_mod.xml with a browser you like.
+This MOD supports [![AutoMod](http://www.phpbb.com/theme/images/mods/automod_logo.png)](http://www.phpbb.com/mods/automod/) for easy installation.
+If you want to install this modification you have to open the install_ogame_mod.xml with a browser you like - this is a [![ModX](http://www.phpbb.com/theme/titles/modx.png)](http://www.phpbb.com/mods/modx/) File.
 
 
 3. Known Bugs and Issues
