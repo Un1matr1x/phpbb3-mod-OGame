@@ -7,7 +7,13 @@
 *
 */
 
-$cr_id = intval($_GET['cr_id']);
+//phpBB3-Intitialisierung
+define('IN_PHPBB', true);
+$phpbb_root_path = '../../';
+$phpEx = substr(strrchr(__FILE__, '.'), 1);
+include($phpbb_root_path . 'common.' . $phpEx);
+
+$cr_id = request_var('cr_id', 0);
 
 if ((strlen($cr_id)) == 1) {
 	$size = 11; $x_start = 45;
