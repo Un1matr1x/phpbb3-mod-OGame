@@ -133,6 +133,10 @@ $versions = array(
 		),
 	),
 
+	// Version 1.0.0 made mod valide for MPV
+	'1.0.0 -dev'	=> array(
+	),
+
 );
 
 // Include the UMIL Auto file, it handles the rest
