@@ -29,6 +29,7 @@ The included Mod (ScannBB) was initialy by eXochron (aka skYforge) without any l
 2. Installation
 ---------------
 This MOD supports [![AutoMod](http://www.phpbb.com/theme/images/mods/automod_logo.png)](http://www.phpbb.com/mods/automod/) for easy installation.
+
 If you want to install this modification you have to open the install_ogame_mod.xml with a browser you like - this is a [![ModX](http://www.phpbb.com/theme/titles/modx.png)](http://www.phpbb.com/mods/modx/) File.
 
 
