@@ -88,7 +88,7 @@ if ($config['ogame_spy_conv'])
 				$line_2[1]				= "/(Deuterium).{1,}(Energy)/";
 				$header['org']			= "/(Resources at .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['org']		= "/(Activity)\b(?!( on| within| means))/";
-				$activity_exp['org']	= "/Activity means that the scanned player has been active on that planet or another player had fleet contact with the planet you scanned\./";
+				$activity_exp['org']	= "/Activity means [^\.]*\./";
 				$probs_act['org']		= "/(Your espionage .*)([1-5][0-9])(.*)\./";
 				$probs['org']			= "/(Your espionage .*)\./";
 				$fleet['org']			= "/(fleets)\b/";
@@ -105,7 +105,7 @@ if ($config['ogame_spy_conv'])
 				$activity['de']			= "/(Aktivit".utf8_encode('ä')."t)\b(?!( auf| bedeutet))/";
 				$activity['de_1']		= "/(Aktivit&auml;t)\b(?!( auf| bedeutet|  innerhalb))/";
 				$activity['de_2']		= "/(Aktivität)\b(?!( auf| bedeutet| innerhalb))/";
-				$activity_exp['de']		= "/Aktivität bedeutet, dass entweder der gescannte Spieler in dieser Zeit auf dem Planeten aktiv war oder ein anderer Spieler mit diesem Planeten Flottenkontakt hatte\./";
+				$activity_exp['de']		= "/Aktivität bedeutet, [^\.]*\./";
 				$probs_act['de']		= "/(Dein Sondenscan .*)([1-5][0-9])(.*)\./";
 				$probs['de']			= "/(Dein Sondenscan .*)\./";
 				$fleet['de']			= "/(Flotten)\b/";
@@ -124,7 +124,7 @@ if ($config['ogame_spy_conv'])
 				$header['fr']			= "/(Ressources sur .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['fr']			= "/(Activité)(?!( signifie| sur| means))/";
 				$activity['fr_1']		= "/(Activit".utf8_encode('é').")(?!( signifie| sur| means))/";
-				$activity_exp['fr']		= "/Activité signifie que le joueur scanné était actif sur la planète au moment du scan ou qu`un autre joueur a eu un contact de flotte avec cette planète à ce moment là\./";
+				$activity_exp['fr']		= "/Activité signifie [^\.]*\./";
 				$probs_act['fr']		= "/(Le scanner .*)([1-5][0-9])(.*)\./";
 				$probs['fr']			= "/(Le scanner .*)\./";
 				$fleet['fr']			= "/(Flottes)\b/";
@@ -138,8 +138,8 @@ if ($config['ogame_spy_conv'])
 				$line_2[4]				= "/(Deuterij).{1,}(Energija)/";
 				$header['hr']			= "/(Resursi na .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['hr']			= "/(Aktivnost)\b(?!( znači| na))/";
-				$activity_exp['hr']		= "/Aktivnost znači da je skenirani igrač bio aktivan na toj planeti ili je neki drugi igrač imao kontakt flotom sa planetom koju ste skenirali\./";
-				$activity_exp['hr_1']	= "/Aktivnost zna".utf8_encode('č')."i da je skenirani igra".utf8_encode('č')." bio aktivan na toj planeti ili je neki drugi igra".utf8_encode('č')." imao kontakt flotom sa planetom koju ste skenirali\./";
+				$activity_exp['hr']		= "/Aktivnost znači [^\.]*\./";
+				$activity_exp['hr_1']	= "/Aktivnost zna".utf8_encode('č')."i  [^\.]*\./";
 				$probs_act['hr']		= "/(Vaša špijunaža .*)([1-5][0-9])(.*)\./";
 				$probs['hr']			= "/(Vaša špijunaža .*)\./";
 				$fleet['hr']			= "/(Slotovi)\b/";
@@ -157,9 +157,8 @@ if ($config['ogame_spy_conv'])
 				$line_2[7]				= "/(Deuterio).{1,}(Energ".utf8_encode('í')."a)/";
 				$header['es']			= "/(Recursos en .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['es']			= "/(Actividad)\b(?!( significa| en))/";
-				$activity_exp['es']		= "/Actividad significa que el jugador escaneado ha estado activo en el planeta o que otro jugador tuvo contacto de flota con el planeta escaneado\./";
-				$activity_exp['es_ar']	= "/La actividad significa que el jugador espiado estubo activo en el planeta o que otro jugador hiso contacto de flota con el planeta escaneado\./";
-				$activity_exp['es_mx']	= "/Actividad significa, que el jugador espiado ha estado activo en el planeta o que otro jugador tuvo contacto de flota con el planeta espiado\./";
+				$activity_exp['es_mx']	= "/Actividad significa[^\.]*\./";
+				$activity_exp['es_ar']	= "/La actividad significa [^\.]*\./";
 				$probs_act['es']		= "/(Tu sonda .*)([1-5][0-9])(.*)\./";
 				$probs_act['es_ar']		= "/(Tu espionaje .*)([1-5][0-9])(.*)\./";
 				$probs['es']			= "/(Tu sonda .*)\./";
@@ -184,8 +183,8 @@ if ($config['ogame_spy_conv'])
 				$header['pt_br']		= "/(Recursos no .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['pt']			= "/(Actividade)\b(?!( indica| existente))/";
 				$activity['pt_br']		= "/(Atividade)\b(?!( indica| no))/";
-				$activity_exp['pt']		= "/Actividade indica que o jogador esteve activo naquele planeta ou que houve contacto de outra frota, de um outro jogador, com o planeta espiado\./";
-				$activity_exp['pt_br']	= "/Atividade indica que o jogador espiado esteve ativo naquele planeta ou que houve contato de outra frota, de um outro jogador, no planeta espiado\./";
+				$activity_exp['pt']		= "/Actividade indica [^\.]*\./";
+				$activity_exp['pt_br']	= "/Atividade indica [^\.]*\./";
 				$probs_act['pt']		= "/(A sua espionagem .*)([1-5][0-9])(.*)\./";
 				$probs['pt']			= "/(A sua espionagem .*)\./";
 				$fleet['pt']			= "/(Frotas)\b/";
@@ -200,7 +199,7 @@ if ($config['ogame_spy_conv'])
 				$line_2[10]				= "/(Deuterium).{1,}(Energie)/";
 				$header['cz']			= "/(Suroviny na .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['cz']			= "/(Aktivita)\b(?!( znamená| na))/";
-				$activity_exp['cz']		= "/Aktivita znamená, že oskenovaný hráč byl aktivní na dané planetě, nebo že někdo jiný měl kontakt svojí letky s planetou, kterou jste skenovali\./";
+				$activity_exp['cz']		= "/Aktivita znamená, [^\.]*\./";
 				$probs_act['cz']		= "/(Špionáž neukázala .*)([1-5][0-9])(.*)\./";
 				$probs['cz']			= "/(Špionáž neukázala .*)\./";
 				$fleet['cz']			= "/(letek)\b/";
@@ -215,7 +214,7 @@ if ($config['ogame_spy_conv'])
 				$line_2[11]				= "/(Deuterium).{1,}(Energi)/";
 				$header['dk']			= "/(Ressurcer på .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['dk_no_se']	= "/(Aktivitet)\b(?!( betyder| ved| betyr| på| menas| där))/";
-				$activity_exp['dk']		= "/Aktivitet betyder at den scannede spiller har været aktiv på den planet, eller en anden spiller har haft flådekontakt med den planet du har scannet\./";
+				$activity_exp['dk']		= "/Aktivitet betyder [^\.]*\./";
 				$probs_act['dk']		= "/(Din spionage .*)([1-5][0-9])(.*)\./";
 				$probs['dk']			= "/(Din spionage .*)\./";
 				$fleet['dk']			= "/(Flåder)\b/";
@@ -229,7 +228,7 @@ if ($config['ogame_spy_conv'])
 				$line_2[12]				= "/(Deuterium).{1,}(Energia)/";
 				$header['fi']			= "/(Resurssit .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['fi']			= "/(Aktiivisuus)\b(?!( tarkoittaa| viimeiseen))/";
-				$activity_exp['fi']		= "/Aktiivisuus tarkoittaa, että skannattu pelaaja on ollut aktiivinen kyseisellä planeetalla, tai toisella pelaajalla on yhteys skannaamaasi planeettaan\./";
+				$activity_exp['fi']		= "/Aktiivisuus tarkoittaa, [^\.]*\./";
 				$probs_act['fi']		= "/(Vakoilutoimintasi ei .*)([1-5][0-9])(.*)\./";
 				$probs['fi']			= "/(Vakoilutoimintasi ei .*)\./";
 				$fleet['fi']			= "/(laivueet)\b/";
@@ -244,7 +243,7 @@ if ($config['ogame_spy_conv'])
 				$line_2[13]				= "/(Deutérium).{1,}(Energia)/";
 				$header['hu']			= "/(Nyersanyagok itt.*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['hu']			= "/(Aktivitás)\b(?!( azt| a))/";
-				$activity_exp['hu']		= "/Az aktivitás azt jelenti, hogy a megvizsgált bolygó aktív volt vagy egy másik játékos flottája kapcsolatban állt a megvizsgált bolygóval\./";
+				$activity_exp['hu']		= "/Az aktivitás azt jelenti, [^\.]*\./";
 				$probs_act['hu']		= "/(A Kémed nem .*)([1-5][0-9])(.*)\./";
 				$probs['hu']			= "/(A Kémed nem .*)\./";
 				$fleet['hu']			= "/(Flották)\b/";
@@ -258,7 +257,7 @@ if ($config['ogame_spy_conv'])
 				$line_2[14]				= "/(Deuterium).{1,}(Energie)/";
 				$header['nl']			= "/(Grondstoffen op.*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['nl']			= "/(Activiteit)\b(?!( betekent| in))/";
-				$activity_exp['nl']		= "/Activiteit betekent dat de gescande speler actief was op deze planeet of dat er een andere speler vlootcontact heeft gemaakt met deze planeet\./";
+				$activity_exp['nl']		= "/Activiteit betekent [^\.]*\./";
 				$probs_act['nl']		= "/(Je spionage .*)([1-5][0-9])(.*)\./";
 				$probs['nl']			= "/(Je spionage .*)\./";
 				$fleet['nl']			= "/(vloten)\b/";
@@ -273,7 +272,7 @@ if ($config['ogame_spy_conv'])
 				$line_2[15]				= "/(Deuterium).{1,}(Energi)/";
 				$header['no']			= "/(Ressurser på.*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 			//	$activity['no']			take a look at dk
-				$activity_exp['no']		= "/Aktivitet betyr at spilleren du skannet har vært aktiv på planeten eller en annen spiller har hatt flåtekontakt med planeten du skannet\./";
+				$activity_exp['no']		= "/Aktivitet betyr at [^\.]*\./";
 				$probs_act['no']		= "/(Din spionasje .*)([1-5][0-9])(.*)\./";
 				$probs['no']			= "/(Din spionasje .*)\./";
 				$fleet['no']			= "/(flåter)\b/";
@@ -288,7 +287,7 @@ if ($config['ogame_spy_conv'])
 				$line_2[16]				= "/(Deutérium).{1,}(Energia)/";
 				$header['sk']			= "/(Zdroje na .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['sk']			= "/(Aktivity)\b(?!( betekent| in))/";
-				$activity_exp['sk']		= "/Aktivitou sa rozumie, že skenovaný hráč vykonal nejaké zmeny na planéte, alebo že flotila iného hráča je v kontakte so skenovanou planétou\./";
+				$activity_exp['sk']		= "/Aktivitou sa rozumie, [^\.]*\./";
 				$probs_act['sk']		= "/(Výsledky špionáže .*)([1-5][0-9])(.*)\./";
 				$probs['sk']			= "/(Výsledky špionáže .*)\./";
 				$fleet['sk']			= "/(flotily)\b/";
@@ -303,7 +302,7 @@ if ($config['ogame_spy_conv'])
 			//	$line_2					take a look at no
 				$header['se']			= "/(Resurser på .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 			//	$activity['se']			take a look at dk
-				$activity_exp['se']		= "/Aktivitet menas att den scannade spelaren har varit aktiv på den planeten eller att en annan spelare har haft flottkontakt med planeten du scannade\./";
+				$activity_exp['se']		= "/Aktivitet menas att [^\.]*\./";
 				$probs_act['se']		= "/(Din spionagerapport .*)([1-5][0-9])(.*)\./";
 				$probs['se']			= "/(Din spionagerapport .*)\./";
 				$fleet['se']			= "/(flottor)\b/";
@@ -318,7 +317,7 @@ if ($config['ogame_spy_conv'])
 				$line_2[17]				= "/(Deuteriu).{1,}(Energie)/";
 				$header['ro']			= "/(Resurse la .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['ro']			= "/(Activitate)\b(?! pe)/";
-				$activity_exp['ro']		= "/Activitatea inseamna ca jucatorul scanat a fost activ pe planeta sau un alt jucator a avut contact cu flota pe planeta scanata de tine\./";
+				$activity_exp['ro']		= "/Activitatea inseamna ca [^\.]*\./";
 				$probs_act['ro']		= "/(Proba ta de spionaj .*)([1-5][0-9])(.*)\./";
 				$probs['ro']			= "/(Proba ta de spionaj .*)\./";
 				$fleet['ro_lv']			= "/(Flote)\b/";
@@ -334,8 +333,8 @@ if ($config['ogame_spy_conv'])
 				$header['it']			= "/(Risorse su .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['it']			= "/(Attivit".utf8_encode('à').")(?!( significa| sul))/";
 				$activity['it_1']		= "/(Attività)(?!( significa| sul))/";
-				$activity_exp['it']		= "/Attività significa che il giocatore spiato è stato attivo su quel pianeta o un altro giocatore ha avuto un contatto di flotta con il pianeta spiato\./";
-				$activity_exp['it_1']	= "/Attività  significa che il giocatore spiato è stato attivo su quel pianeta o un altro giocatore ha avuto un contatto di flotta con il pianeta spiato\./";
+				$activity_exp['it']		= "/Attività significa [^\.]*\./";
+				$activity_exp['it_1']	= "/Attività  significa [^\.]*\./";
 				$probs_act['it']		= "/(Il tuo spionaggio .*)([1-5][0-9])(.*)\./";
 				$probs['it']			= "/(Il tuo spionaggio .*)\./";
 				$fleet['it']			= "/(Flotte)\b/";
@@ -349,7 +348,7 @@ if ($config['ogame_spy_conv'])
 				$line_2[19]				= "/(Deuteris).{1,}(Energija)/";
 				$header['lt']			= "/(Resursų .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['lt']			= "/(Aktyvumas)\b/";
-				$activity_exp['lt']		= "/Veiklumas reiškia, kad skanuotasis žaidėjas buvo aktyvus toje planetoje arba kito žaidėjo laivynas turėjo kontaktą su nuskanuotuoju\./";
+				$activity_exp['lt']		= "/Veiklumas reiškia, [^\.]*\./";
 				$probs_act['lt']		= "/(Jūsų šnipinėjimo .*)([1-5][0-9])(.*)\./";
 				$probs['lt']			= "/(Jūsų šnipinėjimo .*)\./";
 				$fleet['lt']			= "/(Laivynai)\b/";
@@ -363,7 +362,7 @@ if ($config['ogame_spy_conv'])
 				$line_2[20]				= "/(Deitērijs).{1,}(Enerģija)/";
 				$header['lv']			= "/(Resursi uz .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
 				$activity['lv']			= "/(Aktivitāte)\b(?!( nozīmē| sul))/";
-				$activity_exp['lv']		= "/Aktivitāte nozīmē, ka spēlētājs ir bijis aktīvs uz šīs planētas, vai arī ir bijis kuģu kontakts no cita spēlētāja ar planētu, kuru jūs skanējat\./";
+				$activity_exp['lv']		= "/Aktivitāte nozīmē, [^\.]*\./";
 				$probs_act['lv']		= "/(Jūsu spiegošana .*)([1-5][0-9])(.*)\./";
 				$probs['lv']			= "/(Jūsu spiegošana .*)\./";
 			//	$fleet['lv']			take a look at ro
