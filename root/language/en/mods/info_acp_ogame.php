@@ -69,8 +69,8 @@ $lang = array_merge($lang, array(
 	'SPY_CONV'							=> 'Prettify Espionagereports',
 	'SPY_CONV_EXPLAIN'					=> 'Convert Espionagereports that starts with "Resources at" and ends with the counter-espionage chance into a nicer looking.',
 
-	'UCP_MMOGAME'						=> 'MMOGame-ID',
-	'UCP_CR_HOSTING'					=> 'CR-Hosting-Profile-ID',
+	'UCP_MMOGAME'						=> 'Gameforge ID',
+	'UCP_CR_HOSTING'					=> 'CR-Hosting-Profile ID',
 
 	'VIEW_MMOGAME'						=> 'visit Gameforge-Profile',
 	'VIEW_CR_HOSTING'					=> 'visit CR-Hosting-Profile',

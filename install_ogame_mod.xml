@@ -7,11 +7,20 @@
 		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (offline version)"/>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
 		<title lang="en"><![CDATA[OGame-Mod]]></title>
-		<description lang="en"><![CDATA[This mod adds some features for player of ogame
+		<description lang="en"><![CDATA[Adds some features for player of OGame.
+
 Features:
-- "connect" your Gameforge-ID and your CR-Hosting-ID to your profile
-- nice link-replacement for crs from http://kb.un1matr1x.de
-- an improved version of ScannBB added]]></description>
+ • connect Userprofile with GameForge-Portal
+ • connect Userprofile with CR-Hosting-Portal
+ • prettify CR-Hosting-Links
+ • prettify Espionagereports ([based on ScannBB] working for ogame <dot> ar|br|cz|de|dk|es|fi|fr|hr|hr|hu|it|lt|lv|mx|nl|no|org|pt|ro|sk|se]]></description>
+		<description lang="de"><![CDATA[Ergänzt das Forum mit einigen Features für OGame-Spieler.
+
+Features:
+ • Benutzerprofil mit dem GameForge-Portal verbinden
+ • Benutzerprofil mit KB-Hosting verbinden
+ • KB-Hosting-Link verschönert eingebunden
+ • Spionageberichte verschönert eingebunden]]></description>
 		<author-notes lang="en"><![CDATA[ScannBB developer / maintainer: eXochron (aka skYforge) & Pionier]]></author-notes>
 		<author-group>
 			<author>
@@ -19,9 +28,6 @@ Features:
 				<username><![CDATA[Unimatrix_0]]></username>
 				<homepage><![CDATA[http://un1matr1x.de]]></homepage>
 				<email><![CDATA[admin@un1matr1x.de]]></email>
-				<contributions-group>
-					<contributions status="current" position="OGame-Mod Developer"/>
-				</contributions-group>
 			</author>
 		</author-group>
 		<mod-version>1.0.0</mod-version>
@@ -35,14 +41,20 @@ Features:
 				<date>2011-01-09</date>
 				<rev-version>0.0.1 -dev</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[first release]]></change>
+					<change><![CDATA[First release]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Erstes Release]]></change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2011-01-12</date>
 				<rev-version>0.0.2 -dev</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[add mmocard-support]]></change>
+					<change><![CDATA[add G-Card-support]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[G-Card-Support hinzugefügt]]></change>
 				</changelog>
 			</entry>
 			<entry>
@@ -51,47 +63,65 @@ Features:
 				<changelog lang="en">
 					<change><![CDATA[ACP-Module added]]></change>
 				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Administrationsmodul hinzugefügt]]></change>
+				</changelog>
 			</entry>
 			<entry>
 				<date>2011-01-16</date>
-				<rev-version>0.1.0 -dev</rev-version>
+				<rev-version>0.1.0</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[CR-Link-Replacment added]]></change>
+					<change><![CDATA[prettify CR-Hosting-Links]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[KB-Hosting-Link verschönert eingebunden]]></change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2011-01-21</date>
-				<rev-version>0.2.0 -dev</rev-version>
+				<rev-version>0.2.0</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[ScannBB adden and improved]]></change>
+					<change><![CDATA[prettify Espionagereports (based on ScannBB)]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Spionageberichte verschönert eingebunden (basiert auf ScannBB)]]></change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2011-01-22</date>
-				<rev-version>0.2.1 -dev</rev-version>
+				<rev-version>0.2.1</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Some more ACP-Settings added]]></change>
+					<change><![CDATA[more ACP-Settings added]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[weitere administrative Optionen hinzugefügt]]></change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2011-01-23</date>
-				<rev-version>0.2.2 -dev</rev-version>
+				<rev-version>0.2.2</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Some more espionage-languages added]]></change>
+					<change><![CDATA[Support for Espionagereports raised]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Support für Spionageberichte erhöht]]></change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2011-01-30</date>
-				<rev-version>0.2.3 -dev</rev-version>
+				<rev-version>0.2.3</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Espionage-Option @ ACP]]></change>
+					<change><![CDATA[more ACP-Settings added]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[weitere administrative Optionen hinzugefügt]]></change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2011-02-03</date>
 				<rev-version>1.0.0</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[made mod valide for MPV]]></change>
+					<change><![CDATA[validate MOD for phpBB3 Database (tested with MPV)]]></change>
 				</changelog>
 			</entry>
 		</history>
@@ -536,9 +566,16 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 		<php-installer><![CDATA[install/index.php]]></php-installer>
 		<diy-instructions lang="en"><![CDATA[Clear your cache in the "Administration Control Panel" (ACP) > "General" > "Purge the cache"
 
+
 Refresh your Styles:
 		"Administration Control Panel" (ACP) > "Styles" > "Templates" > each > "refresh"
 		"Administration Control Panel" (ACP) > "Styles" > "Themes" > each > "refresh"
 		"Administration Control Panel" (ACP) > "Styles" > "Imagesets" > each > "refresh"]]></diy-instructions>
+		<diy-instructions lang="de"><![CDATA[Leere den Cache im "Administrations-Bereich" (ACP) > "Allgemein" > "Den Cache leeren"
+
+Aktualisiere deine Styles:
+		"Administrations-Bereich" (ACP) > "Styles" > "Templates" > jedes > "Aktualisieren"
+		"Administrations-Bereich" (ACP) > "Styles" > "Themes" > jedes > "Aktualisieren"
+		"Administrations-Bereich" (ACP) > "Styles" > "Grafiksammlungen" > jedes > "Aktualisieren"]]></diy-instructions>
 	</action-group>
 </mod>
