@@ -134,7 +134,13 @@ $versions = array(
 	),
 
 	// Version 1.0.0 made mod valide for MPV
+	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/1.0.0
 	'1.0.0'	=> array(
+	),
+
+	// Version 1.1.0 SubSilver2 added
+	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/1.1.0
+	'1.1.0'	=> array(
 	),
 
 );

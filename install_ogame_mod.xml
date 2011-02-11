@@ -30,7 +30,7 @@ Features:
 				<email><![CDATA[admin@un1matr1x.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>1.0.0</mod-version>
+		<mod-version>1.1.0</mod-version>
 		<installation>
 			<level>intermediate</level>
 			<time>1800</time>
@@ -124,11 +124,18 @@ Features:
 					<change><![CDATA[validate MOD for phpBB3 Database (tested with MPV)]]></change>
 				</changelog>
 			</entry>
+			<entry>
+				<date>2011-02-11</date>
+				<rev-version>1.1.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[SubSilver2 added]]></change>
+				</changelog>
+			</entry>
 		</history>
 		<link-group>
 			<link type="language" href="contrib/de.xml" lang="en">Manual for German Language-set</link>
-			<link type="template" href="contrib/Flow.xml" lang="en">Manual for Flow Style</link>
 			<link type="template" href="contrib/subsilver2.xml" lang="en">Manual for subsilver2 Style</link>
+			<link type="template" href="contrib/Flow.xml" lang="en">Manual for Flow Style</link>
 		</link-group>
 	</header>
 	<action-group>

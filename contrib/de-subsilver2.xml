@@ -16,10 +16,10 @@
 				<email><![CDATA[admin@un1matr1x.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>1.0.0</mod-version>
+		<mod-version>1.1.0</mod-version>
 		<installation>
 			<level>easy</level>
-			<time>600</time>
+			<time>240</time>
 			<target-version>3.0.8</target-version>
 		</installation>
 		<link-group>
