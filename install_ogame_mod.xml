@@ -452,7 +452,8 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 	<span class="corners-bottom"><span></span></span></div>
 </div>
 <!-- ENDIF -->]]></find>
-				<action type="after-add"><![CDATA[<!-- IF U_MMOGAME_CARD  or U_CR_HOSTING_SIGI -->
+				<action type="after-add"><![CDATA[<!-- OGame-Mod B -->
+<!-- IF U_MMOGAME_CARD  or U_CR_HOSTING_SIGI -->
 <div class="panel bg<!-- IF SIGNATURE -->2<!-- ELSE -->1<!-- ENDIF -->">
 	<div class="inner"><span class="corners-top"><span></span></span>
 
@@ -474,7 +475,8 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 	
 	<span class="corners-bottom"><span></span></span></div>
 </div>
-<!-- ENDIF -->]]></action>
+<!-- ENDIF -->
+<!-- OGame-Mod E -->]]></action>
 			</edit>
 		</open>
 		<open src="styles/prosilver/template/ucp_pm_viewmessage.html">
