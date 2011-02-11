@@ -31,6 +31,7 @@
 	<action-group>
 		<copy>
 			<file from="root/styles/subsilver2/imageset/en/icon_contact_cr_hosting.gif" to="styles/subsilver2/imageset/en/icon_contact_cr_hosting.gif"/>
+			<file from="root/styles/subsilver2/imageset/en/icon_contact_mmogame.gif" to="styles/subsilver2/imageset/en/icon_contact_mmogame.gif"/>
 		</copy>
 		<open src="styles/subsilver2/imageset/en/imageset.cfg">
 			<edit>
@@ -124,8 +125,7 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif
 	font-weight: bold;
 }]]></find>
 				<comment lang="en"><![CDATA[This is the end of the file.]]></comment>
-				<action type="after-add"><![CDATA[
-.textWrapper {
+				<action type="after-add"><![CDATA[.textWrapper {
 background-color: transparent;
 background-image: none;
 border-bottom-color: #6F9FC8;
