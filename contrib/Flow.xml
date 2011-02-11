@@ -165,7 +165,6 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 				<find><![CDATA[@import url("colours.css");]]></find>
 				<action type="after-add"><![CDATA[@import url("ogame.css");]]></action>
 			</edit>
-		</open>
-		<diy-instructions lang="en"><![CDATA[This installation only provides only better fitting images. For the real installation for any style based on prosilver follow the prosilver-instructions @ the normal Installation-Manual]]></diy-instructions>
+		</open>		
 	</action-group>
 </mod>
