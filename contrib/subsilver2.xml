@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
+	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (offline version)"/>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[OGame-Mod]]></title>
+		<description lang="en"><![CDATA[see normal install-/update-file]]></description>
+		<author-group>
+			<author>
+				<realname><![CDATA[Falk Seidel]]></realname>
+				<username><![CDATA[Unimatrix_0]]></username>
+				<homepage><![CDATA[http://un1matr1x.de]]></homepage>
+				<email><![CDATA[admin@un1matr1x.de]]></email>
+			</author>
+		</author-group>
+		<mod-version>1.0.0</mod-version>
+		<installation>
+			<level>easy</level>
+			<time>600</time>
+			<target-version>3.0.8</target-version>
+		</installation>
+		<link-group>
+			<link type="parent" href="../install_ogame_mod.xml" lang="de">Installations-Anleitung</link>
+			<link type="parent" href="../install_ogame_mod.xml" lang="en">Installation-Manual</link>
+			<link type="template-lang" href="./de-subsilver2.xml" lang="en">Manual for German subsilver2 Style</link>
+		</link-group>
+	</header>
+	<action-group>
+		<copy>
+			<file from="root/styles/subsilver2/imageset/en/icon_contact_cr_hosting.gif" to="styles/subsilver2/imageset/en/icon_contact_cr_hosting.gif"/>
+		</copy>
+		<open src="styles/subsilver2/imageset/en/imageset.cfg">
+			<edit>
+				<find><![CDATA[img_icon_post_delete = icon_post_delete.gif]]></find>
+				<action type="before-add"><![CDATA[# Begin OGame-Mod
+img_icon_contact_cr_hosting = icon_contact_cr_hosting.gif
+img_icon_contact_mmogame = icon_contact_mmogame.gif
+# End OGame-Mod
+]]></action>
+			</edit>
+		</open>
+		<open src="styles/subsilver2/template/memberlist_view.html">
+			<edit>
+				<find><![CDATA[			<!-- IF U_PM -->
+				<tr>
+					<td class="gen" nowrap="nowrap" align="{S_CONTENT_FLOW_END}">{L_PM}: </td>
+					<td><a href="{U_PM}">{PM_IMG}</a></td>
+				</tr>
+			<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[			<!-- IF U_MMOGAME or USER_MMOGAME -->
+			<tr>
+				<td class="gen" nowrap="nowrap" align="{S_CONTENT_FLOW_END}">{L_MMOGAME}: </td>
+				<td><a href="{U_MMOGAME}">{MMOGAME_IMG}</a></td>
+			</tr>
+			<!-- ENDIF -->
+			<!-- IF U_CR_HOSTING or USER_CR_HOSTING -->
+			<tr>
+				<td class="gen" nowrap="nowrap" align="{S_CONTENT_FLOW_END}">{L_CR_HOSTING}: </td>
+				<td><a href="{U_CR_HOSTING}">{CR_HOSTING_IMG}</a></td>
+			</tr>
+			<!-- ENDIF -->]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[	<!-- IF SIGNATURE -->
+		<tr>
+			<td class="cat" colspan="2" align="center"><h4>{L_SIGNATURE}</h4></td>
+		</tr>
+		<tr>
+			<td class="row1" colspan="2"><div class="postbody" style="padding: 10px;">{SIGNATURE}</div></td>
+		</tr>
+	<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[<!-- OGame-Mod B -->
+	<!-- IF U_MMOGAME_CARD  or U_CR_HOSTING_SIGI -->
+		<tr>
+			<!-- IF U_MMOGAME_CARD --><td class="cat" align="center"><h4>{L_MMOGAME}</h4></td><!-- ENDIF -->
+			<!-- IF U_CR_HOSTING_SIGI --><td class="cat" align="center"><h4>{L_CR_HOSTING}</h4></td><!-- ENDIF -->
+		</tr>
+		<tr>
+			<!-- IF U_MMOGAME_CARD --><td class="row1" align="center"><a href="{U_MMOGAME}" title="{L_MMOGAME}">{U_MMOGAME_CARD}</a></td><!-- ENDIF -->
+			<!-- IF U_CR_HOSTING_SIGI --><td class="row1" align="center"><a href="{U_CR_HOSTING}" title="{L_CR_HOSTING}">{U_CR_HOSTING_SIGI}</a></td><!-- ENDIF -->
+		</tr>
+	<!-- ENDIF -->
+<!-- OGame-Mod E -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/subsilver2/template/ucp_profile_profile_info.html">
+			<edit>
+				<find><![CDATA[<tr> 
+	<td class="row1" width="35%"><b class="genmed">{L_WEBSITE}: </b></td>
+	<td class="row2"><input class="post" type="text" name="website" size="30" maxlength="255" value="{WEBSITE}" /></td>
+</tr>]]></find>
+				<action type="after-add"><![CDATA[<!-- OGame-Mod B -->
+<!-- IF SHOW_MMOGAME -->
+<tr> 
+	<td class="row1" width="35%"><b class="genmed">{L_MMOGAME}: </b><br /><span class="gensmall">{L_MMOGAME_EXPLAIN}</span></td>
+	<td class="row2"><input class="post" type="text" name="mmogame" size="30" maxlength="255" value="{MMOGAME}" /></td>
+</tr>
+<!-- ENDIF -->
+<!-- IF SHOW_CR_HOSTING -->	
+<tr> 
+	<td class="row1" width="35%"><b class="genmed">{L_CR_HOSTING}: </b><br /><span class="gensmall">{L_CR_HOSTING_EXPLAIN}</span></td>
+	<td class="row2"><input class="post" type="text" name="cr_hosting" size="30" maxlength="255" value="{CR_HOSTING}" /></td>
+</tr>
+<!-- ENDIF -->
+<!-- OGame-Mod E -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/subsilver2/template/viewtopic_body.html">
+			<edit>
+				<find><![CDATA[			<td><div class="gensmall" style="float: {S_CONTENT_FLOW_BEGIN};">&nbsp;<!-- IF postrow.U_POST_AUTHOR --><a href="{postrow.U_POST_AUTHOR}">{PROFILE_IMG}</a> <!-- ENDIF --> <!-- IF postrow.U_PM --><a href="{postrow.U_PM}">{PM_IMG}</a> <!-- ENDIF --> <!-- IF postrow.U_EMAIL --><a href="{postrow.U_EMAIL}">{EMAIL_IMG}</a> <!-- ENDIF -->&nbsp;</div> <div class="gensmall" style="float: {S_CONTENT_FLOW_END};"><!-- IF not S_IS_BOT --><!-- IF postrow.U_EDIT --><a href="{postrow.U_EDIT}">{EDIT_IMG}</a> <!-- ENDIF --> <!-- IF postrow.U_QUOTE --><a href="{postrow.U_QUOTE}">{QUOTE_IMG}</a> <!-- ENDIF --> <!-- ENDIF -->&nbsp;</div></td>]]></find>
+				<action type="replace-with"><![CDATA[			<td><div class="gensmall" style="float: {S_CONTENT_FLOW_BEGIN};">&nbsp;<!-- IF postrow.U_POST_AUTHOR --><a href="{postrow.U_POST_AUTHOR}">{PROFILE_IMG}</a> <!-- ENDIF --> <!-- IF postrow.U_PM --><a href="{postrow.U_PM}">{PM_IMG}</a> <!-- ENDIF --> <!-- IF postrow.U_EMAIL --><a href="{postrow.U_EMAIL}">{EMAIL_IMG}</a> <!-- ENDIF --> <!-- IF postrow.U_MMOGAME --><a href="{postrow.U_MMOGAME}">{MMOGAME_IMG}</a> <!-- ENDIF --> <!-- IF postrow.U_CR_HOSTING --><a href="{postrow.U_CR_HOSTING}">{CR_HOSTING_IMG}</a> <!-- ENDIF -->&nbsp;</div> <div class="gensmall" style="float: {S_CONTENT_FLOW_END};"><!-- IF not S_IS_BOT --><!-- IF postrow.U_EDIT --><a href="{postrow.U_EDIT}">{EDIT_IMG}</a> <!-- ENDIF --> <!-- IF postrow.U_QUOTE --><a href="{postrow.U_QUOTE}">{QUOTE_IMG}</a> <!-- ENDIF --> <!-- ENDIF -->&nbsp;</div></td>]]></action>
+			</edit>
+		</open>
+		<open src="styles/subsilver2/theme/stylesheet.css">
+			<edit>
+				<find><![CDATA[.nowrap {
+	white-space: nowrap;
+}
+
+.username-coloured {
+	font-weight: bold;
+}]]></find>
+				<comment lang="en"><![CDATA[This is the end of the file.]]></comment>
+				<action type="after-add"><![CDATA[
+.textWrapper {
+background-color: transparent;
+background-image: none;
+border-bottom-color: #6F9FC8;
+border-bottom-style: none;
+border-bottom-width: 0px;
+border-left-color: #6F9FC8;
+border-left-style: none;
+border-left-width: 0px;
+border-right-color: #6F9FC8;
+border-right-style: none;
+border-right-width: 0px;
+border-top-color: #6F9FC8;
+border-top-style: none;
+border-top-width: 0px;
+color: #6F9FC8;
+display: block;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+font-style: normal;
+font-variant: normal;
+font-weight: normal;
+height: 350px; 
+line-height: normal;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-x: hidden;
+overflow-y: auto;
+padding-bottom: 0px;
+padding-left: 0px;
+padding-right: 0px;
+padding-top: 0px;
+width: 75%;
+}
+
+.node{
+background-color: transparent;
+background-image: none;
+border-bottom-color: #6F9FC8;
+border-bottom-style: none;
+border-bottom-width: 0px;
+border-left-color: #6F9FC8;
+border-left-style: none;
+border-left-width: 0px;
+border-right-color: #6F9FC8;
+border-right-style: none;
+border-right-width: 0px;
+border-top-color: #6F9FC8;
+border-top-style: none;
+border-top-width: 0px;
+color: #6F9FC8;
+display: block;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+font-style: normal;
+font-variant: normal;
+font-weight: normal;
+line-height: normal;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 23px;
+margin-top: 0px;
+overflow-x: visible;
+overflow-y: visible;
+padding-bottom: 20px;
+padding-left: 20px;
+padding-right: 20px;
+padding-top: 20px;
+width: 95%;
+}
+
+.spy {
+-webkit-border-horizontal-spacing: 0px;
+-webkit-border-vertical-spacing: 0px;
+background-color: #13181D;
+background-image: none;
+border-bottom-color: black;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-collapse: separate;
+border-left-color: black;
+border-left-style: solid;
+border-left-width: 1px;
+border-right-color: black;
+border-right-style: solid;
+border-right-width: 1px;
+border-top-color: black;
+border-top-style: solid;
+border-top-width: 1px;
+color: white;
+display: table-cell;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+font-style: normal;
+font-variant: normal;
+font-weight: bold;
+height: 13px;
+line-height: normal;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-x: visible;
+overflow-y: visible;
+padding-bottom: 5px;
+padding-left: 0px;
+padding-right: 0px;
+padding-top: 5px;
+text-align: center;
+vertical-align: top;
+width: 95%;
+}
+
+.area {
+-webkit-border-horizontal-spacing: 0px;
+-webkit-border-vertical-spacing: 0px;
+background-color: #13181D;
+background-image: none;
+border-bottom-color: black;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-collapse: separate;
+border-left-color: black;
+border-left-style: solid;
+border-left-width: 1px;
+border-right-color: black;
+border-right-style: solid;
+border-right-width: 1px;
+border-top-color: black;
+border-top-style: solid;
+border-top-width: 1px;
+color: white;
+display: table-cell;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+font-style: normal;
+font-variant: normal;
+font-weight: bold;
+height: 13px;
+line-height: normal;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-x: visible;
+overflow-y: visible;
+padding-bottom: 5px;
+padding-left: 0px;
+padding-right: 0px;
+padding-top: 5px;
+text-align: center;
+vertical-align: top;
+width: 95%;
+}
+
+.key{
+-webkit-border-horizontal-spacing: 0px;
+-webkit-border-vertical-spacing: 0px;
+background-color: transparent;
+background-image: none;
+border-bottom-color: #161616;
+border-bottom-style: dotted;
+border-bottom-width: 1px;
+border-collapse: separate;
+border-left-color: #6F9FC8;
+border-left-style: none;
+border-left-width: 0px;
+border-right-color: #6F9FC8;
+border-right-style: none;
+border-right-width: 0px;
+border-top-color: #6F9FC8;
+border-top-style: none;
+border-top-width: 0px;
+color: #6F9FC8;
+display: table-cell;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+font-style: normal;
+font-variant: normal;
+font-weight: normal;
+height: 13px;
+line-height: normal;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-x: visible;
+overflow-y: visible;
+padding-bottom: 5px;
+padding-left: 5px;
+padding-right: 5px;
+padding-top: 5px;
+text-align: left;
+vertical-align: middle;
+}
+
+.value {
+-webkit-border-horizontal-spacing: 0px;
+-webkit-border-vertical-spacing: 0px;
+background-color: transparent;
+background-image: none;
+border-bottom-color: #161616;
+border-bottom-style: dotted;
+border-bottom-width: 1px;
+border-collapse: separate;
+border-left-color: #6F9FC8;
+border-left-style: none;
+border-left-width: 0px;
+border-right-color: #6F9FC8;
+border-right-style: none;
+border-right-width: 0px;
+border-top-color: #6F9FC8;
+border-top-style: none;
+border-top-width: 0px;
+color: #6F9FC8;
+display: table-cell;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+font-style: normal;
+font-variant: normal;
+font-weight: normal;
+height: 13px;
+line-height: normal;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-x: visible;
+overflow-y: visible;
+padding-bottom: 5px;
+padding-left: 5px;
+padding-right: 5px;
+padding-top: 5px;
+text-align: right;
+vertical-align: middle;
+}
+
+.defense {
+-webkit-border-horizontal-spacing: 0px;
+-webkit-border-vertical-spacing: 0px;
+background-color: #13181D;
+background-image: none;
+border-bottom-color: black;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-collapse: separate;
+border-left-color: black;
+border-left-style: solid;
+border-left-width: 1px;
+border-right-color: black;
+border-right-style: solid;
+border-right-width: 1px;
+border-top-color: black;
+border-top-style: solid;
+border-top-width: 1px;
+color: #6F9FC8;
+display: table-cell;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+font-style: normal;
+font-variant: normal;
+font-weight: bold;
+height: 13px;
+line-height: normal;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-x: visible;
+overflow-y: visible;
+padding-bottom: 5px;
+padding-left: 5px;
+padding-right: 5px;
+padding-top: 5px;
+text-align: center;
+vertical-align: middle;
+width: 95%;
+}
+
+.coords {
+-webkit-border-horizontal-spacing: 0px;
+-webkit-border-vertical-spacing: 0px;
+background-attachment: scroll;
+background-clip: border-box;
+background-color: transparent;
+background-image: none;
+background-origin: padding-box;
+border-bottom-color: #848484;
+border-bottom-width: 0px;
+border-collapse: separate;
+border-left-color: #848484;
+border-left-width: 0px;
+border-right-color: #848484;
+border-right-width: 0px;
+border-top-color: #848484;
+border-top-width: 0px;
+color: #848484;
+cursor: auto;
+display: inline;
+font-family: Verdana, Arial, SunSans-Regular, sans-serif;
+font-size: 11px;
+font-style: normal;
+font-weight: bold;
+height: 0px;
+line-height: 11px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+outline-color: #848484;
+outline-style: none;
+outline-width: 0px;
+padding-bottom: 0px;
+padding-left: 0px;
+padding-right: 0px;
+padding-top: 0px;
+vertical-align: baseline;
+}
+
+.activity {
+-webkit-border-horizontal-spacing: 0px;
+-webkit-border-vertical-spacing: 0px;
+background-color: transparent;
+background-image: none;
+border-bottom-color: #6F9FC8;
+border-bottom-style: none;
+border-bottom-width: 0px;
+border-collapse: separate;
+border-left-color: #6F9FC8;
+border-left-style: none;
+border-left-width: 0px;
+border-right-color: #6F9FC8;
+border-right-style: none;
+border-right-width: 0px;
+border-top-color: #6F9FC8;
+border-top-style: none;
+border-top-width: 0px;
+color: #6F9FC8;
+display: table-cell;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+font-style: normal;
+font-variant: normal;
+font-weight: normal;
+height: 26px;
+line-height: normal;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+overflow-x: visible;
+overflow-y: visible;
+padding-bottom: 5px;
+padding-left: 5px;
+padding-right: 5px;
+padding-top: 5px;
+vertical-align: middle;
+width: 95%;
+}
+
+a.mmogame-span span 						{ display: none;}
+a.mmogame-span:hover span				{ display: inline; position: relative; }
+a.cr-hosting-span span 					{ display: none;}
+a.cr-hosting-span:hover span				{ display: inline; position: relative; }
+.just_move:hover span					{ left: -375px  !important; top: -60px  !important;}]]></action>
+			</edit>
+		</open>
+	</action-group>
+</mod>
