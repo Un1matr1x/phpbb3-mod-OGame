@@ -32,18 +32,17 @@
 	<action-group>
 		<copy>
 			<file from="root/styles/subsilver2/imageset/de/icon_contact_cr_hosting.gif" to="styles/subsilver2/imageset/de/icon_contact_cr_hosting.gif"/>
+			<file from="root/styles/subsilver2/imageset/de/icon_contact_mmogame.gif" to="styles/subsilver2/imageset/de/icon_contact_mmogame.gif"/>
 		</copy>
 		<open src="styles/subsilver2/imageset/de/imageset.cfg">
 			<edit>
 				<find><![CDATA[img_icon_post_delete = icon_post_delete.gif*20*20]]></find>
-				<action type="before-add"><![CDATA[
-# Begin OGame-Mod
+				<action type="before-add"><![CDATA[# Begin OGame-Mod
 img_icon_contact_cr_hosting = icon_contact_cr_hosting.gif*20*72
 img_icon_contact_mmogame = icon_contact_mmogame.gif*20*72
 # End OGame-Mod
 ]]></action>
 			</edit>
 		</open>
-		<open src="styles/subsilver2/theme/stylesheet.css"/>
 	</action-group>
 </mod>
