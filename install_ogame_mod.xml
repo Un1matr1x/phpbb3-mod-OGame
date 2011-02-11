@@ -128,6 +128,7 @@ Features:
 		<link-group>
 			<link type="language" href="contrib/de.xml" lang="en">Manual for German Language-set</link>
 			<link type="template" href="contrib/Flow.xml" lang="en">Manual for Flow Style</link>
+			<link type="template" href="contrib/subsilver2.xml" lang="en">Manual for subsilver2 Style</link>
 		</link-group>
 	</header>
 	<action-group>
