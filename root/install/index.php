@@ -28,7 +28,7 @@ if (!file_exists($phpbb_root_path . 'umil/umil_auto.' . $phpEx))
 }
 
 // The name of the mod to be displayed during installation.
-$mod_name = 'OGame Mod';
+$mod_name = 'OGAME_MOD';
 
 /*
 * The name of the config variable which will hold the currently installed version
@@ -141,6 +141,11 @@ $versions = array(
 	// Version 1.1.0 SubSilver2 added
 	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/1.1.0
 	'1.1.0'	=> array(
+	),
+
+	// Version 1.1.1 phpBB-Mod-Validation-Team-Changes
+	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/1.1.1
+	'1.1.1'	=> array(
 	),
 
 );

@@ -397,7 +397,7 @@ if ($config['ogame_spy_conv'])
 				}
 			}
 			$rows = $rowsold = array_values(array_unique($rows));
-			//p/rint_r ($rows); //this additinal / should help to prevent the MPV-[FAILED]
+
 			$countrows=count($rows);
 			$precount = count($line_1);
 			$p1 = $p2 = 0;

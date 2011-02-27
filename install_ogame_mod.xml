@@ -4,6 +4,7 @@
 <!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (phpBB version)"/>
 		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (offline version)"/>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
 		<title lang="en"><![CDATA[OGame-Mod]]></title>
@@ -248,6 +249,15 @@ $user->add_lang('mods/info_acp_ogame');
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
+		<open src="adm/index.php">
+			<edit>
+				<find><![CDATA[$user->setup('acp/common');
+// End session management]]></find>
+				<action type="after-add"><![CDATA[// Begin OGame-Mod
+$user->add_lang('mods/info_acp_ogame');
+// End OGame-Mod]]></action>
+			</edit>
+		</open>
 		<open src="adm/style/acp_users_profile.html">
 			<edit>
 				<find><![CDATA[	<dl>
@@ -289,7 +299,7 @@ function censor_text($text)
 {
 	static $censors;]]></find>
 				<action type="after-add"><![CDATA[	// Begin OGame-Mod
-	include('functions_ogame.php');
+	include($phpbb_root_path . 'includes/functions_ogame.' . $phpEx);
 	// End OGame-Mod]]></action>
 			</edit>
 		</open>
