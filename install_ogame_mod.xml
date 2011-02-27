@@ -290,6 +290,7 @@ function censor_text($text)
 {
 	static $censors;]]></find>
 				<action type="after-add"><![CDATA[	// Begin OGame-Mod
+	global $phpbb_root_path, $phpEx;
 	include($phpbb_root_path . 'includes/functions_ogame.' . $phpEx);
 	// End OGame-Mod]]></action>
 			</edit>
