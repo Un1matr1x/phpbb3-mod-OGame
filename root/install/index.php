@@ -38,7 +38,7 @@ $version_config_name = 'ogm_version';
 
 
 // The language file which will be included when installing
-//$language_file = 'mods/ogame';
+$language_file = 'mods/info_acp_ogame';
 
 
 /*

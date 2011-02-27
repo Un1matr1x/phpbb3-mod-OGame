@@ -249,15 +249,6 @@ $user->add_lang('mods/info_acp_ogame');
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
-		<open src="adm/index.php">
-			<edit>
-				<find><![CDATA[$user->setup('acp/common');
-// End session management]]></find>
-				<action type="after-add"><![CDATA[// Begin OGame-Mod
-$user->add_lang('mods/info_acp_ogame');
-// End OGame-Mod]]></action>
-			</edit>
-		</open>
 		<open src="adm/style/acp_users_profile.html">
 			<edit>
 				<find><![CDATA[	<dl>

@@ -64,6 +64,7 @@ $lang = array_merge($lang, array(
 
 	'OGAME'								=> 'OGame',
 	'OGAME_CONFIG'						=> 'Einstellung',
+	'OGAME_MOD'							=> 'Ogame Mod',
 	'OGAME_SAVED'						=> 'Einstellung gespeichert',
 
 	'SPY_CONV'							=> 'Spioangeberichte verschönern',
