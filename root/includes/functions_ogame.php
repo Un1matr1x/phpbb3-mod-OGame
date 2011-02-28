@@ -13,8 +13,8 @@ if (!defined('IN_PHPBB'))
 	exit;
 }
 
-global $phpbb_root_path, $config;
-
+global $phpbb_root_path, $config, $phpEx;
+	
 //Replace CR-Links with nicer Images
 $search_kb 		= array();
 $search_kb[0] 	= '#[^"]http://kb.un1matr1x.de/kb\.php\?show=([0-9]+)&amp;pw=[a-zA-Z0-9]{6}&amp;lang=[a-z_]{2,11}<#'; //?show= &pw= &lang= 
@@ -45,32 +45,35 @@ $text = preg_replace($search_kb, $replace_kb, $text);
 
 if ($config['ogame_spy_conv'])
 {
-	$scanpattern					= array();
-	$scanpattern['de']				= "/Rohstoffe.auf(.){1,25}\[(.+?)Spionageabwehr(.+?)\%/s";
-	$scanpattern['org']				= "/Resources.at(.){1,25}\[(.+?)counter-espionage(.+?)\%/s";
-	$scanpattern['fr']				= "/Ressources.sur(.){1,25}\[(.+?)contre-espionnage(.+?)\%/s";
-	$scanpattern['hr']				= "/Resursi.na(.){1,25}\[(.+?)špijunaže(.+?)\%/s";
-	$scanpattern['es']				= "/Recursos.en(.){1,25}\[(.+?)contra-espionaje(.+?)\%/s";
-	$scanpattern['es_ar']			= "/Recursos.en(.){1,25}\[(.+?)Posibilidad.de.captura(.+?)\%/s";
-	$scanpattern['pt']				= "/Recursos.em(.){1,25}\[(.+?)contra-espionagem(.+?)\%/s";
-	$scanpattern['pt_br']			= "/Recursos.no(.){1,25}\[(.+?)contra-espionagem(.+?)\%/s";
-	$scanpattern['cz']				= "/Suroviny.na(.){1,25}\[(.+?)odvrácení.špionáže(.+?)\%/s";
-	$scanpattern['dk']				= "/Ressurcer.på(.){1,25}\[(.+?)spionage.forsvar(.+?)\%/s";
-	$scanpattern['fi']				= "/Resurssit(.){1,25}\[(.+?)Vastavakoilun.mahdollisuus(.+?)\%/s";
-	$scanpattern['hu']				= "/Nyersanyagok.itt(.){1,25}\[(.+?)Esély.a.kémelhárításra(.+?)\%/s";
-	$scanpattern['nl']				= "/Grondstoffen.op(.){1,25}\[(.+?)contraspionage(.+?)\%/s";
-	$scanpattern['no']				= "/Ressurser.på(.){1,25}\[(.+?)spionasjeforsvar(.+?)\%/s";
-	$scanpattern['sk']				= "/Zdroje.na(.){1,25}\[(.+?)špionáže(.+?)\%/s";
-	$scanpattern['se']				= "/Resurser.på(.){1,25}\[(.+?)upptäckt(.+?)\%/s";
-	$scanpattern['ro']				= "/Resurse.la(.){1,25}\[(.+?)contra-spionaj(.+?)\%/s";
-	$scanpattern['it']				= "/Risorse.su(.){1,25}\[(.+?)controspionaggio(.+?)\%/s";
-	$scanpattern['lt']				= "/Resursų(.){1,25}\[(.+?)Kontra-šnipinėjimo(.+?)\%/s";
-	$scanpattern['lv']				= "/Resursi.uz(.){1,25}\[(.+?)Pretspiegošanas(.+?)\%/s";
 
-	if(!function_exists('ogame_scan'))
+	$scanpattern = array();
+	
+	$dp = @opendir("{$phpbb_root_path}language");
+
+		if ($dp)
+		{
+			while (($file = readdir($dp)) !== false)
+			{
+				if ($file[0] == '.' || !is_dir($phpbb_root_path . 'language/' . $file))
+				{
+					continue;
+				}
+
+				if (file_exists("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx"))
+				{
+					include ("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx");
+					$scanpattern[$file] = $lang['SCANPATTERN'];
+				}
+			}
+			closedir($dp);
+		}
+
+	if (!function_exists('ogame_scan'))
 	{
 		function ogame_scan($treffer)
 		{
+			global $phpbb_root_path, $config, $phpEx;
+
 				$line_1					= array();
 				$line_2					= array();
 				$header					= array();
@@ -82,6 +85,30 @@ if ($config['ogame_spy_conv'])
 				$build					= array();
 				$research				= array();
 				$chance					= array();
+				
+				//$rows					= array();
+				//$rows[1] = $rows[2] = '';
+
+				/*$dp = @opendir("{$phpbb_root_path}language");
+
+				if ($dp)
+				{
+					while (($file = readdir($dp)) !== false)
+					{
+						if ($file[0] == '.' || !is_dir($phpbb_root_path . 'language/' . $file))
+						{
+							continue;
+						}
+						
+
+							if (file_exists("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx"))
+							{
+								include ("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx");
+								
+							}
+					}
+					closedir($dp);
+				}*/
 
 				//English (org & us)
 				$line_1[1]				= "/(Metal).{1,}(Crystal)/";
@@ -397,20 +424,21 @@ if ($config['ogame_spy_conv'])
 				}
 			}
 			$rows = $rowsold = array_values(array_unique($rows));
-
+			//print_r ($rows);
 			$countrows=count($rows);
 			$precount = count($line_1);
 			$p1 = $p2 = 0;
+			//echo $rows[1] . '<br>';
 			for ($i=0; $i<$precount; $i++)
 			{
 				if (!$p1)
 				{
-					$p1=preg_match($line_1[$i],$rows[1]);
+					$p1 = preg_match($line_1[$i], $rows[1]);
 				}
 
 				if (!$p2)
 				{
-					$p2=preg_match($line_2[$i],$rows[2]);
+					$p2 = preg_match($line_2[$i], $rows[2]);
 				}
 			}
 
@@ -438,9 +466,9 @@ if ($config['ogame_spy_conv'])
 					$txt='<div class="textWrapper"><div class="node"><table cellpadding="0" cellspacing="0" class="material spy">'.$txt.'</table></div></div>';
 				}
 			return $txt;
-			}
+		}
 	}
 
-	$text = preg_replace_callback($scanpattern,'ogame_scan',$text);
+	$text = preg_replace_callback($scanpattern, 'ogame_scan', $text);
 }
 ?>
