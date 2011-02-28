@@ -28,7 +28,7 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 
-	'SCANPATTERN'						=> "/Nyersanyagok.itt(.){1,25}\[(.+?)Esély.a.kémelhárításra(.+?)\%/s",
+	'SCANPATTERN'						=> "/Nyersanyagok.itt(.){1,25}\[(.+?)EsÃ©ly.a.kÃ©melhÃ¡rÃ­tÃ¡sra(.+?)\%/s",
 
 ));
 ?>

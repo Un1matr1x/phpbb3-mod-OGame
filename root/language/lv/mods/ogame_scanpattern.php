@@ -28,7 +28,7 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 
-	'SCANPATTERN'						=> "/Resursi.uz(.){1,25}\[(.+?)Pretspiegošanas(.+?)\%/s",
+	'SCANPATTERN'						=> "/Resursi.uz(.){1,25}\[(.+?)PretspiegoÅ¡anas(.+?)\%/s",
 
 ));
 ?>
