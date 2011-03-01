@@ -45,9 +45,8 @@ $text = preg_replace($search_kb, $replace_kb, $text);
 
 if ($config['ogame_spy_conv'])
 {
-
 	$scanpattern = array();
-	
+
 	$dp = @opendir("{$phpbb_root_path}language");
 
 		if ($dp)
@@ -149,17 +148,16 @@ if ($config['ogame_spy_conv'])
 				}
 			}
 			$rows = $rowsold = array_values(array_unique($rows));
-			$countrows=count($rows);
+			$countrows = count($rows);
 			$precount = count($line_1);
 			$p1 = $p2 = 0;
 			for ($i=0; $i<$precount; $i++)
 			{
-				if (!$p1)
+				if (!$p1 && ($countrows > 1))
 				{
 					$p1 = preg_match($line_1[$i], $rows[1]);
 				}
-
-				if (!$p2)
+				if (!$p2 && ($countrows > 1))
 				{
 					$p2 = preg_match($line_2[$i], $rows[2]);
 				}
@@ -194,4 +192,4 @@ if ($config['ogame_spy_conv'])
 
 	$text = preg_replace_callback($scanpattern, 'ogame_scan', $text);
 }
-?>
+
