@@ -1,15 +1,16 @@
 <?php
 /**
- *
- * @author Unimatrix_0 (Falk Seidel) unimatrix_0@gmx.net
- * @copyright (c) 2011 Un1matr1x
- * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- *
- */
+*
+* @package - OGame-Mod
+* @copyright (c) Un1matr1x ( http://un1matr1x.de/ )
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+*
+*/
 
 /**
- * @ignore
- */
+* @ignore
+*/
+
 define('UMIL_AUTO', true);
 define('IN_PHPBB', true);
 define('IN_INSTALL', true);
@@ -39,14 +40,6 @@ $version_config_name = 'ogm_version';
 
 // The language file which will be included when installing
 $language_file = 'mods/info_acp_ogame';
-
-
-/*
-* Optionally we may specify our own logo image to show in the upper corner instead of the default logo.
-* $phpbb_root_path will get prepended to the path specified
-* Image height should be 50px to prevent cut-off or stretching.
-*/
-//$logo_img = 'styles/prosilver/imageset/site_logo.gif';
 
 /*
 * The array of versions and actions within each.

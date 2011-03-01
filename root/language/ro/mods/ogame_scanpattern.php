@@ -3,10 +3,8 @@
 *
 * groups [Romanian]
 *
-* @author Unmatr1x admin@un1matr1x.de - http://un1matr1x.de
-*
-* @package language
-* @copyright (c) 2011 Un1matr1x
+* @package - OGame-Mod
+* @copyright (c) Un1matr1x ( http://un1matr1x.de/ )
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
