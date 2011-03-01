@@ -39,7 +39,7 @@ else
 {
 	$replace_kb = '><img src="' . $phpbb_root_path . 'images/ogame/cr_no_gd.png" alt="\\1" /><b>\\1</b><';
 }
-	
+
 $text = preg_replace($search_kb, $replace_kb, $text);
 
 
@@ -97,7 +97,7 @@ if ($config['ogame_spy_conv'])
 						{
 							continue;
 						}
-						
+
 						if (file_exists("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx"))
 						{
 							include ("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx");
