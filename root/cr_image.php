@@ -9,7 +9,7 @@
 
 //phpBB3-Intitialisierung
 define('IN_PHPBB', true);
-$phpbb_root_path = '../../';
+$phpbb_root_path = './';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
 include($phpbb_root_path . 'common.' . $phpEx);
 
@@ -35,8 +35,8 @@ if ((strlen($cr_id)) == 1) {
 }
 
 
-$image = "./cr.png";
-$font = './liberationsans-bold.ttf';
+$image = $phpbb_root_path . 'images/ogame/cr.png';
+$font = $phpbb_root_path . 'images/ogame/liberationsans-bold.ttf';
 
 $img = imagecreatefrompng($image);
 imagealphablending($img, true);
@@ -45,6 +45,11 @@ imagesavealpha($img, true);
 $white = ImageColorAllocate ($img, 255, 255, 255);
 
 imagettftext($img, $size, 0, $x_start, 22, $white, $font, $cr_id);
+
+	// send new image to browser
+	header("Content-Type: image/png");
+	header("Expires: Mon, 01 Jan 1997 01:00:00 GMT");
+	header("Last-Modified: Mon, 26 Jul 1997 01:00:00 GMT");
 
 Imagepng($img);
 ImageDestroy ($img);

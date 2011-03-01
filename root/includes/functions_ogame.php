@@ -33,7 +33,7 @@ $search_kb[9] 	= '#[^"]http://kb.un1matr1x.de/kb\.php\?show=([0-9]+)<#'; //?show
 
 if (extension_loaded('gd') && function_exists('gd_info'))
 {
-	$replace_kb = '><img src="' . $phpbb_root_path . 'images/ogame/cr.php?cr_id=\\1" alt="\\1" /><';
+	$replace_kb = '><img src="' . $phpbb_root_path . 'cr_image.php?cr_id=\\1" alt="\\1" /><';
 }
 else
 {
