@@ -31,11 +31,11 @@ $lang = array_merge($lang, array(
 	'OG_SCANPATTERN'				=> "/Recursos.no(.){1,25}\[(.+?)contra-espionagem(.+?)\%/s",
 
 	'OG_FIRST_LINE'					=> "/(Metal).{1,}(Cristal)/",
-	'OG_SECOND_LINE'				=> "/(Deutério).{1,}(Energia)/",
+	'OG_SECOND_LINE'				=> "/(DeutÃ©rio).{1,}(Energia)/",
 
 	'OG_ACTIVITY'					=> "/(Atividade)\b(?!( indica| no))/",
 	'OG_ACTIVITY_EXPLAIN'			=> "/Atividade indica [^\.]*\./",
-	'OG_BUILD'						=> "/(Edifícios)\b/",
+	'OG_BUILD'						=> "/(EdifÃ­cios)\b/",
 	'OG_CHANCE'						=> "/(Probabilidade)\b(.*)/",
 	'OG_DEFFENCE'					=> "/(Defesas\b)/",
 	'OG_FLEET'						=> "/(Frotas)\b/iu",
