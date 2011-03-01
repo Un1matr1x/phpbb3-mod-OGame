@@ -35,10 +35,10 @@ $lang = array_merge($lang, array(
 
 	'OG_ACTIVITY'					=> "/(Aktivity)\b(?!( betekent| in))/",
 	'OG_ACTIVITY_EXPLAIN'			=> "/Aktivitou sa rozumie, [^\.]*\./",
-//	'OG_BUILD'						=> take a look at CZ,
+	'OG_BUILD'						=> "/(Budovy)/",
 	'OG_CHANCE'						=> "/(Šanca na odvrátenie špionáže)(.*)/",
-//	'OG_DEFFENCE'					=> take a look at CZ,
-	'OG_FLEET'						=> "/(Flotily)\b/",
+	'OG_DEFFENCE'					=> "/(Obrana)\b/",
+	'OG_FLEET'						=> "/(Flotily)\b/iu",
 	'OG_HEADER'						=> "/(Zdroje na .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/",
 	'OG_PROBS'						=> "/(Výsledky špionáže .*\..*)\./",
 	'OG_PROBS_ACTIVITY'				=> "/(Výsledky špionáže .*)([1-5][0-9])(.*)\./",

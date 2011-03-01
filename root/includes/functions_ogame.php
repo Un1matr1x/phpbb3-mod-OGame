@@ -80,6 +80,7 @@ if ($config['ogame_spy_conv'])
 				$activity				= array();
 				$activity_exp			= array();
 				$probs					= array();
+				$probs_act				= array();
 				$fleet					= array();
 				$def					= array();
 				$build					= array();
@@ -101,25 +102,25 @@ if ($config['ogame_spy_conv'])
 						if (file_exists("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx"))
 						{
 							include ("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx");
-							$line_1[$c] = $lang['OG_FIRST_LINE'];
-							$line_2[$c] = $lang['OG_SECOND_LINE'];							
+																					  $line_1[$c]			= $lang['OG_FIRST_LINE'];
+																					  $line_2[$c]			= $lang['OG_SECOND_LINE'];
+							(!in_array($lang['OG_HEADER'],$header))					? $header[$file]		= $lang['OG_HEADER']			: '';
+							(!in_array($lang['OG_ACTIVITY'],$activity))				? $activity[$file]		= $lang['OG_ACTIVITY']			: '';
+							(!in_array($lang['OG_ACTIVITY_EXPLAIN'],$activity_exp))	? $activity_exp[$file]	= $lang['OG_ACTIVITY_EXPLAIN']	: '';
+							(!in_array($lang['OG_PROBS_ACTIVITY'],$probs_act))		? $probs_act[$file]		= $lang['OG_PROBS_ACTIVITY']	: '';
+							(!in_array($lang['OG_PROBS'],$probs))					? $probs[$file]			= $lang['OG_PROBS']				: '';
+							(!in_array($lang['OG_FLEET'],$fleet))					? $fleet[$file]			= $lang['OG_FLEET']				: '';
+//							(!in_array(strtolower($lang['OG_FLEET']),$fleet))		? $fleet[$file.'1']		= strtolower($lang['OG_FLEET'])	: '';
+							(!in_array($lang['OG_DEFFENCE'],$def))					? $def[$file]			= $lang['OG_DEFFENCE'] 			: '';
+							(!in_array($lang['OG_BUILD'],$build))					? $build[$file]			= $lang['OG_BUILD']				: '';
+							(!in_array($lang['OG_RESEARCH'],$research))				? $research[$file]		= $lang['OG_RESEARCH']			: '';
+							(!in_array($lang['OG_CHANCE'],$chance))					? $chance[$file]		= $lang['OG_CHANCE']			: '';
 							$c++;
-							$header[$file] = $lang['OG_HEADER'];
-							$activity[$file] = $lang['OG_ACTIVITY'];
-							$activity_exp[$file] = $lang['OG_ACTIVITY_EXPLAIN'];
-							$probs_act[$file] = $lang['OG_PROBS_ACTIVITY'];
-							$probs[$file] = $lang['OG_PROBS'];
-							$fleet[$file] = $lang['OG_FLEET'];
-							$fleet[$file.'1'] = strtolower($lang['OG_FLEET']);
-							$def[$file] = $lang['OG_DEFFENCE'];
-							$build[$file] = $lang['OG_BUILD'];
-							$research[$file] = $lang['OG_RESEARCH'];
-							$chance[$file] = $lang['OG_CHANCE'];
 						}
 					}
 					closedir($dp);
 				}
-			//print_r($def);
+			//print_r($line_1);
 			$txt=$treffer[0];
 
 			//Array has to be build up

@@ -33,15 +33,15 @@ $lang = array_merge($lang, array(
 	'OG_FIRST_LINE'					=> "/(Metall).{1,}(Krystall)/",
 	'OG_SECOND_LINE'				=> "/(Deuterium).{1,}(Energi)/",
 
-//	'OG_ACTIVITY'					=> take a look at DK
+	'OG_ACTIVITY'					=> "/(Aktivitet)\b(?!( betyder| ved| betyr| på| menas| där))/",
 	'OG_ACTIVITY_EXPLAIN'			=> "/Aktivitet betyr at [^\.]*\./",
-//	'OG_BUILD'						=> take a look at DK
+	'OG_BUILD'						=> "/(Bygning)\b/",
 	'OG_CHANCE'						=> "/(Sjanse for spionasjeforsvar)(.*)/",
-//	'OG_DEFFENCE'					=> take a look at DK
-	'OG_FLEET'						=> "/(Flåter)\b/",
+	'OG_DEFFENCE'					=> "/(?<!spionage )(Forsvar)\b/",
+	'OG_FLEET'						=> "/(Flåter)\b/iu",
 	'OG_HEADER'						=> "/(Ressurser på.*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/",
 	'OG_PROBS'						=> "/(Din spionasje .*\..*)\./",
 	'OG_PROBS_ACTIVITY'				=> "/(Din spionasje .*)([1-5][0-9])(.*)\./",
-//	'OG_RESEARCH'					=> take a look at DK
+	'OG_RESEARCH'					=> "/(Forskning)\b/",
 ));
 ?>

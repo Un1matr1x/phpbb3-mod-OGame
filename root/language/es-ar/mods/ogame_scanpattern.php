@@ -33,15 +33,15 @@ $lang = array_merge($lang, array(
 	'OG_FIRST_LINE'					=> "/(Metal).{1,}(Cristal)/",
 	'OG_SECOND_LINE'				=> "/(Deuterio).{1,}(Energia)/",
 
-//	'OG_ACTIVITY'					=> take a look at ES
+	'OG_ACTIVITY'					=> "/(Actividad)\b(?!( significa| en))/",
 	'OG_ACTIVITY_EXPLAIN'			=> "/La actividad significa [^\.]*\./",
-//	'OG_BUILD'						=> take a look at ES
+	'OG_BUILD'						=> "/(Edificio)\b/",
 	'OG_CHANCE'						=> "/(Posibilidad)\b(.*)/",
-//	'OG_DEFFENCE'					=> take a look at ES
-	'OG_FLEET'						=> "/(Escuadrón)\b/",
-//	'OG_HEADER'						=> take a look at ES
+	'OG_DEFFENCE'					=> "/(Defensa)\b/",
+	'OG_FLEET'						=> "/(Escuadrón)\b/iu",
+	'OG_HEADER'						=> "/(Recursos en .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/",
 	'OG_PROBS'						=> "/(Tu espionaje .*\..*)\./",
 	'OG_PROBS_ACTIVITY'				=> "/(Tu espionaje .*)([1-5][0-9])(.*)\./",
-//	'OG_RESEARCH'					=> take a look at ES
+	'OG_RESEARCH'					=> "/(?<!de )(Investigación)\b/",
 ));
 ?>
