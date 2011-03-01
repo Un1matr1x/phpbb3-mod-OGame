@@ -110,7 +110,6 @@ if ($config['ogame_spy_conv'])
 							(!in_array($lang['OG_PROBS_ACTIVITY'],$probs_act))		? $probs_act[$file]		= $lang['OG_PROBS_ACTIVITY']	: '';
 							(!in_array($lang['OG_PROBS'],$probs))					? $probs[$file]			= $lang['OG_PROBS']				: '';
 							(!in_array($lang['OG_FLEET'],$fleet))					? $fleet[$file]			= $lang['OG_FLEET']				: '';
-//							(!in_array(strtolower($lang['OG_FLEET']),$fleet))		? $fleet[$file.'1']		= strtolower($lang['OG_FLEET'])	: '';
 							(!in_array($lang['OG_DEFFENCE'],$def))					? $def[$file]			= $lang['OG_DEFFENCE'] 			: '';
 							(!in_array($lang['OG_BUILD'],$build))					? $build[$file]			= $lang['OG_BUILD']				: '';
 							(!in_array($lang['OG_RESEARCH'],$research))				? $research[$file]		= $lang['OG_RESEARCH']			: '';
@@ -120,7 +119,7 @@ if ($config['ogame_spy_conv'])
 					}
 					closedir($dp);
 				}
-			//print_r($line_1);
+
 			$txt=$treffer[0];
 
 			//Array has to be build up
@@ -165,7 +164,7 @@ if ($config['ogame_spy_conv'])
 					$p2 = preg_match($line_2[$i], $rows[2]);
 				}
 			}
-			//print_r($rows);
+
 			if ($countrows>3 && $countrows<42 && $p1 && $p2){
 			for ($i=0; $i<$countrows; $i++)
 				{
