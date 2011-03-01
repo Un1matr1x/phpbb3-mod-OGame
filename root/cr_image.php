@@ -38,13 +38,13 @@ if ((strlen($cr_id)) == 1) {
 $image = $phpbb_root_path . 'images/ogame/cr.png';
 $font = $phpbb_root_path . 'images/ogame/liberationsans-bold.ttf';
 
-$img = imagecreatefrompng($image);
-imagealphablending($img, true);
-imagesavealpha($img, true);
+$img = ImageCreateFromPNG($image);
+ImageAlphaBlending($img, true);
+ImageSaveAlpha($img, true);
 	
 $white = ImageColorAllocate ($img, 255, 255, 255);
 
-imagettftext($img, $size, 0, $x_start, 22, $white, $font, $cr_id);
+ImageTTFText($img, $size, 0, $x_start, 22, $white, $font, $cr_id);
 
 	// send new image to browser
 	header("Content-Type: image/png");

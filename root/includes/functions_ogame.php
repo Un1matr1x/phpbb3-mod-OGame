@@ -31,7 +31,7 @@ $search_kb[7] 	= '#[^"]http://kb.un1matr1x.de/kb\.php\?show=([0-9]+)&amp;lang=[a
 $search_kb[8] 	= '#[^"]http://kb.un1matr1x.de/kb\.php\?show=([0-9]+)&amp;pw=<#'; //?show= &pw=
 $search_kb[9] 	= '#[^"]http://kb.un1matr1x.de/kb\.php\?show=([0-9]+)<#'; //?show= 
 
-if (extension_loaded('gd') && function_exists('gd_info'))
+if (extension_loaded('gd') && function_exists('ImageCreateFromPNG') && function_exists('ImageAlphaBlending') && function_exists('ImageSaveAlpha') && function_exists('ImageColorAllocate') && function_exists('ImageTTFText'))
 {
 	$replace_kb = '><img src="' . $phpbb_root_path . 'cr_image.php?cr_id=\\1" alt="\\1" /><';
 }
