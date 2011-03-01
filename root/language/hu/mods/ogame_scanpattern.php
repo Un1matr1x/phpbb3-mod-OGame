@@ -28,7 +28,20 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 
-	'SCANPATTERN'						=> "/Nyersanyagok.itt(.){1,25}\[(.+?)Esély.a.kémelhárításra(.+?)\%/s",
+	'OG_SCANPATTERN'				=> "/Nyersanyagok.itt(.){1,25}\[(.+?)Esély.a.kémelhárításra(.+?)\%/s",
 
+	'OG_FIRST_LINE'					=> "/(Fém).{1,}(Kristály)/",
+	'OG_SECOND_LINE'				=> "/(Deutérium).{1,}(Energia)/",
+
+	'OG_ACTIVITY'					=> "/(Aktivitás)\b(?!( azt| a))/",
+	'OG_ACTIVITY_EXPLAIN'			=> "/Az aktivitás azt jelenti, [^\.]*\./",
+	'OG_BUILD'						=> "/(Építés)\b/",
+	'OG_CHANCE'						=> "/(Esély a kémelhárításra)(.*)/",
+	'OG_DEFFENCE'					=> "/(Védelem)\b/",
+	'OG_FLEET'						=> "/(Flották)\b/",
+	'OG_HEADER'						=> "/(Nyersanyagok itt.*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/",
+	'OG_PROBS'						=> "/(A Kémed nem .*\..*)\./",
+	'OG_PROBS_ACTIVITY'				=> "/(A Kémed nem .*)([1-5][0-9])(.*)\./",
+	'OG_RESEARCH'					=> "/(Kutatás)\b/",
 ));
 ?>

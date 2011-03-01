@@ -28,7 +28,20 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 
-	'SCANPATTERN'						=> "/Zdroje.na(.){1,25}\[(.+?)špionáže(.+?)\%/s",
+	'OG_SCANPATTERN'						=> "/Zdroje.na(.){1,25}\[(.+?)špionáže(.+?)\%/s",
 
+	'OG_FIRST_LINE'					=> "/(Kovy).{1,}(Kryštály)/",
+	'OG_SECOND_LINE'				=> "/(Deutérium).{1,}(Energia)/",
+
+	'OG_ACTIVITY'					=> "/(Aktivity)\b(?!( betekent| in))/",
+	'OG_ACTIVITY_EXPLAIN'			=> "/Aktivitou sa rozumie, [^\.]*\./",
+//	'OG_BUILD'						=> take a look at CZ,
+	'OG_CHANCE'						=> "/(Šanca na odvrátenie špionáže)(.*)/",
+//	'OG_DEFFENCE'					=> take a look at CZ,
+	'OG_FLEET'						=> "/(Flotily)\b/",
+	'OG_HEADER'						=> "/(Zdroje na .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/",
+	'OG_PROBS'						=> "/(Výsledky špionáže .*\..*)\./",
+	'OG_PROBS_ACTIVITY'				=> "/(Výsledky špionáže .*)([1-5][0-9])(.*)\./",
+	'OG_RESEARCH'					=> "/(Výskum)\b/",
 ));
 ?>

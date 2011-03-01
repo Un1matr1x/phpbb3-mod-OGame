@@ -28,7 +28,20 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 
-	'SCANPATTERN'						=> "/Recursos.no(.){1,25}\[(.+?)contra-espionagem(.+?)\%/s",
+	'OG_SCANPATTERN'				=> "/Recursos.no(.){1,25}\[(.+?)contra-espionagem(.+?)\%/s",
 
+//	'OG_FIRST_LINE'					=> take a look at PT
+//	'OG_SECOND_LINE'				=> take a look at PT
+
+	'OG_ACTIVITY'					=> "/(Atividade)\b(?!( indica| no))/",
+	'OG_ACTIVITY_EXPLAIN'			=> "/Atividade indica [^\.]*\./",
+//	'OG_BUILD'						=> take a look at PT,
+//	'OG_CHANCE'						=> take a look at PT,
+//	'OG_DEFFENCE'					=> take a look at PT,
+//	'OG_FLEET'						=> take a look at PT,
+	'OG_HEADER'						=> "/(Recursos no .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/",
+//	'OG_PROBS'						=> take a look at PT,
+//	'OG_PROBS_ACTIVITY'				=> take a look at PT,
+//	'OG_RESEARCH'					=> take a look at PT,
 ));
 ?>

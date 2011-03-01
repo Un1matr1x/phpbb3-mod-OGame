@@ -28,7 +28,20 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 
-	'SCANPATTERN'						=> "/Resurssit(.){1,25}\[(.+?)Vastavakoilun.mahdollisuus(.+?)\%/s",
+	'OG_SCANPATTERN'				=> "/Resurssit(.){1,25}\[(.+?)Vastavakoilun.mahdollisuus(.+?)\%/s",
 
+	'OG_FIRST_LINE'					=> "/(Metalli).{1,}(Kristalli)/",
+	'OG_SECOND_LINE'				=> "/(Deuterium).{1,}(Energia)/",
+
+	'OG_ACTIVITY'					=> "/(Aktiivisuus)\b(?!( tarkoittaa| viimeiseen))/",
+	'OG_ACTIVITY_EXPLAIN'			=> "/Aktiivisuus tarkoittaa, [^\.]*\./",
+	'OG_BUILD'						=> "/(Rakennus)\b/",
+	'OG_CHANCE'						=> "/(Vastavakoilun)\b(.*)/",
+	'OG_DEFFENCE'					=> "/(Puolustus)\b/",
+	'OG_FLEET'						=> "/(Laivueet)\b/",
+	'OG_HEADER'						=> "/(Resurssit .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/",
+	'OG_PROBS'						=> "/(Vakoilutoimintasi ei .*\..*)\./",
+	'OG_PROBS_ACTIVITY'				=> "/(Vakoilutoimintasi ei .*)([1-5][0-9])(.*)\./",
+	'OG_RESEARCH'					=> "/(Tutkimus)\b/",
 ));
 ?>

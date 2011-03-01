@@ -28,7 +28,20 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 
-	'SCANPATTERN'						=> "/Ressurser.på(.){1,25}\[(.+?)spionasjeforsvar(.+?)\%/s",
+	'OG_SCANPATTERN'				=> "/Ressurser.på(.){1,25}\[(.+?)spionasjeforsvar(.+?)\%/s",
 
+	'OG_FIRST_LINE'					=> "/(Metall).{1,}(Krystall)/",
+	'OG_SECOND_LINE'				=> "/(Deuterium).{1,}(Energi)/",
+
+//	'OG_ACTIVITY'					=> take a look at DK
+	'OG_ACTIVITY_EXPLAIN'			=> "/Aktivitet betyr at [^\.]*\./",
+//	'OG_BUILD'						=> take a look at DK
+	'OG_CHANCE'						=> "/(Sjanse for spionasjeforsvar)(.*)/",
+//	'OG_DEFFENCE'					=> take a look at DK
+	'OG_FLEET'						=> "/(Flåter)\b/",
+	'OG_HEADER'						=> "/(Ressurser på.*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/",
+	'OG_PROBS'						=> "/(Din spionasje .*\..*)\./",
+	'OG_PROBS_ACTIVITY'				=> "/(Din spionasje .*)([1-5][0-9])(.*)\./",
+//	'OG_RESEARCH'					=> take a look at DK
 ));
 ?>

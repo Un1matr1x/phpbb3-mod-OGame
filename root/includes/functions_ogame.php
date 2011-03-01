@@ -62,7 +62,7 @@ if ($config['ogame_spy_conv'])
 				if (file_exists("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx"))
 				{
 					include ("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx");
-					$scanpattern[$file] = $lang['SCANPATTERN'];
+					$scanpattern[$file] = $lang['OG_SCANPATTERN'];
 				}
 			}
 			closedir($dp);
@@ -85,14 +85,12 @@ if ($config['ogame_spy_conv'])
 				$build					= array();
 				$research				= array();
 				$chance					= array();
-				
-				//$rows					= array();
-				//$rows[1] = $rows[2] = '';
 
-				/*$dp = @opendir("{$phpbb_root_path}language");
+				$dp = @opendir("{$phpbb_root_path}language");
 
 				if ($dp)
 				{
+					$c = 0;
 					while (($file = readdir($dp)) !== false)
 					{
 						if ($file[0] == '.' || !is_dir($phpbb_root_path . 'language/' . $file))
@@ -100,304 +98,28 @@ if ($config['ogame_spy_conv'])
 							continue;
 						}
 						
-
-							if (file_exists("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx"))
-							{
-								include ("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx");
-								
-							}
+						if (file_exists("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx"))
+						{
+							include ("{$phpbb_root_path}language/$file/mods/ogame_scanpattern.$phpEx");
+							$line_1[$c] = $lang['OG_FIRST_LINE'];
+							$line_2[$c] = $lang['OG_SECOND_LINE'];							
+							$c++;
+							$header[$file] = $lang['OG_HEADER'];
+							$activity[$file] = $lang['OG_ACTIVITY'];
+							$activity_exp[$file] = $lang['OG_ACTIVITY_EXPLAIN'];
+							$probs_act[$file] = $lang['OG_PROBS_ACTIVITY'];
+							$probs[$file] = $lang['OG_PROBS'];
+							$fleet[$file] = $lang['OG_FLEET'];
+							$fleet[$file.'1'] = strtolower($lang['OG_FLEET']);
+							$def[$file] = $lang['OG_DEFFENCE'];
+							$build[$file] = $lang['OG_BUILD'];
+							$research[$file] = $lang['OG_RESEARCH'];
+							$chance[$file] = $lang['OG_CHANCE'];
+						}
 					}
 					closedir($dp);
-				}*/
-
-				//English (org & us)
-				$line_1[1]				= "/(Metal).{1,}(Crystal)/";
-				$line_2[1]				= "/(Deuterium).{1,}(Energy)/";
-				$header['org']			= "/(Resources at .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['org']		= "/(Activity)\b(?!( on| within| means))/";
-				$activity_exp['org']	= "/Activity means [^\.]*\./";
-				$probs_act['org']		= "/(Your espionage .*)([1-5][0-9])(.*)\./";
-				$probs['org']			= "/(Your espionage .*)\./";
-				$fleet['org']			= "/(fleets)\b/";
-				$fleet['org_1']			= "/(Fleets)\b/";
-				$def['org']				= "/(Defense)\b/";
-				$build['org']			= "/(Building)\b/";
-				$research['org']		= "/(Research)\b(?!( Lab| Network))/";
-				$chance['org']			= "/(Chance)\b(.*)/";
-
-				//German
-				$line_1[0]				= "/(Metall).{1,}(Kristall)/";
-				$line_2[0]				= "/(Deuterium).{1,}(Energie)/";
-				$header['de']			= "/(Rohstoffe auf .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['de']			= "/(Aktivit".utf8_encode('ä')."t)\b(?!( auf| bedeutet))/";
-				$activity['de_1']		= "/(Aktivit&auml;t)\b(?!( auf| bedeutet|  innerhalb))/";
-				$activity['de_2']		= "/(Aktivität)\b(?!( auf| bedeutet| innerhalb))/";
-				$activity_exp['de']		= "/Aktivität bedeutet, [^\.]*\./";
-				$probs_act['de']		= "/(Dein Sondenscan .*)([1-5][0-9])(.*)\./";
-				$probs['de']			= "/(Dein Sondenscan .*)\./";
-				$fleet['de']			= "/(Flotten)\b/";
-				$def['de']				= "/(Verteidigung)\b/";
-				$build['de']			= "/(Geb&auml;ude)\b/";
-				$build['de_1']			= "/(Geb".utf8_encode("ä")."ude)\b/";
-				$build['de_2']			= "/(Gebäude)\b/";
-				$research['de']			= "/(Forschung)\b/";
-			//	$chance['de']			take a look at org
-
-				//French
-				$line_1[2]				= "/(M".utf8_encode('é')."tal).{1,}(Cristal)/";
-				$line_1[3]				= "/(Métal).{1,}(Cristal)/";
-				$line_2[2]				= "/(Deut".utf8_encode('é')."rium).{1,}(Energie)/";
-				$line_2[3]				= "/(Deutérium).{1,}(Energie)/";
-				$header['fr']			= "/(Ressources sur .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['fr']			= "/(Activité)(?!( signifie| sur| means))/";
-				$activity['fr_1']		= "/(Activit".utf8_encode('é').")(?!( signifie| sur| means))/";
-				$activity_exp['fr']		= "/Activité signifie [^\.]*\./";
-				$probs_act['fr']		= "/(Le scanner .*)([1-5][0-9])(.*)\./";
-				$probs['fr']			= "/(Le scanner .*)\./";
-				$fleet['fr']			= "/(Flottes)\b/";
-				$def['fr']				= "/(Défense)\b/";
-				$build['fr']			= "/(Bâtiment)\b/";
-				$research['fr']			= "/(?<!de )(Recherche)\b/";
-				$chance['fr']			= "/(Probabilité)(.*)/";
-
-				//Croatian
-				$line_1[4]				= "/(Metal).{1,}(Kristal)/";
-				$line_2[4]				= "/(Deuterij).{1,}(Energija)/";
-				$header['hr']			= "/(Resursi na .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['hr']			= "/(Aktivnost)\b(?!( znači| na))/";
-				$activity_exp['hr']		= "/Aktivnost znači [^\.]*\./";
-				$activity_exp['hr_1']	= "/Aktivnost zna".utf8_encode('č')."i  [^\.]*\./";
-				$probs_act['hr']		= "/(Vaša špijunaža .*)([1-5][0-9])(.*)\./";
-				$probs['hr']			= "/(Vaša špijunaža .*)\./";
-				$fleet['hr']			= "/(Slotovi)\b/";
-			//	$def['hr']				take a look at cz
-				$build['hr']			= "/(Gradi se)/";
-				$research['hr']			= "/((?<!za )Istraživanje)\b(?! mreža)/";
-				$chance['hr']			= "/(Šansa za obranu od špijunaže)\b(.*)/";
-
-				//Spanish (+Argentine +Mexican)
-				$line_1[5]				= "/(Metal).{1,}(Cristal)/";
-				$line_1[6]				= "/(Metal).{1,}(Cristal)/";
-				$line_1[7]				= "/(Metal).{1,}(Cristal)/";
-				$line_2[5]				= "/(Deuterio).{1,}(Energia)/";
-				$line_2[6]				= "/(Deuterio).{1,}(Energía)/";
-				$line_2[7]				= "/(Deuterio).{1,}(Energ".utf8_encode('í')."a)/";
-				$header['es']			= "/(Recursos en .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['es']			= "/(Actividad)\b(?!( significa| en))/";
-				$activity_exp['es_mx']	= "/Actividad significa[^\.]*\./";
-				$activity_exp['es_ar']	= "/La actividad significa [^\.]*\./";
-				$probs_act['es']		= "/(Tu sonda .*)([1-5][0-9])(.*)\./";
-				$probs_act['es_ar']		= "/(Tu espionaje .*)([1-5][0-9])(.*)\./";
-				$probs['es']			= "/(Tu sonda .*)\./";
-				$probs['es_ar']			= "/(Tu espionaje .*)\./";
-				$fleet['es']			= "/(Flotas)\b/";
-				$fleet['es_1']			= "/(flotas)\b/";
-				$fleet['es_ar']			= "/(Escuadrón)\b/";
-				$fleet['ar_1']			= "/(Escuadr".utf8_encode('ó')."n)\b/";
-				$def['es']				= "/(Defensa)\b/";
-				$build['es']			= "/(Edificio)\b/";
-				$research['es']			= "/(?<!de )(Investigación)\b/";
-				$research['es_1']		= "/(?<!de )(Investigaci".utf8_encode('ó')."n)\b/";
-				$chance['es']			= "/(Posibilidades)\b(.*)/";
-				$chance['es_ar']		= "/(Posibilidad)\b(.*)/";
-
-				//Portuguese (+Brazilian)
-				$line_1[8]				= "/(Metal).{1,}(Cristal)/";
-				$line_1[9]				= "/(Metal).{1,}(Cristal)/";
-				$line_2[8]				= "/(Deutério).{1,}(Energia)/";
-				$line_2[9]				= "/(Deut".utf8_encode('é')."rio).{1,}(Energia)/";
-				$header['pt']			= "/(Recursos em .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$header['pt_br']		= "/(Recursos no .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['pt']			= "/(Actividade)\b(?!( indica| existente))/";
-				$activity['pt_br']		= "/(Atividade)\b(?!( indica| no))/";
-				$activity_exp['pt']		= "/Actividade indica [^\.]*\./";
-				$activity_exp['pt_br']	= "/Atividade indica [^\.]*\./";
-				$probs_act['pt']		= "/(A sua espionagem .*)([1-5][0-9])(.*)\./";
-				$probs['pt']			= "/(A sua espionagem .*)\./";
-				$fleet['pt']			= "/(Frotas)\b/";
-				$def['pt']				= "/(Defesas\b)/";
-				$build['pt']			= "/(Edifícios)\b/";
-				$build['pt_1']			= "/(Edif".utf8_encode('í')."cios)\b/";
-				$research['pt']			= "/(?<!de )(Pesquisas)\b/";
-				$chance['pt']			= "/(Probabilidade)\b(.*)/";
-
-				//Czech
-				$line_1[10]				= "/(Kov).{1,}(Krystaly)/";
-				$line_2[10]				= "/(Deuterium).{1,}(Energie)/";
-				$header['cz']			= "/(Suroviny na .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['cz']			= "/(Aktivita)\b(?!( znamená| na))/";
-				$activity_exp['cz']		= "/Aktivita znamená, [^\.]*\./";
-				$probs_act['cz']		= "/(Špionáž neukázala .*)([1-5][0-9])(.*)\./";
-				$probs['cz']			= "/(Špionáž neukázala .*)\./";
-				$fleet['cz']			= "/(letek)\b/";
-				$fleet['cz_1']			= "/(Letek)\b/";
-				$def['cz_sk_hr']		= "/(Obrana)\b/";
-				$build['cz_sk']			= "/(Budovy)/";
-				$research['cz']			= "/(Výzkum)\b/";
-				$chance['cz']			= "/(Šance na odvrácení)(.*)/";
-
-				//Danish
-				$line_1[11]				= "/(Metal).{1,}(Krystal)/";
-				$line_2[11]				= "/(Deuterium).{1,}(Energi)/";
-				$header['dk']			= "/(Ressurcer på .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['dk_no_se']	= "/(Aktivitet)\b(?!( betyder| ved| betyr| på| menas| där))/";
-				$activity_exp['dk']		= "/Aktivitet betyder [^\.]*\./";
-				$probs_act['dk']		= "/(Din spionage .*)([1-5][0-9])(.*)\./";
-				$probs['dk']			= "/(Din spionage .*)\./";
-				$fleet['dk']			= "/(Flåder)\b/";
-				$def['dk_no']			= "/(?<!spionage )(Forsvar(?!:))\b/";
-				$build['dk_no']			= "/(Bygning)\b/";
-				$research['dk_no_se']	= "/(Forskning)\b/";
-				$chance['dk']			= "/(Chancen)\b(.*)/";
-
-				//Finnish
-				$line_1[12]				= "/(Metalli).{1,}(Kristalli)/";
-				$line_2[12]				= "/(Deuterium).{1,}(Energia)/";
-				$header['fi']			= "/(Resurssit .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['fi']			= "/(Aktiivisuus)\b(?!( tarkoittaa| viimeiseen))/";
-				$activity_exp['fi']		= "/Aktiivisuus tarkoittaa, [^\.]*\./";
-				$probs_act['fi']		= "/(Vakoilutoimintasi ei .*)([1-5][0-9])(.*)\./";
-				$probs['fi']			= "/(Vakoilutoimintasi ei .*)\./";
-				$fleet['fi']			= "/(laivueet)\b/";
-				$fleet['fi_1']			= "/(Laivueet)\b/";
-				$def['fi']				= "/(Puolustus)\b/";
-				$build['fi']			= "/(Rakennus)\b/";
-				$research['fi']			= "/(Tutkimus)\b/";
-				$chance['fi']			= "/(Vastavakoilun)\b(.*)/";
-
-				//Hungarian
-				$line_1[13]				= "/(Fém).{1,}(Kristály)/";
-				$line_2[13]				= "/(Deutérium).{1,}(Energia)/";
-				$header['hu']			= "/(Nyersanyagok itt.*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['hu']			= "/(Aktivitás)\b(?!( azt| a))/";
-				$activity_exp['hu']		= "/Az aktivitás azt jelenti, [^\.]*\./";
-				$probs_act['hu']		= "/(A Kémed nem .*)([1-5][0-9])(.*)\./";
-				$probs['hu']			= "/(A Kémed nem .*)\./";
-				$fleet['hu']			= "/(Flották)\b/";
-				$def['hu']				= "/(Védelem)\b/";
-				$build['hu']			= "/(Építés)\b/";
-				$research['hu']			= "/(Kutatás)\b/";
-				$chance['hu']			= "/(Esély a kémelhárításra)(.*)/";
-
-				//Dutch
-				$line_1[14]				= "/(Metaal).{1,}(Kristal)/";
-				$line_2[14]				= "/(Deuterium).{1,}(Energie)/";
-				$header['nl']			= "/(Grondstoffen op.*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['nl']			= "/(Activiteit)\b(?!( betekent| in))/";
-				$activity_exp['nl']		= "/Activiteit betekent [^\.]*\./";
-				$probs_act['nl']		= "/(Je spionage .*)([1-5][0-9])(.*)\./";
-				$probs['nl']			= "/(Je spionage .*)\./";
-				$fleet['nl']			= "/(vloten)\b/";
-				$fleet['nl_1']			= "/(Vloten)\b/";
-				$def['nl']				= "/(Verdediging)\b/";
-				$build['nl']			= "/(Gebouw)\b/";
-				$research['nl']			= "/(Onderzoek)\b/";
-				$chance['nl']			= "/(Kans op contraspionage)(.*)/";
-
-				//Norwegian
-				$line_1[15]				= "/(Metall).{1,}(Krystall)/";
-				$line_2[15]				= "/(Deuterium).{1,}(Energi)/";
-				$header['no']			= "/(Ressurser på.*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-			//	$activity['no']			take a look at dk
-				$activity_exp['no']		= "/Aktivitet betyr at [^\.]*\./";
-				$probs_act['no']		= "/(Din spionasje .*)([1-5][0-9])(.*)\./";
-				$probs['no']			= "/(Din spionasje .*)\./";
-				$fleet['no']			= "/(flåter)\b/";
-				$fleet['no_1']			= "/(Flåter)\b/";
-			//	$def['no']				take a look at dk
-			//	$build['no']			take a look at dk
-			//	$research['no']			take a look at dk
-				$chance['no']			= "/(Sjanse for spionasjeforsvar)(.*)/";
-
-				//Slovak
-				$line_1[16]				= "/(Kovy).{1,}(Kryštály)/";
-				$line_2[16]				= "/(Deutérium).{1,}(Energia)/";
-				$header['sk']			= "/(Zdroje na .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['sk']			= "/(Aktivity)\b(?!( betekent| in))/";
-				$activity_exp['sk']		= "/Aktivitou sa rozumie, [^\.]*\./";
-				$probs_act['sk']		= "/(Výsledky špionáže .*)([1-5][0-9])(.*)\./";
-				$probs['sk']			= "/(Výsledky špionáže .*)\./";
-				$fleet['sk']			= "/(flotily)\b/";
-				$fleet['sk_1']			= "/(Flotily)\b/";
-			//	$def['sk']				take a look at cz
-			//	$build['sk']			take a look at cz
-				$research['sk']			= "/(Výskum)\b/";
-				$chance['sk']			= "/(Šanca na odvrátenie špionáže)(.*)/";
-
-				//Swedish
-			//	$line_1					take a look at no
-			//	$line_2					take a look at no
-				$header['se']			= "/(Resurser på .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-			//	$activity['se']			take a look at dk
-				$activity_exp['se']		= "/Aktivitet menas att [^\.]*\./";
-				$probs_act['se']		= "/(Din spionagerapport .*)([1-5][0-9])(.*)\./";
-				$probs['se']			= "/(Din spionagerapport .*)\./";
-				$fleet['se']			= "/(flottor)\b/";
-				$fleet['se_1']			= "/(Flottor)\b/";
-				$def['se']				= "/(Försvar)\b/";
-				$build['se']			= "/(Byggnader)/";
-			//	$research['se']			take a look at dk
-				$chance['se']			= "/(Chans för upptäckt)(.*)/";
-
-				//Romanian
-				$line_1[17]				= "/(Metal).{1,}(Cristal)/";
-				$line_2[17]				= "/(Deuteriu).{1,}(Energie)/";
-				$header['ro']			= "/(Resurse la .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['ro']			= "/(Activitate)\b(?! pe)/";
-				$activity_exp['ro']		= "/Activitatea inseamna ca [^\.]*\./";
-				$probs_act['ro']		= "/(Proba ta de spionaj .*)([1-5][0-9])(.*)\./";
-				$probs['ro']			= "/(Proba ta de spionaj .*)\./";
-				$fleet['ro_lv']			= "/(Flote)\b/";
-				$fleet['ro_lv_1']		= "/(flote)\b/";
-				$def['ro']				= "/(Aparare)\b/";
-				$build['ro']			= "/(Cladire)\b/";
-				$research['ro']			= "/(?<!de )(Cercetari)\b/";
-				$chance['ro']			= "/(Sansa de contra-spionaj)(.*)/";
-
-				//Italian
-				$line_1[18]				= "/(Metallo).{1,}(Cristallo)/";
-				$line_2[18]				= "/(Deuterio).{1,}(Energia)/";
-				$header['it']			= "/(Risorse su .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['it']			= "/(Attivit".utf8_encode('à').")(?!( significa| sul))/";
-				$activity['it_1']		= "/(Attività)(?!( significa| sul))/";
-				$activity_exp['it']		= "/Attività significa [^\.]*\./";
-				$activity_exp['it_1']	= "/Attività  significa [^\.]*\./";
-				$probs_act['it']		= "/(Il tuo spionaggio .*)([1-5][0-9])(.*)\./";
-				$probs['it']			= "/(Il tuo spionaggio .*)\./";
-				$fleet['it']			= "/(Flotte)\b/";
-				$def['it']				= "/(Difesa)\b/";
-				$build['it']			= "/(Edifici)\b/";
-				$research['it']			= "/(?<!di )(Ricerca)\b/";
-				$chance['it']			= "/(Possibilità di controspionaggio)(.*)/";
-
-				//Lithuanian
-				$line_1[19]				= "/(Metalas).{1,}(Kristalai)/";
-				$line_2[19]				= "/(Deuteris).{1,}(Energija)/";
-				$header['lt']			= "/(Resursų .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['lt']			= "/(Aktyvumas)\b/";
-				$activity_exp['lt']		= "/Veiklumas reiškia, [^\.]*\./";
-				$probs_act['lt']		= "/(Jūsų šnipinėjimo .*)([1-5][0-9])(.*)\./";
-				$probs['lt']			= "/(Jūsų šnipinėjimo .*)\./";
-				$fleet['lt']			= "/(Laivynai)\b/";
-				$def['lt']				= "/(Gynyba)\b/";
-				$build['lt']			= "/(Pastatas)\b/";
-				$research['lt']			= "/(Išradimai)\b/";
-				$chance['lt']			= "/(Kontra-šnipinėjimo šansas)(.*)/";
-
-				//Latvian
-				$line_1[20]				= "/(Metāls).{1,}(Kristāls)/";
-				$line_2[20]				= "/(Deitērijs).{1,}(Enerģija)/";
-				$header['lv']			= "/(Resursi uz .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/";
-				$activity['lv']			= "/(Aktivitāte)\b(?!( nozīmē| sul))/";
-				$activity_exp['lv']		= "/Aktivitāte nozīmē, [^\.]*\./";
-				$probs_act['lv']		= "/(Jūsu spiegošana .*)([1-5][0-9])(.*)\./";
-				$probs['lv']			= "/(Jūsu spiegošana .*)\./";
-			//	$fleet['lv']			take a look at ro
-				$def['lv']				= "/(Aizsardzība)\b/";
-				$build['lv']			= "/(Celtne)\b/";
-				$research['lv']			= "/(Pētniecība)\b/";
-				$chance['lv']			= "/(Pretspiegošanas iespēja)(.*)/";
-
+				}
+			//print_r($def);
 			$txt=$treffer[0];
 
 			//Array has to be build up
@@ -416,6 +138,9 @@ if ($config['ogame_spy_conv'])
 				//Why the hell does the GF use . & , for thousands separator? lets fix this
 				$rows[$i]=preg_replace("/([0-9]),([0-9])/",'\\1.\\2',$rows[$i]);
 
+				//remove double whitespaces
+				$rows[$i]=preg_replace("/  /",' ',$rows[$i]);
+
 				//We don't need lines without content
 				$rows[$i] = trim($rows[$i]);
 				if (!$rows[$i])
@@ -424,11 +149,9 @@ if ($config['ogame_spy_conv'])
 				}
 			}
 			$rows = $rowsold = array_values(array_unique($rows));
-			//print_r ($rows);
 			$countrows=count($rows);
 			$precount = count($line_1);
 			$p1 = $p2 = 0;
-			//echo $rows[1] . '<br>';
 			for ($i=0; $i<$precount; $i++)
 			{
 				if (!$p1)
@@ -441,7 +164,7 @@ if ($config['ogame_spy_conv'])
 					$p2 = preg_match($line_2[$i], $rows[2]);
 				}
 			}
-
+			//print_r($rows);
 			if ($countrows>3 && $countrows<42 && $p1 && $p2){
 			for ($i=0; $i<$countrows; $i++)
 				{

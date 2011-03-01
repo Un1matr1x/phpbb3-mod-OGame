@@ -28,7 +28,20 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 
-	'SCANPATTERN'						=> "/Resursų(.){1,25}\[(.+?)Kontra-šnipinėjimo(.+?)\%/s",
+	'OG_SCANPATTERN'				=> "/Resursų(.){1,25}\[(.+?)Kontra-šnipinėjimo(.+?)\%/s",
 
+	'OG_FIRST_LINE'					=> "/(Metalas).{1,}(Kristalai)/",
+	'OG_SECOND_LINE'				=> "/(Deuteris).{1,}(Energija)/",
+
+	'OG_ACTIVITY'					=> "/(Aktyvumas)\b/",
+	'OG_ACTIVITY_EXPLAIN'			=> "/Veiklumas reiškia, [^\.]*\./",
+	'OG_BUILD'						=> "/(Pastatas)\b/",
+	'OG_CHANCE'						=> "/(Kontra-šnipinėjimo šansas)(.*)/",
+	'OG_DEFFENCE'					=> "/(Gynyba)\b/",
+	'OG_FLEET'						=> "/(Laivynai)\b/",
+	'OG_HEADER'						=> "/(Resursų .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/",
+	'OG_PROBS'						=> "/(Jūsų šnipinėjimo .*\..*)\./",
+	'OG_PROBS_ACTIVITY'				=> "/(Jūsų šnipinėjimo .*)([1-5][0-9])(.*)\./",
+	'OG_RESEARCH'					=> "/(Išradimai)\b/",
 ));
 ?>
