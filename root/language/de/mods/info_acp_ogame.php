@@ -38,7 +38,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 
 	'CR_HOSTING'						=> 'KB-Hosting',
-	'CR_HOSTING_EXPLAIN'				=> 'Gib deine KB-Hosting-Benutzer-ID ein.<br /> Bei http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&u=<b>2</b> wäre es 2',
+	'CR_HOSTING_EXPLAIN'				=> 'Gib deine KB-Hosting-Benutzer-ID ein.<br /> Bei http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&u=<b>123</b> wäre es 123',
 	'CR_HOSTING_MOUSEOVER_SHOW'			=> 'KB-Hosting-Sigi im Miniprofil',
 	'CR_HOSTING_MOUSEOVER_SHOW_EXPLAIN' => 'zeige die KB-Hosting-Sigi beim MouseOver über das KB-Hosting-Icon an',
 	'CR_HOSTING_PROFILE_SHOW'			=> 'KB-Hosting-Sigi im Profil',
@@ -50,7 +50,7 @@ $lang = array_merge($lang, array(
 	'IMG_ICON_CONTACT_CR_HOSTING'		=> 'KB-Hosting',
 
 	'MMOGAME'							=> 'Gameforge',
-	'MMOGAME_EXPLAIN'					=> 'Gib deine Gameforge-ID ein.<br /> Bei http://gameforge.com/profile/show/Nickname-<b>47634</b> wäre es 47634',
+	'MMOGAME_EXPLAIN'					=> 'Gib deine Gameforge-ID ein.<br /> Bei http://gameforge.com/profile/show/Nickname-<b>123</b> wäre es 123',
 	'MMOGAME_MOUSEOVER_SHOW'			=> 'G-Card im Miniprofil',
 	'MMOGAME_MOUSEOVER_SHOW_EXPLAIN'	=> 'zeige die G-Card beim MouseOver über das G-Icon an',
 	'MMOGAME_PROFILE_SHOW'				=> 'G-Card im Profil',
@@ -58,7 +58,7 @@ $lang = array_merge($lang, array(
 	'MMOGAME_S'							=> 'erlaube Gameforge Portal Verbindung',
 	'MMOGAME_S_EXPLAIN'					=> 'aktiviert die Gameforge Einstellungen und zeigt die Gameforge-Benutzer-ID im (Mini-)Profil an',
 	'MMOGAME_STYLE'						=> 'Standard G-Card Design',
-	'MMOGAME_STYLE_EXPLAIN'				=> 'die Standart G-Card hat die Größe von 225px x 150px , die Slim-Variante ist nicht standart mit 452px x 102px',
+	'MMOGAME_STYLE_EXPLAIN'				=> 'die Standard G-Card hat die Größe von 225px x 150px , die Slim-Variante ist nicht standard mit 452px x 102px',
 
 	'OGAME'								=> 'OGame',
 	'OGAME_CONFIG'						=> 'Einstellung',
@@ -66,7 +66,7 @@ $lang = array_merge($lang, array(
 	'OGAME_SAVED'						=> 'Einstellung gespeichert',
 
 	'SPY_CONV'							=> 'Spioangeberichte verschönern',
-	'SPY_CONV_EXPLAIN'					=> 'Konvertiert Spioberichte die mit "Ressourcen auf" beginnen und mit der Spioangeabwehr-Chance enden in ein schöneres Format.',
+	'SPY_CONV_EXPLAIN'					=> 'Konvertiert unterstützte Spioberichte in ein schöneres Format.',
 
 
 	'UCP_MMOGAME'						=> 'Gameforge ID',
@@ -75,7 +75,7 @@ $lang = array_merge($lang, array(
 	'VIEW_MMOGAME'						=> 'Gameforge Profil ansehen',
 	'VIEW_CR_HOSTING'					=> 'KB-Hosting Profil ansehen',
 
-	'WRONG_DATA_MMOGAME'				=> 'Deine Gameforge-ID darf nur aus ganzen Zahlen bestehen.',
-	'WRONG_DATA_CR_HOSTING'				=> 'Deine KB-Hosting-Benutzer-ID darf nur aus ganzen Zahlen bestehen.',
+	'WRONG_DATA_MMOGAME'				=> 'Die angegebene Nummer ist keine gültige G-ID.',
+	'WRONG_DATA_CR_HOSTING'				=> 'Die angegebene Nummer ist keine gültige KB-Hosting-Benutzer-ID.',
 ));
 ?>
