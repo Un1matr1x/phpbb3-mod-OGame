@@ -16,7 +16,7 @@
 				<email><![CDATA[admin@un1matr1x.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>1.1.1</mod-version>
+		<mod-version>1.1.2</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>300</time>
@@ -31,6 +31,7 @@
 	<action-group>
 		<copy>
 			<file from="root/language/de/mods/info_acp_ogame.php" to="language/de/mods/info_acp_ogame.php"/>
+			<file from="root/language/de/mods/ogame_scanpattern.php" to="language/de/mods/ogame_scanpattern.php"/>
 		</copy>
 	</action-group>
 </mod>
