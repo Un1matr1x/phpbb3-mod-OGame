@@ -71,6 +71,9 @@ if ($config['ogame_spy_conv'])
 	{
 		function ogame_scan($treffer)
 		{
+			global $phpbb_root_path, $phpEx;
+			//yes, this have to be declared here else it will print out an error!
+
 				$line_1					= array();
 				$line_2					= array();
 				$header					= array();

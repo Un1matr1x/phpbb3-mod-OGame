@@ -306,12 +306,22 @@ function censor_text($text)
 {
 	static $censors;]]></find>
 				<action type="after-add"><![CDATA[	// Begin OGame-Mod
+	global $config, $phpbb_root_path, $phpEx;
 	if (isset($config['ogm_version']))
 	{
-		global $phpbb_root_path, $phpEx;
 		include($phpbb_root_path . 'includes/functions_ogame.' . $phpEx);
 	}
 	// End OGame-Mod]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[	// We moved the word censor checks in here because we call this function quite often - and then only need to do the check once
+	if (!isset($censors) || !is_array($censors))
+	{
+		global $config, $user, $auth, $cache;]]></find>
+				<inline-edit>
+					<inline-find><![CDATA[global $config,]]></inline-find>
+					<inline-remove><![CDATA[ $config,]]></inline-remove>
+				</inline-edit>
 			</edit>
 		</open>
 		<open src="includes/acp/acp_language.php">
