@@ -71,8 +71,6 @@ if ($config['ogame_spy_conv'])
 	{
 		function ogame_scan($treffer)
 		{
-			global $phpbb_root_path, $config, $phpEx;
-
 				$line_1					= array();
 				$line_2					= array();
 				$header					= array();
