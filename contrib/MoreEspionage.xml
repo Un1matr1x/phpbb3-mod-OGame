@@ -25,7 +25,7 @@
 	</header>
 	<action-group>
 		<copy>
-			<file from="root/language/*/mods/ogame_scanpattern.php" to="language/*/mods/ogame_scanpattern.php"/>
+			<file from="root/language/*.*" to="language/*.*"/>
 		</copy>
 	</action-group>
 </mod>
