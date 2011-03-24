@@ -39,36 +39,58 @@ Features:
 		</installation>
 		<history>
 			<entry>
-				<date>2011-03-25</date>
-				<rev-version>1.1.2</rev-version>
+				<date>2011-01-09</date>
+				<rev-version>0.0.1 -dev</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[more validate MOD for phpBB3 Database (tested with MPV)]]></change>
+					<change><![CDATA[First release]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Erstes Release]]></change>
 				</changelog>
 			</entry>
 			<entry>
-				<date>2011-03-01</date>
-				<rev-version>1.1.1</rev-version>
+				<date>2011-01-12</date>
+				<rev-version>0.0.2 -dev</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[validate MOD for phpBB3 Database (tested with MPV)]]></change>
+					<change><![CDATA[add G-Card-support]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[G-Card-Support hinzugefügt]]></change>
 				</changelog>
 			</entry>
 			<entry>
-				<date>2011-02-11</date>
-				<rev-version>1.1.0</rev-version>
+				<date>2011-01-15</date>
+				<rev-version>0.0.3 -dev</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[SubSilver2 added]]></change>
+					<change><![CDATA[ACP-Module added]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Administrationsmodul hinzugefügt]]></change>
 				</changelog>
 			</entry>
 			<entry>
-				<date>2011-02-03</date>
-				<rev-version>1.0.0</rev-version>
+				<date>2011-01-16</date>
+				<rev-version>0.1.0</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[validate MOD for phpBB3 Database (tested with MPV)]]></change>
+					<change><![CDATA[prettify CR-Hosting-Links]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[KB-Hosting-Link verschönert eingebunden]]></change>
 				</changelog>
 			</entry>
 			<entry>
-				<date>2011-01-30</date>
-				<rev-version>0.2.3</rev-version>
+				<date>2011-01-21</date>
+				<rev-version>0.2.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[prettify espionage reports (based on ScannBB)]]></change>
+				</changelog>
+				<changelog lang="de">
+					<change><![CDATA[Spionageberichte verschönert eingebunden (basiert auf ScannBB)]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-01-22</date>
+				<rev-version>0.2.1</rev-version>
 				<changelog lang="en">
 					<change><![CDATA[more ACP-Settings added]]></change>
 				</changelog>
@@ -87,8 +109,8 @@ Features:
 				</changelog>
 			</entry>
 			<entry>
-				<date>2011-01-22</date>
-				<rev-version>0.2.1</rev-version>
+				<date>2011-01-30</date>
+				<rev-version>0.2.3</rev-version>
 				<changelog lang="en">
 					<change><![CDATA[more ACP-Settings added]]></change>
 				</changelog>
@@ -97,53 +119,31 @@ Features:
 				</changelog>
 			</entry>
 			<entry>
-				<date>2011-01-21</date>
-				<rev-version>0.2.0</rev-version>
+				<date>2011-02-03</date>
+				<rev-version>1.0.0</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[prettify espionage reports (based on ScannBB)]]></change>
-				</changelog>
-				<changelog lang="de">
-					<change><![CDATA[Spionageberichte verschönert eingebunden (basiert auf ScannBB)]]></change>
+					<change><![CDATA[validate MOD for phpBB3 Database (tested with MPV)]]></change>
 				</changelog>
 			</entry>
 			<entry>
-				<date>2011-01-16</date>
-				<rev-version>0.1.0</rev-version>
+				<date>2011-02-11</date>
+				<rev-version>1.1.0</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[prettify CR-Hosting-Links]]></change>
-				</changelog>
-				<changelog lang="de">
-					<change><![CDATA[KB-Hosting-Link verschönert eingebunden]]></change>
+					<change><![CDATA[SubSilver2 added]]></change>
 				</changelog>
 			</entry>
 			<entry>
-				<date>2011-01-15</date>
-				<rev-version>0.0.3 -dev</rev-version>
+				<date>2011-03-01</date>
+				<rev-version>1.1.1</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[ACP-Module added]]></change>
-				</changelog>
-				<changelog lang="de">
-					<change><![CDATA[Administrationsmodul hinzugefügt]]></change>
+					<change><![CDATA[validate MOD for phpBB3 Database (tested with MPV)]]></change>
 				</changelog>
 			</entry>
 			<entry>
-				<date>2011-01-12</date>
-				<rev-version>0.0.2 -dev</rev-version>
+				<date>2011-03-25</date>
+				<rev-version>1.1.2</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[add G-Card-support]]></change>
-				</changelog>
-				<changelog lang="de">
-					<change><![CDATA[G-Card-Support hinzugefügt]]></change>
-				</changelog>
-			</entry>
-			<entry>
-				<date>2011-01-09</date>
-				<rev-version>0.0.1 -dev</rev-version>
-				<changelog lang="en">
-					<change><![CDATA[First release]]></change>
-				</changelog>
-				<changelog lang="de">
-					<change><![CDATA[Erstes Release]]></change>
+					<change><![CDATA[more validate MOD for phpBB3 Database (tested with MPV)]]></change>
 				</changelog>
 			</entry>
 		</history>
@@ -151,6 +151,7 @@ Features:
 			<link type="language" href="contrib/de.xml" lang="en">Manual for German Language-set</link>
 			<link type="template" href="contrib/subsilver2.xml" lang="en">Manual for subsilver2 Style</link>
 			<link type="template" href="contrib/Flow.xml" lang="en">Manual for Flow Style</link>
+			<link type="contrib" href="contrib/MoreEspionage.xml" lang="en">Support more languages for prettify espionage reports</link>
 		</link-group>
 	</header>
 	<action-group>
