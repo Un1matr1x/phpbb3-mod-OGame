@@ -33,11 +33,11 @@ $search_kb[9] 	= '#[^"]http://kb.un1matr1x.de/kb\.php\?show=([0-9]+)<#'; //?show
 
 if (extension_loaded('gd') && function_exists('ImageCreateFromPNG') && function_exists('ImageAlphaBlending') && function_exists('ImageSaveAlpha') && function_exists('ImageColorAllocate') && function_exists('ImageTTFText'))
 {
-	$replace_kb = '><img src="' . $phpbb_root_path . 'cr_image.php?cr_id=\\1" alt="\\1" /><';
+	$replace_kb = '><img src="' . $phpbb_root_path . 'cr_image.' . $phpEx . '?cr_id=$1" alt="$1" /><';
 }
 else
 {
-	$replace_kb = '><img src="' . $phpbb_root_path . 'images/ogame/cr_no_gd.png" alt="\\1" /><b>\\1</b><';
+	$replace_kb = '><img src="' . $phpbb_root_path . 'images/ogame/cr_no_gd.png" alt="$1" /><b>$1</b><';
 }
 
 $text = preg_replace($search_kb, $replace_kb, $text);
@@ -69,7 +69,7 @@ if ($config['ogame_spy_conv'])
 
 	if (!function_exists('ogame_scan'))
 	{
-		function ogame_scan($treffer)
+		function ogame_scan($hit)
 		{
 			global $phpbb_root_path, $phpEx;
 			//yes, this have to be declared here else it will print out an error!
@@ -120,7 +120,7 @@ if ($config['ogame_spy_conv'])
 					closedir($dp);
 				}
 
-			$txt=$treffer[0];
+			$txt=$hit[0];
 
 			//Array has to be build up
 			if(substr_count($txt,"<br />")>0) 
@@ -136,7 +136,7 @@ if ($config['ogame_spy_conv'])
 			for ($i=0; $i<$countrows; $i++)
 			{
 				//Why the hell does the GF use . & , for thousands separator? lets fix this
-				$rows[$i]=preg_replace("/([0-9]),([0-9])/",'\\1.\\2',$rows[$i]);
+				$rows[$i]=preg_replace("/([0-9]),([0-9])/",'$1.$2',$rows[$i]);
 
 				//remove double whitespaces
 				$rows[$i]=preg_replace("/  /",' ',$rows[$i]);
@@ -167,21 +167,21 @@ if ($config['ogame_spy_conv'])
 			if ($countrows>3 && $countrows<42 && $p1 && $p2){
 			for ($i=0; $i<$countrows; $i++)
 				{
-					$rows[$i]=preg_replace($header,'<tr><th class="area esp_header" colspan="6">\\1[<span class="coords">\\2</span>]\\3</th></tr>',$rows[$i]);
-					$rows[$i]=preg_replace($activity,'<tr><th class="area esp_activ" colspan="6">\\1</th></tr>',$rows[$i]);
+					$rows[$i]=preg_replace($header,'<tr><th class="area esp_header" colspan="6">$1[<span class="coords">$2</span>]$3</th></tr>',$rows[$i]);
+					$rows[$i]=preg_replace($activity,'<tr><th class="area esp_activ" colspan="6">$1</th></tr>',$rows[$i]);
 					$rows[$i]=preg_replace($activity_exp,'',$rows[$i]);
-					$rows[$i]=preg_replace($probs_act,'<tr><td colspan="4" class="activity">\\1<font color="red">\\2</font>\\3</td></tr>',$rows[$i]);
-					$rows[$i]=preg_replace($probs,'<tr><td colspan="4" class="activity">\\1</td></tr>',$rows[$i]);
-					$rows[$i]=preg_replace($fleet,'<tr><th class="area esp_fleet" colspan="6">\\1</th></tr>',$rows[$i]);
-					$rows[$i]=preg_replace($def,'<tr><th class="area esp_def" colspan="6">\\1</th></tr>',$rows[$i]);
-					$rows[$i]=preg_replace($build,'<tr><th class="area esp_build" colspan="6">\\1</th></tr>',$rows[$i]);
-					$rows[$i]=preg_replace($research,'<tr><th class="area esp_research" colspan="6">\\1</th></tr>',$rows[$i]);
-					$rows[$i]=preg_replace($chance,'<tr><th class="defense" colspan="4">\\1\\2</th></tr>',$rows[$i]);
+					$rows[$i]=preg_replace($probs_act,'<tr><td colspan="4" class="activity">$1<font color="red">$2</font>$3</td></tr>',$rows[$i]);
+					$rows[$i]=preg_replace($probs,'<tr><td colspan="4" class="activity">$1</td></tr>',$rows[$i]);
+					$rows[$i]=preg_replace($fleet,'<tr><th class="area esp_fleet" colspan="6">$1</th></tr>',$rows[$i]);
+					$rows[$i]=preg_replace($def,'<tr><th class="area esp_def" colspan="6">$1</th></tr>',$rows[$i]);
+					$rows[$i]=preg_replace($build,'<tr><th class="area esp_build" colspan="6">$1</th></tr>',$rows[$i]);
+					$rows[$i]=preg_replace($research,'<tr><th class="area esp_research" colspan="6">$1</th></tr>',$rows[$i]);
+					$rows[$i]=preg_replace($chance,'<tr><th class="defense" colspan="4">$1$2</th></tr>',$rows[$i]);
 					if($rowsold[$i]==$rows[$i])
 					{
 						preg_match_all("/(-?(?:\.?\d)+)/",$rows[$i],$dots, PREG_SET_ORDER);
-						if(count($dots)==2) $rows[$i]=preg_replace("/(\D+)(-?(?:\.?\d)+)(\D+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td class="key">\\3</td><td class="value">\\4</td></tr>',$rows[$i]);
-						if(count($dots)==1) $rows[$i]=preg_replace("/(\D+)(-?(?:\.?\d)+)/",'<tr><td class="key">\\1</td><td class="value">\\2</td><td> </td><td> </td></tr>',$rows[$i]);
+						if(count($dots)==2) $rows[$i]=preg_replace("/(\D+)(-?(?:\.?\d)+)(\D+)(-?(?:\.?\d)+)/",'<tr><td class="key">$1</td><td class="value">$2</td><td class="key">$3</td><td class="value">$4</td></tr>',$rows[$i]);
+						if(count($dots)==1) $rows[$i]=preg_replace("/(\D+)(-?(?:\.?\d)+)/",'<tr><td class="key">$1</td><td class="value">$2</td><td> </td><td> </td></tr>',$rows[$i]);
 					}
 				}
 					$txt=join('',$rows);
