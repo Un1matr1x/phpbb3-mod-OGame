@@ -146,6 +146,11 @@ $versions = array(
 	'1.1.2'	=> array(
 	),
 
+	// Version 1.1.3 phpBB-Mod-Validation-Team-Changes
+	// https://github.com/Un1matr1x/phpbb3-mod-OGame/zipball/1.1.3
+	'1.1.3'	=> array(
+	),
+
 );
 
 // Include the UMIL Auto file, it handles the rest

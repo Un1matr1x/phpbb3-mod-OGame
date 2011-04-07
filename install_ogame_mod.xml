@@ -31,7 +31,7 @@ Features:
 				<email><![CDATA[admin@un1matr1x.de]]></email>
 			</author>
 		</author-group>
-		<mod-version>1.1.2</mod-version>
+		<mod-version>1.1.3</mod-version>
 		<installation>
 			<level>intermediate</level>
 			<time>1800</time>
@@ -145,6 +145,13 @@ Features:
 				<changelog lang="en">
 					<change><![CDATA[more validate MOD for phpBB3 Database (tested with MPV)]]></change>
 				</changelog>
+			<entry>
+				<date>2011-04-07</date>
+				<rev-version>1.1.3</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[another try to make it a more validate MOD for phpBB3 Database (tested with MPV)]]></change>
+				</changelog>
+			</entry>
 			</entry>
 		</history>
 		<link-group>
