@@ -5,7 +5,7 @@
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
-		<title lang="en"><![CDATA[OGame-Mod]]></title>
+		<title lang="en"><![CDATA[Update OGame-Mod to v. 1.1.1]]></title>
 		<description lang="en"><![CDATA[This file will help you, if you installed a version of OGame-Mod before the 1.1.1 release.]]></description>
 		<author-group>
 			<author>
