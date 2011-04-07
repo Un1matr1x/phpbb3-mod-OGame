@@ -186,8 +186,8 @@ $user->add_lang('mods/info_acp_ogame');
 			<edit>
 				<find><![CDATA[			'JABBER_IMG'	=> $user->img('icon_contact_jabber', $user->lang['JABBER']),]]></find>
 				<action type="after-add"><![CDATA[			// Begin OGame-Mod
-			'MMOGAME_IMG'		=> (isset($config['ogm_version'])) ? (($config['ogame_mmogame_show']) ? $user->img('icon_contact_mmogame', 'MMOGAME') : '') : '',
-			'CR_HOSTING_IMG'	=> (isset($config['ogm_version'])) ? (($config['ogame_cr_hosting_show']) ? $user->img('icon_contact_cr_hosting', 'CR_HOSTING') : '') : '',
+			'MMOGAME_IMG'		=> (isset($config['ogm_version']) && ($config['ogame_mmogame_show']) ? $user->img('icon_contact_mmogame', 'MMOGAME') : ''),
+			'CR_HOSTING_IMG'	=> (isset($config['ogm_version']) && ($config['ogame_cr_hosting_show']) ? $user->img('icon_contact_cr_hosting', 'CR_HOSTING') : ''),
 			// End OGame-Mod]]></action>
 			</edit>
 			<edit>
@@ -200,20 +200,20 @@ $user->add_lang('mods/info_acp_ogame');
 			<edit>
 				<find><![CDATA[			'JABBER_IMG'	=> $user->img('icon_contact_jabber', $user->lang['JABBER']),]]></find>
 				<action type="after-add"><![CDATA[			// Begin OGame-Mod
-			'MMOGAME'			=> (isset($config['ogm_version'])) ? (($row['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . $row['user_mmogame'] : '') : '',
-			'MMOGAME_CARD'		=> (isset($config['ogm_version'])) ? (($row['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . $row['user_mmogame'] . '.png" />' : '') : '',
-			'CR_HOSTING'		=> (isset($config['ogm_version'])) ? (($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . $row['user_cr_hosting'] : '') : '',
-			'CR_HOSTING_SIGI'	=> (isset($config['ogm_version'])) ? (($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.en.gif" />' : '') : '',
+			'MMOGAME'			=> (isset($config['ogm_version']) && ($row['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . $row['user_mmogame'] : ''),
+			'MMOGAME_CARD'		=> (isset($config['ogm_version']) && ($row['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . $row['user_mmogame'] . '.png" />' : ''),
+			'CR_HOSTING'		=> (isset($config['ogm_version']) && ($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . $row['user_cr_hosting'] : ''),
+			'CR_HOSTING_SIGI'	=> (isset($config['ogm_version']) && ($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.en.gif" />' : ''),
 			// End OGame-Mod]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[		'USER_ICQ'			=> $data['user_icq'],]]></find>
 				<action type="before-add"><![CDATA[		// Begin OGame-Mod
-		'U_MMOGAME'			=> (isset($config['ogm_version'])) ? (($data['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . urlencode($data['user_mmogame']) : '') : '',
-		'U_MMOGAME_CARD'	=> (isset($config['ogm_version'])) ? (($data['user_mmogame'] && $config['ogame_mmogame_show'] && $config['ogame_mmogame_card_profile_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . urlencode($data['user_mmogame']) . '.png" />' : '') : '',
-		'U_MMOGAME_STYLE'	=> (isset($config['ogm_version'])) ? (($config['ogame_mmogame_card_style']) ? true : false) : '',
-		'U_CR_HOSTING'		=> (isset($config['ogm_version'])) ? (($data['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($data['user_cr_hosting']) : '') : '',
-		'U_CR_HOSTING_SIGI'	=> (isset($config['ogm_version'])) ? (($data['user_cr_hosting'] && $config['ogame_cr_hosting_show'] && $config['ogame_cr_hosting_card_profile_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.en.gif" />' : '') : '',
+		'U_MMOGAME'			=> (isset($config['ogm_version']) && ($data['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . urlencode($data['user_mmogame']) : ''),
+		'U_MMOGAME_CARD'	=> (isset($config['ogm_version']) && ($data['user_mmogame'] && $config['ogame_mmogame_show'] && $config['ogame_mmogame_card_profile_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . urlencode($data['user_mmogame']) . '.png" />' : ''),
+		'U_MMOGAME_STYLE'	=> (isset($config['ogm_version']) && ($config['ogame_mmogame_card_style']) ? true : false) : '',
+		'U_CR_HOSTING'		=> (isset($config['ogm_version']) && ($data['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($data['user_cr_hosting']) : ''),
+		'U_CR_HOSTING_SIGI'	=> (isset($config['ogm_version']) && ($data['user_cr_hosting'] && $config['ogame_cr_hosting_show'] && $config['ogame_cr_hosting_card_profile_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.en.gif" />' : ''),
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
@@ -229,8 +229,8 @@ $user->add_lang('mods/info_acp_ogame');
 			<edit>
 				<find><![CDATA[	'JABBER_IMG'		=> $user->img('icon_contact_jabber', 'JABBER') ,]]></find>
 				<action type="after-add"><![CDATA[	// Begin OGame-Mod
-	'MMOGAME_IMG'		=> (isset($config['ogm_version'])) ? (($config['ogame_mmogame_show']) ? $user->img('icon_contact_mmogame', 'MMOGAME') : '') : '',
-	'CR_HOSTING_IMG'	=> (isset($config['ogm_version'])) ? (($config['ogame_cr_hosting_show']) ? $user->img('icon_contact_cr_hosting', 'CR_HOSTING') : '') : '',
+	'MMOGAME_IMG'		=> (isset($config['ogm_version']) && ($config['ogame_mmogame_show']) ? $user->img('icon_contact_mmogame', 'MMOGAME') : ''),
+	'CR_HOSTING_IMG'	=> (isset($config['ogm_version']) && ($config['ogame_cr_hosting_show']) ? $user->img('icon_contact_cr_hosting', 'CR_HOSTING') : ''),
 	// End OGame-Mod]]></action>
 			</edit>
 			<edit>
@@ -246,10 +246,10 @@ $user->add_lang('mods/info_acp_ogame');
 			<edit>
 				<find><![CDATA[				'jabber'		=> ($row['user_jabber'] && $auth->acl_get('u_sendim')) ? append_sid("{$phpbb_root_path}memberlist.$phpEx", "mode=contact&amp;action=jabber&amp;u=$poster_id") : '',]]></find>
 				<action type="after-add"><![CDATA[				// Begin OGame-Mod
-				'mmogame'			=> (isset($config['ogm_version'])) ? (($row['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . $row['user_mmogame'] : '') : '',
-				'mmogame_card'		=> (isset($config['ogm_version'])) ? (($row['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . $row['user_mmogame'] . '.png" />' : '') : '',
-				'cr_hosting'		=> (isset($config['ogm_version'])) ? (($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . $row['user_cr_hosting'] : '') : '',
-				'cr_hosting_sigi'	=> (isset($config['ogm_version'])) ? (($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.en.gif" />' : '') : '',
+				'mmogame'			=> (isset($config['ogm_version']) && ($row['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . $row['user_mmogame'] : ''),
+				'mmogame_card'		=> (isset($config['ogm_version']) && ($row['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . $row['user_mmogame'] . '.png" />' : ''),
+				'cr_hosting'		=> (isset($config['ogm_version']) && ($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . $row['user_cr_hosting'] : ''),
+				'cr_hosting_sigi'	=> (isset($config['ogm_version']) && ($row['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . $row['user_cr_hosting'] . '.en.gif" />' : ''),
 				// End OGame-Mod]]></action>
 			</edit>
 			<edit>
@@ -403,13 +403,13 @@ function censor_text($text)
 			<edit>
 				<find><![CDATA[		'U_JABBER'		=> ($user_info['user_jabber'] && $auth->acl_get('u_sendim')) ? append_sid("{$phpbb_root_path}memberlist.$phpEx", 'mode=contact&amp;action=jabber&amp;u=' . $author_id) : '',]]></find>
 				<action type="after-add"><![CDATA[		// Begin OGame-Mod
-		'U_MMOGAME'					=> (isset($config['ogm_version'])) ? (($user_info['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . urlencode($user_info['user_mmogame']) : '') : '',
-		'U_MMOGAME_CARD'			=> (isset($config['ogm_version'])) ? (($user_info['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . urlencode($user_info['user_mmogame']) . '.png" />' : '') : '',
-		'U_MMOGAME_STYLE'			=> (isset($config['ogm_version'])) ? (($config['ogame_mmogame_card_style']) ? true : false) : '',
-		'U_MMOGAME_MOUSEOVER_SHOW'	=> (isset($config['ogm_version'])) ? (($config['ogame_mmogame_card_mouseover_show']) ? true : false) : '',
-		'U_CR_HOSTING'				=> (isset($config['ogm_version'])) ? (($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($user_info['user_cr_hosting']) : '') : '',
-		'U_CR_HOSTING_SIGI'			=> (isset($config['ogm_version'])) ? (($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($user_info['user_cr_hosting']) . '.en.gif" />' : '') : '',
-		'CR_HOSTING_MOUSEOVER_SHOW'	=> (isset($config['ogm_version'])) ? (($config['ogame_cr_hosting_card_mouseover_show']) ? true : false) : '',
+		'U_MMOGAME'					=> (isset($config['ogm_version']) && ($user_info['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . urlencode($user_info['user_mmogame']) : ''),
+		'U_MMOGAME_CARD'			=> (isset($config['ogm_version']) && ($user_info['user_mmogame'] && $config['ogame_mmogame_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . urlencode($user_info['user_mmogame']) . '.png" />' : ''),
+		'U_MMOGAME_STYLE'			=> (isset($config['ogm_version']) && ($config['ogame_mmogame_card_style']) ? true : false),
+		'U_MMOGAME_MOUSEOVER_SHOW'	=> (isset($config['ogm_version']) && ($config['ogame_mmogame_card_mouseover_show']) ? true : false),
+		'U_CR_HOSTING'				=> (isset($config['ogm_version']) && ($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($user_info['user_cr_hosting']) : ''),
+		'U_CR_HOSTING_SIGI'			=> (isset($config['ogm_version']) && ($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($user_info['user_cr_hosting']) . '.en.gif" />' : ''),
+		'CR_HOSTING_MOUSEOVER_SHOW'	=> (isset($config['ogm_version']) && ($config['ogame_cr_hosting_card_mouseover_show']) ? true : false) : '',
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
