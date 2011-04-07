@@ -38,7 +38,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 
 	'CR_HOSTING'						=> 'CR-Hosting',
-	'CR_HOSTING_EXPLAIN'				=> 'Enter your CR-Hosting-User-ID.<br /> In case of  http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&u=<b>123</b> choose 123',
+	'CR_HOSTING_EXPLAIN'				=> 'Enter your CR-Hosting-User-ID.<br /> In case of  http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=<b>123</b> choose 123',
 	'CR_HOSTING_MOUSEOVER_SHOW'			=> 'CR-Hosting-Sigi on miniprofile',
 	'CR_HOSTING_MOUSEOVER_SHOW_EXPLAIN' => 'Display the CR-Hosting-Sigi on mouseover the CR-Hosting-Icon',
 	'CR_HOSTING_PROFILE_SHOW'			=> 'Allow CR-Hosting-Sigi on profile',
@@ -50,7 +50,7 @@ $lang = array_merge($lang, array(
 	'IMG_ICON_CONTACT_CR_HOSTING'		=> 'CR-Hosting',
 
 	'MMOGAME'							=> 'Gameforge-ID',
-	'MMOGAME_EXPLAIN'					=> 'Enter your G-ID.<br />Choose "My Gameforge » Profile" and copy & past your G-ID or take a look at the url and in case of http://gameforge.com/profile/show/Nickname-<b>123</b> choose 123',
+	'MMOGAME_EXPLAIN'					=> 'Enter your G-ID.<br />Choose "My Gameforge » Profile" and copy &amp; paste your G-ID or take a look at the url and in case of http://gameforge.com/profile/show/Nickname-<b>123</b> choose 123',
 	'MMOGAME_MOUSEOVER_SHOW'			=> 'G-Card on miniprofile',
 	'MMOGAME_MOUSEOVER_SHOW_EXPLAIN'	=> 'Display the G-Card on mouseover for the G-Icon',
 	'MMOGAME_PROFILE_SHOW'				=> 'Allow G-Card on profile',

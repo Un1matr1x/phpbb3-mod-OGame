@@ -38,7 +38,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 
 	'CR_HOSTING'						=> 'KB-Hosting',
-	'CR_HOSTING_EXPLAIN'				=> 'Gib deine KB-Hosting-Benutzer-ID ein.<br /> Bei http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&u=<b>123</b> wäre es 123',
+	'CR_HOSTING_EXPLAIN'				=> 'Gib deine KB-Hosting-Benutzer-ID ein.<br /> Bei http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=<b>123</b> wäre es 123',
 	'CR_HOSTING_MOUSEOVER_SHOW'			=> 'KB-Hosting-Sigi im Miniprofil',
 	'CR_HOSTING_MOUSEOVER_SHOW_EXPLAIN' => 'zeige die KB-Hosting-Sigi beim MouseOver über das KB-Hosting-Icon an',
 	'CR_HOSTING_PROFILE_SHOW'			=> 'KB-Hosting-Sigi im Profil',
