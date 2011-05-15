@@ -552,7 +552,7 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 </ul>]]></comment>
 				<action type="after-add"><![CDATA[			<!-- OGame-Mod B -->
 			<!-- IF U_MMOGAME --><li class="mmogame-icon"><a href="{U_MMOGAME}" title="{L_MMOGAME}"<!-- IF U_MMOGAME_MOUSEOVER_SHOW --> class="mmogame-span<!-- IF not U_MMOGAME_STYLE --> just_move<!-- ENDIF -->"<!-- ENDIF -->><span><!-- IF U_MMOGAME_MOUSEOVER_SHOW -->{U_MMOGAME_CARD}<!-- ELSE -->{L_MMOGAME}<!-- ENDIF --></span></a></li><!-- ENDIF -->
-			<!-- IF U_CR_HOSTING --><li class="cr_hosting-icon"><a href="{U_CR_HOSTING}" title="{L_CR_HOSTING}"<!-- IF CR_HOSTING_MOUSEOVER_SHOW --> class="cr-hosting-span"<!-- ENDIF -->"><span><!-- IF CR_HOSTING_MOUSEOVER_SHOW -->{U_CR_HOSTING_SIGI}<!-- ELSE -->{L_CR_HOSTING}<!-- ENDIF --></span></a></li><!-- ENDIF -->
+			<!-- IF U_CR_HOSTING --><li class="cr_hosting-icon"><a href="{U_CR_HOSTING}" title="{L_CR_HOSTING}"<!-- IF CR_HOSTING_MOUSEOVER_SHOW --> class="cr-hosting-span"<!-- ENDIF -->><span><!-- IF CR_HOSTING_MOUSEOVER_SHOW -->{U_CR_HOSTING_SIGI}<!-- ELSE -->{L_CR_HOSTING}<!-- ENDIF --></span></a></li><!-- ENDIF -->
 			<!-- OGame-Mod E -->]]></action>
 			</edit>
 		</open>
