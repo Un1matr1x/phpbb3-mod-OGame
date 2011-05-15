@@ -63,7 +63,7 @@
 				<action type="replace-with"><![CDATA[		// Begin OGame-Mod
 		'U_MMOGAME'			=> (isset($config['ogm_version']) && ($data['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . urlencode($data['user_mmogame']) : ''),
 		'U_MMOGAME_CARD'	=> (isset($config['ogm_version']) && ($data['user_mmogame'] && $config['ogame_mmogame_show'] && $config['ogame_mmogame_card_profile_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . urlencode($data['user_mmogame']) . '.png" />' : ''),
-		'U_MMOGAME_STYLE'	=> (isset($config['ogm_version']) && ($config['ogame_mmogame_card_style']) ? true : false) : '',
+		'U_MMOGAME_STYLE'	=> (isset($config['ogm_version']) && ($config['ogame_mmogame_card_style']) ? true : false),
 		'U_CR_HOSTING'		=> (isset($config['ogm_version']) && ($data['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($data['user_cr_hosting']) : ''),
 		'U_CR_HOSTING_SIGI'	=> (isset($config['ogm_version']) && ($data['user_cr_hosting'] && $config['ogame_cr_hosting_show'] && $config['ogame_cr_hosting_card_profile_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.en.gif" />' : ''),
 		// End OGame-Mod]]></action>
@@ -158,7 +158,7 @@
 		'U_MMOGAME_MOUSEOVER_SHOW'	=> (isset($config['ogm_version']) && ($config['ogame_mmogame_card_mouseover_show']) ? true : false),
 		'U_CR_HOSTING'				=> (isset($config['ogm_version']) && ($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($user_info['user_cr_hosting']) : ''),
 		'U_CR_HOSTING_SIGI'			=> (isset($config['ogm_version']) && ($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($user_info['user_cr_hosting']) . '.en.gif" />' : ''),
-		'CR_HOSTING_MOUSEOVER_SHOW'	=> (isset($config['ogm_version']) && ($config['ogame_cr_hosting_card_mouseover_show']) ? true : false) : '',
+		'CR_HOSTING_MOUSEOVER_SHOW'	=> (isset($config['ogm_version']) && ($config['ogame_cr_hosting_card_mouseover_show']) ? true : false),
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
