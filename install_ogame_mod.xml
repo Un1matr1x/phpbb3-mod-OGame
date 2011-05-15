@@ -4,8 +4,6 @@
 <!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
-		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (phpBB version)"/>
-		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (both versions)"/>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
 		<title lang="en"><![CDATA[OGame-Mod]]></title>
 		<description lang="en"><![CDATA[Adds some features for player of OGame.
@@ -153,6 +151,13 @@ Features:
 					<change><![CDATA[another try to make it a more validate MOD for phpBB3 Database (tested with MPV)]]></change>
 				</changelog>
 			</entry>
+			<entry>
+				<date>2011-05-15</date>
+				<rev-version>1.1.4</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[bugfixing for mdb]]></change>
+				</changelog>
+			</entry>
 		</history>
 		<link-group>
 			<link type="language" href="contrib/de.xml" lang="en">Manual for German Language-set</link>
@@ -218,7 +223,7 @@ $user->add_lang('mods/info_acp_ogame');
 				<action type="before-add"><![CDATA[		// Begin OGame-Mod
 		'U_MMOGAME'			=> (isset($config['ogm_version']) && ($data['user_mmogame'] && $config['ogame_mmogame_show']) ? 'http://gameforge.com/clickGCard/' . urlencode($data['user_mmogame']) : ''),
 		'U_MMOGAME_CARD'	=> (isset($config['ogm_version']) && ($data['user_mmogame'] && $config['ogame_mmogame_show'] && $config['ogame_mmogame_card_profile_show']) ? '<img alt="" ismap="ismap" src="http://gameforge.com/GCard/' . (($config['ogame_mmogame_card_style']) ? '1' : '2') . '/' . urlencode($data['user_mmogame']) . '.png" />' : ''),
-		'U_MMOGAME_STYLE'	=> (isset($config['ogm_version']) && ($config['ogame_mmogame_card_style']) ? true : false) : '',
+		'U_MMOGAME_STYLE'	=> (isset($config['ogm_version']) && ($config['ogame_mmogame_card_style']) ? true : false),
 		'U_CR_HOSTING'		=> (isset($config['ogm_version']) && ($data['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($data['user_cr_hosting']) : ''),
 		'U_CR_HOSTING_SIGI'	=> (isset($config['ogm_version']) && ($data['user_cr_hosting'] && $config['ogame_cr_hosting_show'] && $config['ogame_cr_hosting_card_profile_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($data['user_cr_hosting']) . '.en.gif" />' : ''),
 		// End OGame-Mod]]></action>
@@ -416,7 +421,7 @@ function censor_text($text)
 		'U_MMOGAME_MOUSEOVER_SHOW'	=> (isset($config['ogm_version']) && ($config['ogame_mmogame_card_mouseover_show']) ? true : false),
 		'U_CR_HOSTING'				=> (isset($config['ogm_version']) && ($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? 'http://kb.un1matr1x.de/memberlist.php?mode=viewprofile&amp;u=' . urlencode($user_info['user_cr_hosting']) : ''),
 		'U_CR_HOSTING_SIGI'			=> (isset($config['ogm_version']) && ($user_info['user_cr_hosting'] && $config['ogame_cr_hosting_show']) ? '<img alt="" src="http://kb.un1matr1x.de/images/banner/banner.' . urlencode($user_info['user_cr_hosting']) . '.en.gif" />' : ''),
-		'CR_HOSTING_MOUSEOVER_SHOW'	=> (isset($config['ogm_version']) && ($config['ogame_cr_hosting_card_mouseover_show']) ? true : false) : '',
+		'CR_HOSTING_MOUSEOVER_SHOW'	=> (isset($config['ogm_version']) && ($config['ogame_cr_hosting_card_mouseover_show']) ? true : false),
 		// End OGame-Mod]]></action>
 			</edit>
 		</open>
