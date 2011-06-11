@@ -3,7 +3,7 @@
 *
 * @package - OGame-Mod
 * @copyright (c) Un1matr1x ( http://un1matr1x.de/ )
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
 
@@ -13,7 +13,7 @@
 class acp_ogame_info
 {
 	function module()
-	{		
+	{
 		return array(
 			'filename'	=> 'acp_ogame',
 			'title'		=> 'OGAME',

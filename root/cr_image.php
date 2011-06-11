@@ -3,7 +3,7 @@
 *
 * @package - OGame-Mod
 * @copyright (c) Un1matr1x ( http://un1matr1x.de/ )
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
 
@@ -41,7 +41,7 @@ $font = $phpbb_root_path . 'images/ogame/liberationsans-bold.ttf';
 $img = ImageCreateFromPNG($image);
 ImageAlphaBlending($img, true);
 ImageSaveAlpha($img, true);
-	
+
 $white = ImageColorAllocate ($img, 255, 255, 255);
 
 ImageTTFText($img, $size, 0, $x_start, 22, $white, $font, $cr_id);

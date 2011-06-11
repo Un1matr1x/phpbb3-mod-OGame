@@ -46,7 +46,7 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 				<find><![CDATA[		<!-- IF U_JABBER and S_JABBER_ENABLED --><dt>{L_JABBER}:</dt> <dd><a href="{U_JABBER}" onclick="popup(this.href, 550, 320); return false;">{L_SEND_JABBER_MESSAGE}</a></dd><!-- ELSEIF USER_JABBER --><dt>{L_JABBER}:</dt> <dd>{USER_JABBER}</dd><!-- ENDIF -->]]></find>
 				<action type="after-add"><![CDATA[		<!-- OGame-Mod B -->
 		<!-- IF U_MMOGAME or USER_MMOGAME --><dt>{L_MMOGAME}:</dt> <dd><a href="{U_MMOGAME}">{L_VIEW_MMOGAME}</a></dd><!-- ENDIF -->
-		<!-- IF U_CR_HOSTING or USER_CR_HOSTING --><dt>{L_CR_HOSTING}:</dt> <dd><a href="{U_CR_HOSTING}">{L_VIEW_CR_HOSTING}</a></dd><!-- ENDIF -->		
+		<!-- IF U_CR_HOSTING or USER_CR_HOSTING --><dt>{L_CR_HOSTING}:</dt> <dd><a href="{U_CR_HOSTING}">{L_VIEW_CR_HOSTING}</a></dd><!-- ENDIF -->
 		<!-- OGame-Mod E -->]]></action>
 			</edit>
 			<edit>
@@ -57,7 +57,7 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 		<h3>{L_SIGNATURE}</h3>
 
 		<div class="postbody"><div class="signature" style="border-top:none; margin-top: 0;">{SIGNATURE}</div></div>
-	
+
 	<span class="corners-bottom"><span></span></span></div>
 </div>
 <!-- ENDIF -->]]></find>
@@ -68,19 +68,19 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 	<!-- IF U_MMOGAME_CARD -->
 	<div class="column1">
 		<h3>{L_MMOGAME}</h3>
-		
+
 		<a href="{U_MMOGAME}" title="{L_MMOGAME}">{U_MMOGAME_CARD}</a>
 	</div>
 	<!-- ENDIF -->
-	
-	<!-- IF U_CR_HOSTING_SIGI -->	
+
+	<!-- IF U_CR_HOSTING_SIGI -->
 	<div class="column<!-- IF U_MMOGAME_CARD -->2<!-- ELSE -->1<!-- ENDIF -->">
 		<h3>{L_CR_HOSTING}</h3>
-		
+
 		<a href="{U_CR_HOSTING}" title="{L_CR_HOSTING}">{U_CR_HOSTING_SIGI}</a>
-	</div>	
+	</div>
 	<!-- ENDIF -->
-	
+
 	<span class="corners-bottom"><span></span></span></div>
 </div>
 <!-- ENDIF -->]]></action>
@@ -90,7 +90,7 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 			<edit>
 				<find><![CDATA[		<!-- IF AUTHOR_JOINED --><dd><strong>{L_JOINED}:</strong> {AUTHOR_JOINED}</dd><!-- ENDIF -->
 		<!-- IF AUTHOR_FROM --><dd><strong>{L_LOCATION}:</strong> {AUTHOR_FROM}</dd><!-- ENDIF -->
-		
+
 		<!-- IF U_PM or U_EMAIL or U_WWW or U_MSN or U_ICQ or U_YIM or U_AIM or U_JABBER -->]]></find>
 				<inline-edit>
 					<inline-find><![CDATA[		<!-- IF U_PM or U_EMAIL or U_WWW or ]]></inline-find>
@@ -126,7 +126,7 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 		<dd><input type="text" name="mmogame" id="mmogame" maxlength="15" value="{MMOGAME}" class="inputbox" /></dd>
 	</dl>
 	<!-- ENDIF -->
-	<!-- IF SHOW_CR_HOSTING -->	
+	<!-- IF SHOW_CR_HOSTING -->
 	<dl>
 		<dt><label for="cr_hosting">{L_UCP_CR_HOSTING}:</label><br /><span>{L_CR_HOSTING_EXPLAIN}</span></dt>
 		<dd><input type="text" name="cr_hosting" id="cr_hosting" maxlength="15" value="{CR_HOSTING}" class="inputbox" /></dd>
@@ -165,6 +165,6 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif*20*20
 				<find><![CDATA[@import url("colours.css");]]></find>
 				<action type="after-add"><![CDATA[@import url("ogame.css");]]></action>
 			</edit>
-		</open>		
+		</open>
 	</action-group>
 </mod>

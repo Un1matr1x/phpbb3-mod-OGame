@@ -3,7 +3,7 @@
 *
 * @package - OGame-Mod
 * @copyright (c) Un1matr1x ( http://un1matr1x.de/ )
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
 
@@ -73,7 +73,7 @@ $versions = array(
 			array('ogame_mmogame_show', 1),
 			array('ogame_cr_hosting_show', 1),
 		),
-		
+
 		'module_add' => array(
 			array('acp', 'ACP_CAT_DOT_MODS', 'OGAME'),
 
@@ -84,7 +84,7 @@ $versions = array(
 					'module_auth'		=> 'acl_a_board',
 				),
 			),
-			
+
 		),
 
 	),

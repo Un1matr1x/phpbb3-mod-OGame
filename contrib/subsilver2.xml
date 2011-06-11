@@ -89,19 +89,19 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif
 		</open>
 		<open src="styles/subsilver2/template/ucp_profile_profile_info.html">
 			<edit>
-				<find><![CDATA[<tr> 
+				<find><![CDATA[<tr>
 	<td class="row1" width="35%"><b class="genmed">{L_WEBSITE}: </b></td>
 	<td class="row2"><input class="post" type="text" name="website" size="30" maxlength="255" value="{WEBSITE}" /></td>
 </tr>]]></find>
 				<action type="after-add"><![CDATA[<!-- OGame-Mod B -->
 <!-- IF SHOW_MMOGAME -->
-<tr> 
+<tr>
 	<td class="row1" width="35%"><b class="genmed">{L_MMOGAME}: </b><br /><span class="gensmall">{L_MMOGAME_EXPLAIN}</span></td>
 	<td class="row2"><input class="post" type="text" name="mmogame" size="30" maxlength="255" value="{MMOGAME}" /></td>
 </tr>
 <!-- ENDIF -->
-<!-- IF SHOW_CR_HOSTING -->	
-<tr> 
+<!-- IF SHOW_CR_HOSTING -->
+<tr>
 	<td class="row1" width="35%"><b class="genmed">{L_CR_HOSTING}: </b><br /><span class="gensmall">{L_CR_HOSTING_EXPLAIN}</span></td>
 	<td class="row2"><input class="post" type="text" name="cr_hosting" size="30" maxlength="255" value="{CR_HOSTING}" /></td>
 </tr>
@@ -135,7 +135,7 @@ img_icon_contact_mmogame = icon_contact_mmogame.gif
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	font-weight: normal;
-	height: 350px; 
+	height: 350px;
 	line-height: normal;
 	margin-bottom: 0px;
 	margin-left: 0px;
