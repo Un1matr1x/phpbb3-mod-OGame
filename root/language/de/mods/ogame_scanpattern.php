@@ -39,7 +39,7 @@ $lang = array_merge($lang, array(
 	'OG_FLEET'						=> "/(Flotten)\b/iu",
 	'OG_HEADER'						=> "/(Rohstoffe auf .*)\[([1-9]{1,2}:[0-9]{1,3}:[0-9]{1,2})\](.*)/",
 	'OG_PROBS'						=> "/(Dein Sondenscan .*\..*)\./",
-	'OG_PROBS_ACTIVITY'				=> "/(Dein Sondenscan .*)([1-5][0-9])(.*)\./",
+	'OG_PROBS_ACTIVITY'				=> "/(Dein Sonden-Scan .*)([1-5][0-9])(.*)\./",
 	'OG_RESEARCH'					=> "/(Forschung)\b/",
 ));
 ?>
